@@ -12,7 +12,7 @@
 
 
 
-#include "CppRestOneSignalAPIClient/model/Inline_response_200_1.h"
+#include "CppRestOneSignalAPIClient/model/Inline_response_200_7.h"
 
 namespace com {
 namespace onesignal {
@@ -21,22 +21,22 @@ namespace model {
 
 
 
-Inline_response_200_1::Inline_response_200_1()
+Inline_response_200_7::Inline_response_200_7()
 {
-    m_Success = false;
+    m_Success = utility::conversions::to_string_t("");
     m_SuccessIsSet = false;
 }
 
-Inline_response_200_1::~Inline_response_200_1()
+Inline_response_200_7::~Inline_response_200_7()
 {
 }
 
-void Inline_response_200_1::validate()
+void Inline_response_200_7::validate()
 {
     // TODO: implement validation
 }
 
-web::json::value Inline_response_200_1::toJson() const
+web::json::value Inline_response_200_7::toJson() const
 {
 
     web::json::value val = web::json::value::object();
@@ -49,7 +49,7 @@ web::json::value Inline_response_200_1::toJson() const
     return val;
 }
 
-bool Inline_response_200_1::fromJson(const web::json::value& val)
+bool Inline_response_200_7::fromJson(const web::json::value& val)
 {
     bool ok = true;
     
@@ -58,7 +58,7 @@ bool Inline_response_200_1::fromJson(const web::json::value& val)
         const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("success")));
         if(!fieldValue.is_null())
         {
-            bool refVal_setSuccess;
+            utility::string_t refVal_setSuccess;
             ok &= ModelBase::fromJson(fieldValue, refVal_setSuccess);
             setSuccess(refVal_setSuccess);
         }
@@ -66,7 +66,7 @@ bool Inline_response_200_1::fromJson(const web::json::value& val)
     return ok;
 }
 
-void Inline_response_200_1::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
+void Inline_response_200_7::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
 {
     utility::string_t namePrefix = prefix;
     if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
@@ -79,7 +79,7 @@ void Inline_response_200_1::toMultipart(std::shared_ptr<MultipartFormData> multi
     }
 }
 
-bool Inline_response_200_1::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
+bool Inline_response_200_7::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
 {
     bool ok = true;
     utility::string_t namePrefix = prefix;
@@ -90,30 +90,30 @@ bool Inline_response_200_1::fromMultiPart(std::shared_ptr<MultipartFormData> mul
 
     if(multipart->hasContent(utility::conversions::to_string_t(U("success"))))
     {
-        bool refVal_setSuccess;
+        utility::string_t refVal_setSuccess;
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("success"))), refVal_setSuccess );
         setSuccess(refVal_setSuccess);
     }
     return ok;
 }
 
-bool Inline_response_200_1::isSuccess() const
+utility::string_t Inline_response_200_7::getSuccess() const
 {
     return m_Success;
 }
 
-void Inline_response_200_1::setSuccess(bool value)
+void Inline_response_200_7::setSuccess(const utility::string_t& value)
 {
     m_Success = value;
     m_SuccessIsSet = true;
 }
 
-bool Inline_response_200_1::successIsSet() const
+bool Inline_response_200_7::successIsSet() const
 {
     return m_SuccessIsSet;
 }
 
-void Inline_response_200_1::unsetSuccess()
+void Inline_response_200_7::unsetSuccess()
 {
     m_SuccessIsSet = false;
 }

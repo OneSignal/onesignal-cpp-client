@@ -11,24 +11,28 @@
  */
 
 /*
- * Notification.h
+ * NotificationWithMeta.h
  *
  * 
  */
 
-#ifndef COM_ONESIGNAL_CLIENT_MODEL_Notification_H_
-#define COM_ONESIGNAL_CLIENT_MODEL_Notification_H_
+#ifndef COM_ONESIGNAL_CLIENT_MODEL_NotificationWithMeta_H_
+#define COM_ONESIGNAL_CLIENT_MODEL_NotificationWithMeta_H_
 
 
 #include "CppRestOneSignalAPIClient/ModelBase.h"
 
+#include "CppRestOneSignalAPIClient/model/PlatformDeliveryData.h"
 #include "CppRestOneSignalAPIClient/model/Button.h"
 #include "CppRestOneSignalAPIClient/Object.h"
-#include "CppRestOneSignalAPIClient/model/NotificationTarget.h"
+#include "CppRestOneSignalAPIClient/model/OutcomesData.h"
+#include "CppRestOneSignalAPIClient/model/Notification.h"
 #include "CppRestOneSignalAPIClient/model/StringMap.h"
 #include <cpprest/details/basic_types.h>
 #include "CppRestOneSignalAPIClient/model/Notification_allOf_android_background_layout.h"
-#include "CppRestOneSignalAPIClient/model/Notification_allOf.h"
+#include "CppRestOneSignalAPIClient/model/DeliveryData.h"
+#include "CppRestOneSignalAPIClient/model/OutcomeData.h"
+#include "CppRestOneSignalAPIClient/model/NotificationWithMeta_allOf.h"
 #include <vector>
 
 namespace com {
@@ -39,16 +43,18 @@ namespace model {
 class StringMap;
 class Button;
 class Notification_allOf_android_background_layout;
+class OutcomeData;
+class PlatformDeliveryData;
 
 /// <summary>
 /// 
 /// </summary>
-class  Notification
+class  NotificationWithMeta
     : public ModelBase
 {
 public:
-    Notification();
-    virtual ~Notification();
+    NotificationWithMeta();
+    virtual ~NotificationWithMeta();
 
     /////////////////////////////////////////////
     /// ModelBase overrides
@@ -62,7 +68,7 @@ public:
     bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
 
     /////////////////////////////////////////////
-    /// Notification members
+    /// NotificationWithMeta members
 
     /// <summary>
     /// The segment names you want to target. Users in these segments will receive a notification. This targeting parameter is only compatible with excluded_segments. Example: [\&quot;Active Users\&quot;, \&quot;Inactive Users\&quot;] 
@@ -893,13 +899,13 @@ public:
     void setApnsAlert(const std::shared_ptr<Object>& value);
 
     /// <summary>
-    /// Channel: All Schedule notification for future delivery. API defaults to UTC -1100 Examples: All examples are the exact same date &amp; time. \&quot;Thu Sep 24 2015 14:00:00 GMT-0700 (PDT)\&quot; \&quot;September 24th 2015, 2:00:00 pm UTC-07:00\&quot; \&quot;2015-09-24 14:00:00 GMT-0700\&quot; \&quot;Sept 24 2015 14:00:00 GMT-0700\&quot; \&quot;Thu Sep 24 2015 14:00:00 GMT-0700 (Pacific Daylight Time)\&quot; Note: SMS currently only supports send_after parameter. 
+    /// Unix timestamp indicating when notification delivery should begin.
     /// </summary>
-    utility::datetime getSendAfter() const;
+    int64_t getSendAfter() const;
     bool sendAfterIsSet() const;
     void unsetSend_after();
 
-    void setSendAfter(const utility::datetime& value);
+    void setSendAfter(int64_t value);
 
     /// <summary>
     /// Channel: All Possible values are: timezone (Deliver at a specific time-of-day in each users own timezone) last-active Same as Intelligent Delivery . (Deliver at the same time of day as each user last used your app). If send_after is used, this takes effect after the send_after time has elapsed. 
@@ -947,13 +953,13 @@ public:
     void setApnsPushTypeOverride(const utility::string_t& value);
 
     /// <summary>
-    /// Channel: All Apps with throttling enabled:   - the parameter value will be used to override the default application throttling value set from the dashboard settings.   - parameter value 0 indicates not to apply throttling to the notification.   - if the parameter is not passed then the default app throttling value will be applied to the notification. Apps with throttling disabled:   - this parameter can be used to throttle delivery for the notification even though throttling is not enabled at the application level. Refer to throttling for more details. 
+    /// number of push notifications sent per minute. Paid Feature Only. If throttling is not enabled for the app or the notification, and for free accounts, null is returned. Refer to Throttling for more details.
     /// </summary>
-    utility::string_t getThrottleRatePerMinute() const;
+    int32_t getThrottleRatePerMinute() const;
     bool throttleRatePerMinuteIsSet() const;
     void unsetThrottle_rate_per_minute();
 
-    void setThrottleRatePerMinute(const utility::string_t& value);
+    void setThrottleRatePerMinute(int32_t value);
 
     /// <summary>
     /// Channel: Push Notifications Platform: Android Notifications with the same group will be stacked together using Android&#39;s Notification Grouping feature. 
@@ -1071,6 +1077,96 @@ public:
     void unsetSms_media_urls();
 
     void setSmsMediaUrls(const std::vector<utility::string_t>& value);
+
+    /// <summary>
+    /// Number of notifications that were successfully delivered.
+    /// </summary>
+    int32_t getSuccessful() const;
+    bool successfulIsSet() const;
+    void unsetSuccessful();
+
+    void setSuccessful(int32_t value);
+
+    /// <summary>
+    /// Number of notifications that could not be delivered due to those devices being unsubscribed.
+    /// </summary>
+    int32_t getFailed() const;
+    bool failedIsSet() const;
+    void unsetFailed();
+
+    void setFailed(int32_t value);
+
+    /// <summary>
+    /// Number of notifications that could not be delivered due to an error. You can find more information by viewing the notification in the dashboard.
+    /// </summary>
+    int32_t getErrored() const;
+    bool erroredIsSet() const;
+    void unsetErrored();
+
+    void setErrored(int32_t value);
+
+    /// <summary>
+    /// Number of users who have clicked / tapped on your notification.
+    /// </summary>
+    int32_t getConverted() const;
+    bool convertedIsSet() const;
+    void unsetConverted();
+
+    void setConverted(int32_t value);
+
+    /// <summary>
+    /// Confirmed Deliveries number of devices that received the push notification. Paid Feature Only. Free accounts will see 0.
+    /// </summary>
+    int32_t getReceived() const;
+    bool receivedIsSet() const;
+    void unsetReceived();
+
+    void setReceived(int32_t value);
+
+    /// <summary>
+    /// 
+    /// </summary>
+    std::vector<std::shared_ptr<OutcomeData>>& getOutcomes();
+    bool outcomesIsSet() const;
+    void unsetOutcomes();
+
+    void setOutcomes(const std::vector<std::shared_ptr<OutcomeData>>& value);
+
+    /// <summary>
+    /// Number of notifications that have not been sent out yet. This can mean either our system is still processing the notification or you have delayed options set.
+    /// </summary>
+    int32_t getRemaining() const;
+    bool remainingIsSet() const;
+    void unsetRemaining();
+
+    void setRemaining(int32_t value);
+
+    /// <summary>
+    /// Unix timestamp indicating when the notification was created.
+    /// </summary>
+    int64_t getQueuedAt() const;
+    bool queuedAtIsSet() const;
+    void unsetQueued_at();
+
+    void setQueuedAt(int64_t value);
+
+    /// <summary>
+    /// Unix timestamp indicating when notification delivery completed. The delivery duration from start to finish can be calculated with completed_at - send_after.
+    /// </summary>
+    int64_t getCompletedAt() const;
+    bool completedAtIsSet() const;
+    void unsetCompleted_at();
+
+    void setCompletedAt(int64_t value);
+
+    /// <summary>
+    /// 
+    /// </summary>
+    std::shared_ptr<PlatformDeliveryData> getPlatformDeliveryStats() const;
+    bool platformDeliveryStatsIsSet() const;
+    void unsetPlatform_delivery_stats();
+
+    void setPlatformDeliveryStats(const std::shared_ptr<PlatformDeliveryData>& value);
 
 
 protected:
@@ -1258,7 +1354,7 @@ protected:
     bool m_Web_push_topicIsSet;
     std::shared_ptr<Object> m_Apns_alert;
     bool m_Apns_alertIsSet;
-    utility::datetime m_Send_after;
+    int64_t m_Send_after;
     bool m_Send_afterIsSet;
     utility::string_t m_Delayed_option;
     bool m_Delayed_optionIsSet;
@@ -1270,7 +1366,7 @@ protected:
     bool m_PriorityIsSet;
     utility::string_t m_Apns_push_type_override;
     bool m_Apns_push_type_overrideIsSet;
-    utility::string_t m_Throttle_rate_per_minute;
+    int32_t m_Throttle_rate_per_minute;
     bool m_Throttle_rate_per_minuteIsSet;
     utility::string_t m_Android_group;
     bool m_Android_groupIsSet;
@@ -1298,6 +1394,26 @@ protected:
     bool m_Sms_fromIsSet;
     std::vector<utility::string_t> m_Sms_media_urls;
     bool m_Sms_media_urlsIsSet;
+    int32_t m_Successful;
+    bool m_SuccessfulIsSet;
+    int32_t m_Failed;
+    bool m_FailedIsSet;
+    int32_t m_Errored;
+    bool m_ErroredIsSet;
+    int32_t m_Converted;
+    bool m_ConvertedIsSet;
+    int32_t m_Received;
+    bool m_ReceivedIsSet;
+    std::vector<std::shared_ptr<OutcomeData>> m_Outcomes;
+    bool m_OutcomesIsSet;
+    int32_t m_Remaining;
+    bool m_RemainingIsSet;
+    int64_t m_Queued_at;
+    bool m_Queued_atIsSet;
+    int64_t m_Completed_at;
+    bool m_Completed_atIsSet;
+    std::shared_ptr<PlatformDeliveryData> m_Platform_delivery_stats;
+    bool m_Platform_delivery_statsIsSet;
 };
 
 
@@ -1306,4 +1422,4 @@ protected:
 }
 }
 
-#endif /* COM_ONESIGNAL_CLIENT_MODEL_Notification_H_ */
+#endif /* COM_ONESIGNAL_CLIENT_MODEL_NotificationWithMeta_H_ */

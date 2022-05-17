@@ -11,36 +11,34 @@
  */
 
 /*
- * OutcomesData.h
+ * Inline_response_200_7.h
  *
  * 
  */
 
-#ifndef COM_ONESIGNAL_CLIENT_MODEL_OutcomesData_H_
-#define COM_ONESIGNAL_CLIENT_MODEL_OutcomesData_H_
+#ifndef COM_ONESIGNAL_CLIENT_MODEL_Inline_response_200_7_H_
+#define COM_ONESIGNAL_CLIENT_MODEL_Inline_response_200_7_H_
 
 
 #include "CppRestOneSignalAPIClient/ModelBase.h"
 
-#include "CppRestOneSignalAPIClient/model/OutcomeData.h"
-#include <vector>
+#include <cpprest/details/basic_types.h>
 
 namespace com {
 namespace onesignal {
 namespace client {
 namespace model {
 
-class OutcomeData;
 
 /// <summary>
 /// 
 /// </summary>
-class  OutcomesData
+class  Inline_response_200_7
     : public ModelBase
 {
 public:
-    OutcomesData();
-    virtual ~OutcomesData();
+    Inline_response_200_7();
+    virtual ~Inline_response_200_7();
 
     /////////////////////////////////////////////
     /// ModelBase overrides
@@ -54,21 +52,21 @@ public:
     bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
 
     /////////////////////////////////////////////
-    /// OutcomesData members
+    /// Inline_response_200_7 members
 
     /// <summary>
     /// 
     /// </summary>
-    std::vector<std::shared_ptr<OutcomeData>>& getOutcomes();
-    bool outcomesIsSet() const;
-    void unsetOutcomes();
+    utility::string_t getSuccess() const;
+    bool successIsSet() const;
+    void unsetSuccess();
 
-    void setOutcomes(const std::vector<std::shared_ptr<OutcomeData>>& value);
+    void setSuccess(const utility::string_t& value);
 
 
 protected:
-    std::vector<std::shared_ptr<OutcomeData>> m_Outcomes;
-    bool m_OutcomesIsSet;
+    utility::string_t m_Success;
+    bool m_SuccessIsSet;
 };
 
 
@@ -77,4 +75,4 @@ protected:
 }
 }
 
-#endif /* COM_ONESIGNAL_CLIENT_MODEL_OutcomesData_H_ */
+#endif /* COM_ONESIGNAL_CLIENT_MODEL_Inline_response_200_7_H_ */
