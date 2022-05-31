@@ -77,7 +77,7 @@ Also be sure to review the CMakeLists.txt file. Edits are likely required.*
 
 ## How to use
 ### Initializing the OneSignal CPP Client library
-```cgo
+```cpp
 #include "CppRestOneSignalAPIClient/ApiClient.h"
 #include "CppRestOneSignalAPIClient/ApiConfiguration.h"
 #include "CppRestOneSignalAPIClient/api/DefaultApi.h"
@@ -107,7 +107,7 @@ static DefaultApi * createApi() {
 ```
 
 ### Creating a notification
-```cgo
+```cpp
 static std::shared_ptr<Notification> createNotification() {
     const auto notification = std::make_shared<Notification>();
     notification->setAppId(APP_ID);
@@ -125,7 +125,7 @@ static std::shared_ptr<Notification> createNotification() {
 }
 ```
 ### Sending a notification
-```cgo
+```cpp
 const auto api = createApi();
 
 // Creating a notification
@@ -141,7 +141,7 @@ CHECK_FALSE(responseData->errorsIsSet());
 ```
 
 ### Sending and canceling scheduled notification
-```cgo
+```cpp
 const auto api = createApi();
 
 // Create a scheduled notification
@@ -162,7 +162,7 @@ CHECK(cancelResponseData->isSuccess());
 ```
 
 ### Getting a notification
-```cgo
+```cpp
 const auto api = createApi();
 
 // Get a notification
@@ -174,7 +174,7 @@ CHECK(getResponseData->getId() == sendResponseData->getId());
 ```
 
 ### Getting a list of notifications
-```cgo
+```cpp
 const auto api = createApi();
 
 // Creating a notification
@@ -189,7 +189,7 @@ CHECK(notificationSlice->getNotifications().size() == 10);
 ```
 
 ### Creating and getting a player
-```cgo
+```cpp
 static std::shared_ptr<Player> createPlayer() {
     const auto player = std::make_shared<Player>();
 
@@ -201,7 +201,7 @@ static std::shared_ptr<Player> createPlayer() {
 }
 ```
 
-```cgo
+```cpp
 const auto api = createApi();
 
 // Creating a player
@@ -220,7 +220,7 @@ CHECK(getResponseData->getId() == createResponseData->getId());
 ```
 
 ### Creating and deleting a segment
-```cgo
+```cpp
 static std::shared_ptr<Segment> createSegment(string_t segmentName) {
     // Setting up filters
     const auto filterExpressions = std::make_shared<FilterExpressions>();
@@ -240,7 +240,7 @@ static std::shared_ptr<Segment> createSegment(string_t segmentName) {
 }
 ```
 
-```cgo
+```cpp
 const auto api = createApi();
 
 // Creating a segment
@@ -261,7 +261,7 @@ CHECK(deleteResponseData->isSuccess());
 ```
 
 ### Getting an App
-```cgo
+```cpp
 const auto api = createApi();
 
 // Send a get request
@@ -273,7 +273,7 @@ CHECK(app->getId() == APP_ID);
 ```
 
 ### Getting outcomes
-```cgo
+```cpp
 const auto api = createApi();
 
 // Set up the request

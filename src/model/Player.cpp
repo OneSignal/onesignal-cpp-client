@@ -56,7 +56,7 @@ Player::Player()
     m_Session_count = 0;
     m_Session_countIsSet = false;
     m_TagsIsSet = false;
-    m_Amount_spent = utility::conversions::to_string_t("");
+    m_Amount_spent = 0.0;
     m_Amount_spentIsSet = false;
     m_Created_at = 0L;
     m_Created_atIsSet = false;
@@ -383,7 +383,7 @@ bool Player::fromJson(const web::json::value& val)
         const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("amount_spent")));
         if(!fieldValue.is_null())
         {
-            utility::string_t refVal_setAmountSpent;
+            double refVal_setAmountSpent;
             ok &= ModelBase::fromJson(fieldValue, refVal_setAmountSpent);
             setAmountSpent(refVal_setAmountSpent);
         }
@@ -711,7 +711,7 @@ bool Player::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const u
     }
     if(multipart->hasContent(utility::conversions::to_string_t(U("amount_spent"))))
     {
-        utility::string_t refVal_setAmountSpent;
+        double refVal_setAmountSpent;
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("amount_spent"))), refVal_setAmountSpent );
         setAmountSpent(refVal_setAmountSpent);
     }
@@ -1112,12 +1112,12 @@ void Player::unsetTags()
 {
     m_TagsIsSet = false;
 }
-utility::string_t Player::getAmountSpent() const
+double Player::getAmountSpent() const
 {
     return m_Amount_spent;
 }
 
-void Player::setAmountSpent(const utility::string_t& value)
+void Player::setAmountSpent(double value)
 {
     m_Amount_spent = value;
     m_Amount_spentIsSet = true;
