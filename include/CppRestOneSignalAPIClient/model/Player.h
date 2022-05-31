@@ -211,11 +211,11 @@ public:
     /// <summary>
     /// Amount the user has spent in USD, up to two decimal places
     /// </summary>
-    utility::string_t getAmountSpent() const;
+    double getAmountSpent() const;
     bool amountSpentIsSet() const;
     void unsetAmount_spent();
 
-    void setAmountSpent(const utility::string_t& value);
+    void setAmountSpent(double value);
 
     /// <summary>
     /// Unixtime when the player joined the game
@@ -334,7 +334,7 @@ protected:
     bool m_Session_countIsSet;
     std::shared_ptr<Object> m_Tags;
     bool m_TagsIsSet;
-    utility::string_t m_Amount_spent;
+    double m_Amount_spent;
     bool m_Amount_spentIsSet;
     int64_t m_Created_at;
     bool m_Created_atIsSet;
