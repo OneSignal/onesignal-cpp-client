@@ -115,7 +115,7 @@ pplx::task<std::shared_ptr<Inline_response_200_1>> DefaultApi::cancelNotificatio
 
     // Adds a telemetry header
     localVarHeaderParams[utility::conversions::to_string_t("OS-Usage-Data")] =
-        utility::conversions::to_string_t("kind=sdk, name=onesignal-java, version=1.0.1");
+        utility::conversions::to_string_t("kind=sdk, sdk-name=onesignal-java, version=1.0.1");
 
     return m_ApiClient->callApi(localVarPath, utility::conversions::to_string_t("DELETE"), localVarQueryParams, localVarHttpBody, localVarHeaderParams, localVarFormParams, localVarFileParams, localVarRequestHttpContentType)
     .then([=](web::http::http_response localVarResponse)
@@ -272,7 +272,7 @@ pplx::task<std::shared_ptr<App>> DefaultApi::createApp(std::shared_ptr<App> app)
 
     // Adds a telemetry header
     localVarHeaderParams[utility::conversions::to_string_t("OS-Usage-Data")] =
-        utility::conversions::to_string_t("kind=sdk, name=onesignal-java, version=1.0.1");
+        utility::conversions::to_string_t("kind=sdk, sdk-name=onesignal-java, version=1.0.1");
 
     return m_ApiClient->callApi(localVarPath, utility::conversions::to_string_t("POST"), localVarQueryParams, localVarHttpBody, localVarHeaderParams, localVarFormParams, localVarFileParams, localVarRequestHttpContentType)
     .then([=](web::http::http_response localVarResponse)
@@ -429,7 +429,7 @@ pplx::task<std::shared_ptr<Inline_response_200>> DefaultApi::createNotification(
 
     // Adds a telemetry header
     localVarHeaderParams[utility::conversions::to_string_t("OS-Usage-Data")] =
-        utility::conversions::to_string_t("kind=sdk, name=onesignal-java, version=1.0.1");
+        utility::conversions::to_string_t("kind=sdk, sdk-name=onesignal-java, version=1.0.1");
 
     return m_ApiClient->callApi(localVarPath, utility::conversions::to_string_t("POST"), localVarQueryParams, localVarHttpBody, localVarHeaderParams, localVarFormParams, localVarFileParams, localVarRequestHttpContentType)
     .then([=](web::http::http_response localVarResponse)
@@ -586,7 +586,7 @@ pplx::task<std::shared_ptr<Inline_response_200_5>> DefaultApi::createPlayer(std:
 
     // Adds a telemetry header
     localVarHeaderParams[utility::conversions::to_string_t("OS-Usage-Data")] =
-        utility::conversions::to_string_t("kind=sdk, name=onesignal-java, version=1.0.1");
+        utility::conversions::to_string_t("kind=sdk, sdk-name=onesignal-java, version=1.0.1");
 
     return m_ApiClient->callApi(localVarPath, utility::conversions::to_string_t("POST"), localVarQueryParams, localVarHttpBody, localVarHeaderParams, localVarFormParams, localVarFileParams, localVarRequestHttpContentType)
     .then([=](web::http::http_response localVarResponse)
@@ -738,7 +738,7 @@ pplx::task<std::shared_ptr<Inline_response_201>> DefaultApi::createSegments(util
 
     // Adds a telemetry header
     localVarHeaderParams[utility::conversions::to_string_t("OS-Usage-Data")] =
-        utility::conversions::to_string_t("kind=sdk, name=onesignal-java, version=1.0.1");
+        utility::conversions::to_string_t("kind=sdk, sdk-name=onesignal-java, version=1.0.1");
 
     return m_ApiClient->callApi(localVarPath, utility::conversions::to_string_t("POST"), localVarQueryParams, localVarHttpBody, localVarHeaderParams, localVarFormParams, localVarFileParams, localVarRequestHttpContentType)
     .then([=](web::http::http_response localVarResponse)
@@ -876,7 +876,7 @@ pplx::task<std::shared_ptr<Inline_response_200_7>> DefaultApi::deletePlayer(util
 
     // Adds a telemetry header
     localVarHeaderParams[utility::conversions::to_string_t("OS-Usage-Data")] =
-        utility::conversions::to_string_t("kind=sdk, name=onesignal-java, version=1.0.1");
+        utility::conversions::to_string_t("kind=sdk, sdk-name=onesignal-java, version=1.0.1");
 
     return m_ApiClient->callApi(localVarPath, utility::conversions::to_string_t("DELETE"), localVarQueryParams, localVarHttpBody, localVarHeaderParams, localVarFormParams, localVarFileParams, localVarRequestHttpContentType)
     .then([=](web::http::http_response localVarResponse)
@@ -1012,7 +1012,7 @@ boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utilit
 
     // Adds a telemetry header
     localVarHeaderParams[utility::conversions::to_string_t("OS-Usage-Data")] =
-        utility::conversions::to_string_t("kind=sdk, name=onesignal-java, version=1.0.1");
+        utility::conversions::to_string_t("kind=sdk, sdk-name=onesignal-java, version=1.0.1");
 
     return m_ApiClient->callApi(localVarPath, utility::conversions::to_string_t("DELETE"), localVarQueryParams, localVarHttpBody, localVarHeaderParams, localVarFormParams, localVarFileParams, localVarRequestHttpContentType)
     .then([=](web::http::http_response localVarResponse)
@@ -1164,7 +1164,7 @@ pplx::task<std::shared_ptr<Inline_response_200_8>> DefaultApi::exportPlayers(uti
 
     // Adds a telemetry header
     localVarHeaderParams[utility::conversions::to_string_t("OS-Usage-Data")] =
-        utility::conversions::to_string_t("kind=sdk, name=onesignal-java, version=1.0.1");
+        utility::conversions::to_string_t("kind=sdk, sdk-name=onesignal-java, version=1.0.1");
 
     return m_ApiClient->callApi(localVarPath, utility::conversions::to_string_t("POST"), localVarQueryParams, localVarHttpBody, localVarHeaderParams, localVarFormParams, localVarFileParams, localVarRequestHttpContentType)
     .then([=](web::http::http_response localVarResponse)
@@ -1299,7 +1299,7 @@ pplx::task<std::shared_ptr<App>> DefaultApi::getApp(utility::string_t appId) con
 
     // Adds a telemetry header
     localVarHeaderParams[utility::conversions::to_string_t("OS-Usage-Data")] =
-        utility::conversions::to_string_t("kind=sdk, name=onesignal-java, version=1.0.1");
+        utility::conversions::to_string_t("kind=sdk, sdk-name=onesignal-java, version=1.0.1");
 
     return m_ApiClient->callApi(localVarPath, utility::conversions::to_string_t("GET"), localVarQueryParams, localVarHttpBody, localVarHeaderParams, localVarFormParams, localVarFileParams, localVarRequestHttpContentType)
     .then([=](web::http::http_response localVarResponse)
@@ -1433,7 +1433,7 @@ pplx::task<std::vector<std::shared_ptr<App>>> DefaultApi::getApps() const
 
     // Adds a telemetry header
     localVarHeaderParams[utility::conversions::to_string_t("OS-Usage-Data")] =
-        utility::conversions::to_string_t("kind=sdk, name=onesignal-java, version=1.0.1");
+        utility::conversions::to_string_t("kind=sdk, sdk-name=onesignal-java, version=1.0.1");
 
     return m_ApiClient->callApi(localVarPath, utility::conversions::to_string_t("GET"), localVarQueryParams, localVarHttpBody, localVarHeaderParams, localVarFormParams, localVarFileParams, localVarRequestHttpContentType)
     .then([=](web::http::http_response localVarResponse)
@@ -1575,7 +1575,7 @@ pplx::task<std::shared_ptr<NotificationWithMeta>> DefaultApi::getNotification(ut
 
     // Adds a telemetry header
     localVarHeaderParams[utility::conversions::to_string_t("OS-Usage-Data")] =
-        utility::conversions::to_string_t("kind=sdk, name=onesignal-java, version=1.0.1");
+        utility::conversions::to_string_t("kind=sdk, sdk-name=onesignal-java, version=1.0.1");
 
     return m_ApiClient->callApi(localVarPath, utility::conversions::to_string_t("GET"), localVarQueryParams, localVarHttpBody, localVarHeaderParams, localVarFormParams, localVarFileParams, localVarRequestHttpContentType)
     .then([=](web::http::http_response localVarResponse)
@@ -1733,7 +1733,7 @@ pplx::task<std::shared_ptr<Inline_response_200_2>> DefaultApi::getNotificationHi
 
     // Adds a telemetry header
     localVarHeaderParams[utility::conversions::to_string_t("OS-Usage-Data")] =
-        utility::conversions::to_string_t("kind=sdk, name=onesignal-java, version=1.0.1");
+        utility::conversions::to_string_t("kind=sdk, sdk-name=onesignal-java, version=1.0.1");
 
     return m_ApiClient->callApi(localVarPath, utility::conversions::to_string_t("POST"), localVarQueryParams, localVarHttpBody, localVarHeaderParams, localVarFormParams, localVarFileParams, localVarRequestHttpContentType)
     .then([=](web::http::http_response localVarResponse)
@@ -1882,7 +1882,7 @@ pplx::task<std::shared_ptr<NotificationSlice>> DefaultApi::getNotifications(util
 
     // Adds a telemetry header
     localVarHeaderParams[utility::conversions::to_string_t("OS-Usage-Data")] =
-        utility::conversions::to_string_t("kind=sdk, name=onesignal-java, version=1.0.1");
+        utility::conversions::to_string_t("kind=sdk, sdk-name=onesignal-java, version=1.0.1");
 
     return m_ApiClient->callApi(localVarPath, utility::conversions::to_string_t("GET"), localVarQueryParams, localVarHttpBody, localVarHeaderParams, localVarFormParams, localVarFileParams, localVarRequestHttpContentType)
     .then([=](web::http::http_response localVarResponse)
@@ -2036,7 +2036,7 @@ pplx::task<std::shared_ptr<OutcomesData>> DefaultApi::getOutcomes(utility::strin
 
     // Adds a telemetry header
     localVarHeaderParams[utility::conversions::to_string_t("OS-Usage-Data")] =
-        utility::conversions::to_string_t("kind=sdk, name=onesignal-java, version=1.0.1");
+        utility::conversions::to_string_t("kind=sdk, sdk-name=onesignal-java, version=1.0.1");
 
     return m_ApiClient->callApi(localVarPath, utility::conversions::to_string_t("GET"), localVarQueryParams, localVarHttpBody, localVarHeaderParams, localVarFormParams, localVarFileParams, localVarRequestHttpContentType)
     .then([=](web::http::http_response localVarResponse)
@@ -2178,7 +2178,7 @@ pplx::task<std::shared_ptr<Player>> DefaultApi::getPlayer(utility::string_t appI
 
     // Adds a telemetry header
     localVarHeaderParams[utility::conversions::to_string_t("OS-Usage-Data")] =
-        utility::conversions::to_string_t("kind=sdk, name=onesignal-java, version=1.0.1");
+        utility::conversions::to_string_t("kind=sdk, sdk-name=onesignal-java, version=1.0.1");
 
     return m_ApiClient->callApi(localVarPath, utility::conversions::to_string_t("GET"), localVarQueryParams, localVarHttpBody, localVarHeaderParams, localVarFormParams, localVarFileParams, localVarRequestHttpContentType)
     .then([=](web::http::http_response localVarResponse)
@@ -2323,7 +2323,7 @@ pplx::task<std::shared_ptr<PlayerSlice>> DefaultApi::getPlayers(utility::string_
 
     // Adds a telemetry header
     localVarHeaderParams[utility::conversions::to_string_t("OS-Usage-Data")] =
-        utility::conversions::to_string_t("kind=sdk, name=onesignal-java, version=1.0.1");
+        utility::conversions::to_string_t("kind=sdk, sdk-name=onesignal-java, version=1.0.1");
 
     return m_ApiClient->callApi(localVarPath, utility::conversions::to_string_t("GET"), localVarQueryParams, localVarHttpBody, localVarHeaderParams, localVarFormParams, localVarFileParams, localVarRequestHttpContentType)
     .then([=](web::http::http_response localVarResponse)
@@ -2481,7 +2481,7 @@ pplx::task<std::shared_ptr<App>> DefaultApi::updateApp(utility::string_t appId, 
 
     // Adds a telemetry header
     localVarHeaderParams[utility::conversions::to_string_t("OS-Usage-Data")] =
-        utility::conversions::to_string_t("kind=sdk, name=onesignal-java, version=1.0.1");
+        utility::conversions::to_string_t("kind=sdk, sdk-name=onesignal-java, version=1.0.1");
 
     return m_ApiClient->callApi(localVarPath, utility::conversions::to_string_t("PUT"), localVarQueryParams, localVarHttpBody, localVarHeaderParams, localVarFormParams, localVarFileParams, localVarRequestHttpContentType)
     .then([=](web::http::http_response localVarResponse)
@@ -2639,7 +2639,7 @@ pplx::task<std::shared_ptr<Inline_response_200_1>> DefaultApi::updatePlayer(util
 
     // Adds a telemetry header
     localVarHeaderParams[utility::conversions::to_string_t("OS-Usage-Data")] =
-        utility::conversions::to_string_t("kind=sdk, name=onesignal-java, version=1.0.1");
+        utility::conversions::to_string_t("kind=sdk, sdk-name=onesignal-java, version=1.0.1");
 
     return m_ApiClient->callApi(localVarPath, utility::conversions::to_string_t("PUT"), localVarQueryParams, localVarHttpBody, localVarHeaderParams, localVarFormParams, localVarFileParams, localVarRequestHttpContentType)
     .then([=](web::http::http_response localVarResponse)
@@ -2792,7 +2792,7 @@ boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utilit
 
     // Adds a telemetry header
     localVarHeaderParams[utility::conversions::to_string_t("OS-Usage-Data")] =
-        utility::conversions::to_string_t("kind=sdk, name=onesignal-java, version=1.0.1");
+        utility::conversions::to_string_t("kind=sdk, sdk-name=onesignal-java, version=1.0.1");
 
     return m_ApiClient->callApi(localVarPath, utility::conversions::to_string_t("PUT"), localVarQueryParams, localVarHttpBody, localVarHeaderParams, localVarFormParams, localVarFileParams, localVarRequestHttpContentType)
     .then([=](web::http::http_response localVarResponse)
