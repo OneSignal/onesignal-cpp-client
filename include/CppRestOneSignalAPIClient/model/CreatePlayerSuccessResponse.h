@@ -11,13 +11,13 @@
  */
 
 /*
- * Inline_response_200_8.h
+ * CreatePlayerSuccessResponse.h
  *
  * 
  */
 
-#ifndef COM_ONESIGNAL_CLIENT_MODEL_Inline_response_200_8_H_
-#define COM_ONESIGNAL_CLIENT_MODEL_Inline_response_200_8_H_
+#ifndef COM_ONESIGNAL_CLIENT_MODEL_CreatePlayerSuccessResponse_H_
+#define COM_ONESIGNAL_CLIENT_MODEL_CreatePlayerSuccessResponse_H_
 
 
 #include "CppRestOneSignalAPIClient/ModelBase.h"
@@ -33,12 +33,12 @@ namespace model {
 /// <summary>
 /// 
 /// </summary>
-class  Inline_response_200_8
+class  CreatePlayerSuccessResponse
     : public ModelBase
 {
 public:
-    Inline_response_200_8();
-    virtual ~Inline_response_200_8();
+    CreatePlayerSuccessResponse();
+    virtual ~CreatePlayerSuccessResponse();
 
     /////////////////////////////////////////////
     /// ModelBase overrides
@@ -52,21 +52,32 @@ public:
     bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
 
     /////////////////////////////////////////////
-    /// Inline_response_200_8 members
+    /// CreatePlayerSuccessResponse members
 
     /// <summary>
     /// 
     /// </summary>
-    utility::string_t getCsvFileUrl() const;
-    bool csvFileUrlIsSet() const;
-    void unsetCsv_file_url();
+    bool isSuccess() const;
+    bool successIsSet() const;
+    void unsetSuccess();
 
-    void setCsvFileUrl(const utility::string_t& value);
+    void setSuccess(bool value);
+
+    /// <summary>
+    /// 
+    /// </summary>
+    utility::string_t getId() const;
+    bool idIsSet() const;
+    void unsetId();
+
+    void setId(const utility::string_t& value);
 
 
 protected:
-    utility::string_t m_Csv_file_url;
-    bool m_Csv_file_urlIsSet;
+    bool m_Success;
+    bool m_SuccessIsSet;
+    utility::string_t m_Id;
+    bool m_IdIsSet;
 };
 
 
@@ -75,4 +86,4 @@ protected:
 }
 }
 
-#endif /* COM_ONESIGNAL_CLIENT_MODEL_Inline_response_200_8_H_ */
+#endif /* COM_ONESIGNAL_CLIENT_MODEL_CreatePlayerSuccessResponse_H_ */

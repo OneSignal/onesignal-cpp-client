@@ -12,7 +12,7 @@
 
 
 
-#include "CppRestOneSignalAPIClient/model/Inline_response_400_2.h"
+#include "CppRestOneSignalAPIClient/model/CreatePlayerSuccessResponse.h"
 
 namespace com {
 namespace onesignal {
@@ -21,23 +21,24 @@ namespace model {
 
 
 
-Inline_response_400_2::Inline_response_400_2()
+CreatePlayerSuccessResponse::CreatePlayerSuccessResponse()
 {
     m_Success = false;
     m_SuccessIsSet = false;
-    m_ErrorsIsSet = false;
+    m_Id = utility::conversions::to_string_t("");
+    m_IdIsSet = false;
 }
 
-Inline_response_400_2::~Inline_response_400_2()
+CreatePlayerSuccessResponse::~CreatePlayerSuccessResponse()
 {
 }
 
-void Inline_response_400_2::validate()
+void CreatePlayerSuccessResponse::validate()
 {
     // TODO: implement validation
 }
 
-web::json::value Inline_response_400_2::toJson() const
+web::json::value CreatePlayerSuccessResponse::toJson() const
 {
 
     web::json::value val = web::json::value::object();
@@ -46,15 +47,15 @@ web::json::value Inline_response_400_2::toJson() const
     {
         val[utility::conversions::to_string_t(U("success"))] = ModelBase::toJson(m_Success);
     }
-    if(m_ErrorsIsSet)
+    if(m_IdIsSet)
     {
-        val[utility::conversions::to_string_t(U("errors"))] = ModelBase::toJson(m_Errors);
+        val[utility::conversions::to_string_t(U("id"))] = ModelBase::toJson(m_Id);
     }
 
     return val;
 }
 
-bool Inline_response_400_2::fromJson(const web::json::value& val)
+bool CreatePlayerSuccessResponse::fromJson(const web::json::value& val)
 {
     bool ok = true;
     
@@ -68,20 +69,20 @@ bool Inline_response_400_2::fromJson(const web::json::value& val)
             setSuccess(refVal_setSuccess);
         }
     }
-    if(val.has_field(utility::conversions::to_string_t(U("errors"))))
+    if(val.has_field(utility::conversions::to_string_t(U("id"))))
     {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("errors")));
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("id")));
         if(!fieldValue.is_null())
         {
-            std::vector<utility::string_t> refVal_setErrors;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setErrors);
-            setErrors(refVal_setErrors);
+            utility::string_t refVal_setId;
+            ok &= ModelBase::fromJson(fieldValue, refVal_setId);
+            setId(refVal_setId);
         }
     }
     return ok;
 }
 
-void Inline_response_400_2::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
+void CreatePlayerSuccessResponse::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
 {
     utility::string_t namePrefix = prefix;
     if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
@@ -92,13 +93,13 @@ void Inline_response_400_2::toMultipart(std::shared_ptr<MultipartFormData> multi
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("success")), m_Success));
     }
-    if(m_ErrorsIsSet)
+    if(m_IdIsSet)
     {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("errors")), m_Errors));
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("id")), m_Id));
     }
 }
 
-bool Inline_response_400_2::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
+bool CreatePlayerSuccessResponse::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
 {
     bool ok = true;
     utility::string_t namePrefix = prefix;
@@ -113,54 +114,54 @@ bool Inline_response_400_2::fromMultiPart(std::shared_ptr<MultipartFormData> mul
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("success"))), refVal_setSuccess );
         setSuccess(refVal_setSuccess);
     }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("errors"))))
+    if(multipart->hasContent(utility::conversions::to_string_t(U("id"))))
     {
-        std::vector<utility::string_t> refVal_setErrors;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("errors"))), refVal_setErrors );
-        setErrors(refVal_setErrors);
+        utility::string_t refVal_setId;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("id"))), refVal_setId );
+        setId(refVal_setId);
     }
     return ok;
 }
 
-bool Inline_response_400_2::isSuccess() const
+bool CreatePlayerSuccessResponse::isSuccess() const
 {
     return m_Success;
 }
 
-void Inline_response_400_2::setSuccess(bool value)
+void CreatePlayerSuccessResponse::setSuccess(bool value)
 {
     m_Success = value;
     m_SuccessIsSet = true;
 }
 
-bool Inline_response_400_2::successIsSet() const
+bool CreatePlayerSuccessResponse::successIsSet() const
 {
     return m_SuccessIsSet;
 }
 
-void Inline_response_400_2::unsetSuccess()
+void CreatePlayerSuccessResponse::unsetSuccess()
 {
     m_SuccessIsSet = false;
 }
-std::vector<utility::string_t>& Inline_response_400_2::getErrors()
+utility::string_t CreatePlayerSuccessResponse::getId() const
 {
-    return m_Errors;
+    return m_Id;
 }
 
-void Inline_response_400_2::setErrors(const std::vector<utility::string_t>& value)
+void CreatePlayerSuccessResponse::setId(const utility::string_t& value)
 {
-    m_Errors = value;
-    m_ErrorsIsSet = true;
+    m_Id = value;
+    m_IdIsSet = true;
 }
 
-bool Inline_response_400_2::errorsIsSet() const
+bool CreatePlayerSuccessResponse::idIsSet() const
 {
-    return m_ErrorsIsSet;
+    return m_IdIsSet;
 }
 
-void Inline_response_400_2::unsetErrors()
+void CreatePlayerSuccessResponse::unsetId()
 {
-    m_ErrorsIsSet = false;
+    m_IdIsSet = false;
 }
 }
 }

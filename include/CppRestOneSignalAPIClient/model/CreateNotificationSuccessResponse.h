@@ -11,13 +11,13 @@
  */
 
 /*
- * Inline_response_200.h
+ * CreateNotificationSuccessResponse.h
  *
  * 
  */
 
-#ifndef COM_ONESIGNAL_CLIENT_MODEL_Inline_response_200_H_
-#define COM_ONESIGNAL_CLIENT_MODEL_Inline_response_200_H_
+#ifndef COM_ONESIGNAL_CLIENT_MODEL_CreateNotificationSuccessResponse_H_
+#define COM_ONESIGNAL_CLIENT_MODEL_CreateNotificationSuccessResponse_H_
 
 
 #include "CppRestOneSignalAPIClient/ModelBase.h"
@@ -35,12 +35,12 @@ class Notification200Errors;
 /// <summary>
 /// 
 /// </summary>
-class  Inline_response_200
+class  CreateNotificationSuccessResponse
     : public ModelBase
 {
 public:
-    Inline_response_200();
-    virtual ~Inline_response_200();
+    CreateNotificationSuccessResponse();
+    virtual ~CreateNotificationSuccessResponse();
 
     /////////////////////////////////////////////
     /// ModelBase overrides
@@ -54,7 +54,7 @@ public:
     bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
 
     /////////////////////////////////////////////
-    /// Inline_response_200 members
+    /// CreateNotificationSuccessResponse members
 
     /// <summary>
     /// 
@@ -110,4 +110,4 @@ protected:
 }
 }
 
-#endif /* COM_ONESIGNAL_CLIENT_MODEL_Inline_response_200_H_ */
+#endif /* COM_ONESIGNAL_CLIENT_MODEL_CreateNotificationSuccessResponse_H_ */

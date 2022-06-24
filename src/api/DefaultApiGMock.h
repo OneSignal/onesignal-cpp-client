@@ -34,32 +34,32 @@ public:
     explicit DefaultApiMock( std::shared_ptr<ApiClient> apiClient ) { };
     ~DefaultApiMock() override = default;
 
-    MOCK_METHOD2( cancelNotification, pplx::task<std::shared_ptr<Inline_response_200_1>> (
+    MOCK_METHOD2( cancelNotification, pplx::task<std::shared_ptr<CancelNotificationSuccessResponse>> (
         utility::string_t appId,
         utility::string_t notificationId
     ) );
     MOCK_METHOD1( createApp, pplx::task<std::shared_ptr<App>> (
         std::shared_ptr<App> app
     ) );
-    MOCK_METHOD1( createNotification, pplx::task<std::shared_ptr<Inline_response_200>> (
+    MOCK_METHOD1( createNotification, pplx::task<std::shared_ptr<CreateNotificationSuccessResponse>> (
         std::shared_ptr<Notification> notification
     ) );
-    MOCK_METHOD1( createPlayer, pplx::task<std::shared_ptr<Inline_response_200_5>> (
+    MOCK_METHOD1( createPlayer, pplx::task<std::shared_ptr<CreatePlayerSuccessResponse>> (
         std::shared_ptr<Player> player
     ) );
-    MOCK_METHOD2( createSegments, pplx::task<std::shared_ptr<Inline_response_201>> (
+    MOCK_METHOD2( createSegments, pplx::task<std::shared_ptr<CreateSegmentSuccessResponse>> (
         utility::string_t appId,
         boost::optional<std::shared_ptr<Segment>> segment
     ) );
-    MOCK_METHOD2( deletePlayer, pplx::task<std::shared_ptr<Inline_response_200_7>> (
+    MOCK_METHOD2( deletePlayer, pplx::task<std::shared_ptr<DeletePlayerSuccessResponse>> (
         utility::string_t appId,
         utility::string_t playerId
     ) );
-    MOCK_METHOD2( deleteSegments, pplx::task<std::shared_ptr<Inline_response_200_1>> (
+    MOCK_METHOD2( deleteSegments, pplx::task<std::shared_ptr<DeleteSegmentSuccessResponse>> (
         utility::string_t appId,
         utility::string_t segmentId
     ) );
-    MOCK_METHOD2( exportPlayers, pplx::task<std::shared_ptr<Inline_response_200_8>> (
+    MOCK_METHOD2( exportPlayers, pplx::task<std::shared_ptr<ExportPlayersSuccessResponse>> (
         utility::string_t appId,
         boost::optional<std::shared_ptr<Export_players_request_body>> exportPlayersRequestBody
     ) );
@@ -72,7 +72,7 @@ public:
         utility::string_t appId,
         utility::string_t notificationId
     ) );
-    MOCK_METHOD2( getNotificationHistory, pplx::task<std::shared_ptr<Inline_response_200_2>> (
+    MOCK_METHOD2( getNotificationHistory, pplx::task<std::shared_ptr<NotificationHistorySuccessResponse>> (
         utility::string_t notificationId,
         std::shared_ptr<Get_notification_request_body> getNotificationRequestBody
     ) );
@@ -104,11 +104,11 @@ public:
         utility::string_t appId,
         std::shared_ptr<App> app
     ) );
-    MOCK_METHOD2( updatePlayer, pplx::task<std::shared_ptr<Inline_response_200_1>> (
+    MOCK_METHOD2( updatePlayer, pplx::task<std::shared_ptr<UpdatePlayerSuccessResponse>> (
         utility::string_t playerId,
         std::shared_ptr<Player> player
     ) );
-    MOCK_METHOD3( updatePlayerTags, pplx::task<std::shared_ptr<Inline_response_200_1>> (
+    MOCK_METHOD3( updatePlayerTags, pplx::task<std::shared_ptr<UpdatePlayerTagsSuccessResponse>> (
         utility::string_t appId,
         utility::string_t externalUserId,
         boost::optional<std::shared_ptr<Update_player_tags_request_body>> updatePlayerTagsRequestBody

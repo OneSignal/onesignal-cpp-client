@@ -36,7 +36,7 @@ DefaultApi::~DefaultApi()
 {
 }
 
-pplx::task<std::shared_ptr<Inline_response_200_1>> DefaultApi::cancelNotification(utility::string_t appId, utility::string_t notificationId) const
+pplx::task<std::shared_ptr<CancelNotificationSuccessResponse>> DefaultApi::cancelNotification(utility::string_t appId, utility::string_t notificationId) const
 {
 
 
@@ -153,7 +153,7 @@ pplx::task<std::shared_ptr<Inline_response_200_1>> DefaultApi::cancelNotificatio
     })
     .then([=](utility::string_t localVarResponse)
     {
-        std::shared_ptr<Inline_response_200_1> localVarResult(new Inline_response_200_1());
+        std::shared_ptr<CancelNotificationSuccessResponse> localVarResult(new CancelNotificationSuccessResponse());
 
         if(localVarResponseHttpContentType == utility::conversions::to_string_t("application/json"))
         {
@@ -331,7 +331,7 @@ pplx::task<std::shared_ptr<App>> DefaultApi::createApp(std::shared_ptr<App> app)
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<Inline_response_200>> DefaultApi::createNotification(std::shared_ptr<Notification> notification) const
+pplx::task<std::shared_ptr<CreateNotificationSuccessResponse>> DefaultApi::createNotification(std::shared_ptr<Notification> notification) const
 {
 
     // verify the required parameter 'notification' is set
@@ -467,7 +467,7 @@ pplx::task<std::shared_ptr<Inline_response_200>> DefaultApi::createNotification(
     })
     .then([=](utility::string_t localVarResponse)
     {
-        std::shared_ptr<Inline_response_200> localVarResult(new Inline_response_200());
+        std::shared_ptr<CreateNotificationSuccessResponse> localVarResult(new CreateNotificationSuccessResponse());
 
         if(localVarResponseHttpContentType == utility::conversions::to_string_t("application/json"))
         {
@@ -488,7 +488,7 @@ pplx::task<std::shared_ptr<Inline_response_200>> DefaultApi::createNotification(
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<Inline_response_200_5>> DefaultApi::createPlayer(std::shared_ptr<Player> player) const
+pplx::task<std::shared_ptr<CreatePlayerSuccessResponse>> DefaultApi::createPlayer(std::shared_ptr<Player> player) const
 {
 
     // verify the required parameter 'player' is set
@@ -624,7 +624,7 @@ pplx::task<std::shared_ptr<Inline_response_200_5>> DefaultApi::createPlayer(std:
     })
     .then([=](utility::string_t localVarResponse)
     {
-        std::shared_ptr<Inline_response_200_5> localVarResult(new Inline_response_200_5());
+        std::shared_ptr<CreatePlayerSuccessResponse> localVarResult(new CreatePlayerSuccessResponse());
 
         if(localVarResponseHttpContentType == utility::conversions::to_string_t("application/json"))
         {
@@ -645,7 +645,7 @@ pplx::task<std::shared_ptr<Inline_response_200_5>> DefaultApi::createPlayer(std:
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<Inline_response_201>> DefaultApi::createSegments(utility::string_t appId, boost::optional<std::shared_ptr<Segment>> segment) const
+pplx::task<std::shared_ptr<CreateSegmentSuccessResponse>> DefaultApi::createSegments(utility::string_t appId, boost::optional<std::shared_ptr<Segment>> segment) const
 {
 
 
@@ -776,7 +776,7 @@ pplx::task<std::shared_ptr<Inline_response_201>> DefaultApi::createSegments(util
     })
     .then([=](utility::string_t localVarResponse)
     {
-        std::shared_ptr<Inline_response_201> localVarResult(new Inline_response_201());
+        std::shared_ptr<CreateSegmentSuccessResponse> localVarResult(new CreateSegmentSuccessResponse());
 
         if(localVarResponseHttpContentType == utility::conversions::to_string_t("application/json"))
         {
@@ -797,7 +797,7 @@ pplx::task<std::shared_ptr<Inline_response_201>> DefaultApi::createSegments(util
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<Inline_response_200_7>> DefaultApi::deletePlayer(utility::string_t appId, utility::string_t playerId) const
+pplx::task<std::shared_ptr<DeletePlayerSuccessResponse>> DefaultApi::deletePlayer(utility::string_t appId, utility::string_t playerId) const
 {
 
 
@@ -914,7 +914,7 @@ pplx::task<std::shared_ptr<Inline_response_200_7>> DefaultApi::deletePlayer(util
     })
     .then([=](utility::string_t localVarResponse)
     {
-        std::shared_ptr<Inline_response_200_7> localVarResult(new Inline_response_200_7());
+        std::shared_ptr<DeletePlayerSuccessResponse> localVarResult(new DeletePlayerSuccessResponse());
 
         if(localVarResponseHttpContentType == utility::conversions::to_string_t("application/json"))
         {
@@ -935,7 +935,7 @@ pplx::task<std::shared_ptr<Inline_response_200_7>> DefaultApi::deletePlayer(util
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<Inline_response_200_1>> DefaultApi::deleteSegments(utility::string_t appId, utility::string_t segmentId) const
+pplx::task<std::shared_ptr<DeleteSegmentSuccessResponse>> DefaultApi::deleteSegments(utility::string_t appId, utility::string_t segmentId) const
 {
 
 
@@ -1050,7 +1050,7 @@ boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utilit
     })
     .then([=](utility::string_t localVarResponse)
     {
-        std::shared_ptr<Inline_response_200_1> localVarResult(new Inline_response_200_1());
+        std::shared_ptr<DeleteSegmentSuccessResponse> localVarResult(new DeleteSegmentSuccessResponse());
 
         if(localVarResponseHttpContentType == utility::conversions::to_string_t("application/json"))
         {
@@ -1071,7 +1071,7 @@ boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utilit
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<Inline_response_200_8>> DefaultApi::exportPlayers(utility::string_t appId, boost::optional<std::shared_ptr<Export_players_request_body>> exportPlayersRequestBody) const
+pplx::task<std::shared_ptr<ExportPlayersSuccessResponse>> DefaultApi::exportPlayers(utility::string_t appId, boost::optional<std::shared_ptr<Export_players_request_body>> exportPlayersRequestBody) const
 {
 
 
@@ -1202,7 +1202,7 @@ pplx::task<std::shared_ptr<Inline_response_200_8>> DefaultApi::exportPlayers(uti
     })
     .then([=](utility::string_t localVarResponse)
     {
-        std::shared_ptr<Inline_response_200_8> localVarResult(new Inline_response_200_8());
+        std::shared_ptr<ExportPlayersSuccessResponse> localVarResult(new ExportPlayersSuccessResponse());
 
         if(localVarResponseHttpContentType == utility::conversions::to_string_t("application/json"))
         {
@@ -1634,7 +1634,7 @@ pplx::task<std::shared_ptr<NotificationWithMeta>> DefaultApi::getNotification(ut
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<Inline_response_200_2>> DefaultApi::getNotificationHistory(utility::string_t notificationId, std::shared_ptr<Get_notification_request_body> getNotificationRequestBody) const
+pplx::task<std::shared_ptr<NotificationHistorySuccessResponse>> DefaultApi::getNotificationHistory(utility::string_t notificationId, std::shared_ptr<Get_notification_request_body> getNotificationRequestBody) const
 {
 
     // verify the required parameter 'getNotificationRequestBody' is set
@@ -1771,7 +1771,7 @@ pplx::task<std::shared_ptr<Inline_response_200_2>> DefaultApi::getNotificationHi
     })
     .then([=](utility::string_t localVarResponse)
     {
-        std::shared_ptr<Inline_response_200_2> localVarResult(new Inline_response_200_2());
+        std::shared_ptr<NotificationHistorySuccessResponse> localVarResult(new NotificationHistorySuccessResponse());
 
         if(localVarResponseHttpContentType == utility::conversions::to_string_t("application/json"))
         {
@@ -2540,7 +2540,7 @@ pplx::task<std::shared_ptr<App>> DefaultApi::updateApp(utility::string_t appId, 
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<Inline_response_200_1>> DefaultApi::updatePlayer(utility::string_t playerId, std::shared_ptr<Player> player) const
+pplx::task<std::shared_ptr<UpdatePlayerSuccessResponse>> DefaultApi::updatePlayer(utility::string_t playerId, std::shared_ptr<Player> player) const
 {
 
     // verify the required parameter 'player' is set
@@ -2677,7 +2677,7 @@ pplx::task<std::shared_ptr<Inline_response_200_1>> DefaultApi::updatePlayer(util
     })
     .then([=](utility::string_t localVarResponse)
     {
-        std::shared_ptr<Inline_response_200_1> localVarResult(new Inline_response_200_1());
+        std::shared_ptr<UpdatePlayerSuccessResponse> localVarResult(new UpdatePlayerSuccessResponse());
 
         if(localVarResponseHttpContentType == utility::conversions::to_string_t("application/json"))
         {
@@ -2698,7 +2698,7 @@ pplx::task<std::shared_ptr<Inline_response_200_1>> DefaultApi::updatePlayer(util
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<Inline_response_200_1>> DefaultApi::updatePlayerTags(utility::string_t appId, utility::string_t externalUserId, boost::optional<std::shared_ptr<Update_player_tags_request_body>> updatePlayerTagsRequestBody) const
+pplx::task<std::shared_ptr<UpdatePlayerTagsSuccessResponse>> DefaultApi::updatePlayerTags(utility::string_t appId, utility::string_t externalUserId, boost::optional<std::shared_ptr<Update_player_tags_request_body>> updatePlayerTagsRequestBody) const
 {
 
 
@@ -2830,7 +2830,7 @@ boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utilit
     })
     .then([=](utility::string_t localVarResponse)
     {
-        std::shared_ptr<Inline_response_200_1> localVarResult(new Inline_response_200_1());
+        std::shared_ptr<UpdatePlayerTagsSuccessResponse> localVarResult(new UpdatePlayerTagsSuccessResponse());
 
         if(localVarResponseHttpContentType == utility::conversions::to_string_t("application/json"))
         {

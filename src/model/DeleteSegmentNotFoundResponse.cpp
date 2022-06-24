@@ -12,7 +12,7 @@
 
 
 
-#include "CppRestOneSignalAPIClient/model/Inline_response_200_5.h"
+#include "CppRestOneSignalAPIClient/model/DeleteSegmentNotFoundResponse.h"
 
 namespace com {
 namespace onesignal {
@@ -21,24 +21,22 @@ namespace model {
 
 
 
-Inline_response_200_5::Inline_response_200_5()
+DeleteSegmentNotFoundResponse::DeleteSegmentNotFoundResponse()
 {
     m_Success = false;
     m_SuccessIsSet = false;
-    m_Id = utility::conversions::to_string_t("");
-    m_IdIsSet = false;
 }
 
-Inline_response_200_5::~Inline_response_200_5()
+DeleteSegmentNotFoundResponse::~DeleteSegmentNotFoundResponse()
 {
 }
 
-void Inline_response_200_5::validate()
+void DeleteSegmentNotFoundResponse::validate()
 {
     // TODO: implement validation
 }
 
-web::json::value Inline_response_200_5::toJson() const
+web::json::value DeleteSegmentNotFoundResponse::toJson() const
 {
 
     web::json::value val = web::json::value::object();
@@ -47,15 +45,11 @@ web::json::value Inline_response_200_5::toJson() const
     {
         val[utility::conversions::to_string_t(U("success"))] = ModelBase::toJson(m_Success);
     }
-    if(m_IdIsSet)
-    {
-        val[utility::conversions::to_string_t(U("id"))] = ModelBase::toJson(m_Id);
-    }
 
     return val;
 }
 
-bool Inline_response_200_5::fromJson(const web::json::value& val)
+bool DeleteSegmentNotFoundResponse::fromJson(const web::json::value& val)
 {
     bool ok = true;
     
@@ -69,20 +63,10 @@ bool Inline_response_200_5::fromJson(const web::json::value& val)
             setSuccess(refVal_setSuccess);
         }
     }
-    if(val.has_field(utility::conversions::to_string_t(U("id"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("id")));
-        if(!fieldValue.is_null())
-        {
-            utility::string_t refVal_setId;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setId);
-            setId(refVal_setId);
-        }
-    }
     return ok;
 }
 
-void Inline_response_200_5::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
+void DeleteSegmentNotFoundResponse::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
 {
     utility::string_t namePrefix = prefix;
     if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
@@ -93,13 +77,9 @@ void Inline_response_200_5::toMultipart(std::shared_ptr<MultipartFormData> multi
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("success")), m_Success));
     }
-    if(m_IdIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("id")), m_Id));
-    }
 }
 
-bool Inline_response_200_5::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
+bool DeleteSegmentNotFoundResponse::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
 {
     bool ok = true;
     utility::string_t namePrefix = prefix;
@@ -114,54 +94,28 @@ bool Inline_response_200_5::fromMultiPart(std::shared_ptr<MultipartFormData> mul
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("success"))), refVal_setSuccess );
         setSuccess(refVal_setSuccess);
     }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("id"))))
-    {
-        utility::string_t refVal_setId;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("id"))), refVal_setId );
-        setId(refVal_setId);
-    }
     return ok;
 }
 
-bool Inline_response_200_5::isSuccess() const
+bool DeleteSegmentNotFoundResponse::isSuccess() const
 {
     return m_Success;
 }
 
-void Inline_response_200_5::setSuccess(bool value)
+void DeleteSegmentNotFoundResponse::setSuccess(bool value)
 {
     m_Success = value;
     m_SuccessIsSet = true;
 }
 
-bool Inline_response_200_5::successIsSet() const
+bool DeleteSegmentNotFoundResponse::successIsSet() const
 {
     return m_SuccessIsSet;
 }
 
-void Inline_response_200_5::unsetSuccess()
+void DeleteSegmentNotFoundResponse::unsetSuccess()
 {
     m_SuccessIsSet = false;
-}
-utility::string_t Inline_response_200_5::getId() const
-{
-    return m_Id;
-}
-
-void Inline_response_200_5::setId(const utility::string_t& value)
-{
-    m_Id = value;
-    m_IdIsSet = true;
-}
-
-bool Inline_response_200_5::idIsSet() const
-{
-    return m_IdIsSet;
-}
-
-void Inline_response_200_5::unsetId()
-{
-    m_IdIsSet = false;
 }
 }
 }

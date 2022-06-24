@@ -12,7 +12,7 @@
 
 
 
-#include "CppRestOneSignalAPIClient/model/Inline_response_400_1.h"
+#include "CppRestOneSignalAPIClient/model/NotificationHistoryBadRequestResponse.h"
 
 namespace com {
 namespace onesignal {
@@ -21,23 +21,23 @@ namespace model {
 
 
 
-Inline_response_400_1::Inline_response_400_1()
+NotificationHistoryBadRequestResponse::NotificationHistoryBadRequestResponse()
 {
     m_Success = utility::conversions::to_string_t("");
     m_SuccessIsSet = false;
     m_ErrorsIsSet = false;
 }
 
-Inline_response_400_1::~Inline_response_400_1()
+NotificationHistoryBadRequestResponse::~NotificationHistoryBadRequestResponse()
 {
 }
 
-void Inline_response_400_1::validate()
+void NotificationHistoryBadRequestResponse::validate()
 {
     // TODO: implement validation
 }
 
-web::json::value Inline_response_400_1::toJson() const
+web::json::value NotificationHistoryBadRequestResponse::toJson() const
 {
 
     web::json::value val = web::json::value::object();
@@ -54,7 +54,7 @@ web::json::value Inline_response_400_1::toJson() const
     return val;
 }
 
-bool Inline_response_400_1::fromJson(const web::json::value& val)
+bool NotificationHistoryBadRequestResponse::fromJson(const web::json::value& val)
 {
     bool ok = true;
     
@@ -81,7 +81,7 @@ bool Inline_response_400_1::fromJson(const web::json::value& val)
     return ok;
 }
 
-void Inline_response_400_1::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
+void NotificationHistoryBadRequestResponse::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
 {
     utility::string_t namePrefix = prefix;
     if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
@@ -98,7 +98,7 @@ void Inline_response_400_1::toMultipart(std::shared_ptr<MultipartFormData> multi
     }
 }
 
-bool Inline_response_400_1::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
+bool NotificationHistoryBadRequestResponse::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
 {
     bool ok = true;
     utility::string_t namePrefix = prefix;
@@ -122,43 +122,43 @@ bool Inline_response_400_1::fromMultiPart(std::shared_ptr<MultipartFormData> mul
     return ok;
 }
 
-utility::string_t Inline_response_400_1::getSuccess() const
+utility::string_t NotificationHistoryBadRequestResponse::getSuccess() const
 {
     return m_Success;
 }
 
-void Inline_response_400_1::setSuccess(const utility::string_t& value)
+void NotificationHistoryBadRequestResponse::setSuccess(const utility::string_t& value)
 {
     m_Success = value;
     m_SuccessIsSet = true;
 }
 
-bool Inline_response_400_1::successIsSet() const
+bool NotificationHistoryBadRequestResponse::successIsSet() const
 {
     return m_SuccessIsSet;
 }
 
-void Inline_response_400_1::unsetSuccess()
+void NotificationHistoryBadRequestResponse::unsetSuccess()
 {
     m_SuccessIsSet = false;
 }
-std::vector<utility::string_t>& Inline_response_400_1::getErrors()
+std::vector<utility::string_t>& NotificationHistoryBadRequestResponse::getErrors()
 {
     return m_Errors;
 }
 
-void Inline_response_400_1::setErrors(const std::vector<utility::string_t>& value)
+void NotificationHistoryBadRequestResponse::setErrors(const std::vector<utility::string_t>& value)
 {
     m_Errors = value;
     m_ErrorsIsSet = true;
 }
 
-bool Inline_response_400_1::errorsIsSet() const
+bool NotificationHistoryBadRequestResponse::errorsIsSet() const
 {
     return m_ErrorsIsSet;
 }
 
-void Inline_response_400_1::unsetErrors()
+void NotificationHistoryBadRequestResponse::unsetErrors()
 {
     m_ErrorsIsSet = false;
 }
