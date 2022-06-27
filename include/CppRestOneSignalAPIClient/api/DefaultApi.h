@@ -24,20 +24,25 @@
 #include "CppRestOneSignalAPIClient/ApiClient.h"
 
 #include "CppRestOneSignalAPIClient/model/App.h"
+#include "CppRestOneSignalAPIClient/model/CancelNotificationSuccessResponse.h"
+#include "CppRestOneSignalAPIClient/model/CreateNotificationBadRequestResponse.h"
+#include "CppRestOneSignalAPIClient/model/CreateNotificationSuccessResponse.h"
+#include "CppRestOneSignalAPIClient/model/CreatePlayerSuccessResponse.h"
+#include "CppRestOneSignalAPIClient/model/CreateSegmentBadRequestResponse.h"
+#include "CppRestOneSignalAPIClient/model/CreateSegmentConflictResponse.h"
+#include "CppRestOneSignalAPIClient/model/CreateSegmentSuccessResponse.h"
+#include "CppRestOneSignalAPIClient/model/DeletePlayerBadRequestResponse.h"
+#include "CppRestOneSignalAPIClient/model/DeletePlayerNotFoundResponse.h"
+#include "CppRestOneSignalAPIClient/model/DeletePlayerSuccessResponse.h"
+#include "CppRestOneSignalAPIClient/model/DeleteSegmentBadRequestResponse.h"
+#include "CppRestOneSignalAPIClient/model/DeleteSegmentNotFoundResponse.h"
+#include "CppRestOneSignalAPIClient/model/DeleteSegmentSuccessResponse.h"
+#include "CppRestOneSignalAPIClient/model/ExportPlayersSuccessResponse.h"
 #include "CppRestOneSignalAPIClient/model/Export_players_request_body.h"
 #include "CppRestOneSignalAPIClient/model/Get_notification_request_body.h"
-#include "CppRestOneSignalAPIClient/model/Inline_response_200.h"
-#include "CppRestOneSignalAPIClient/model/Inline_response_200_1.h"
-#include "CppRestOneSignalAPIClient/model/Inline_response_200_2.h"
-#include "CppRestOneSignalAPIClient/model/Inline_response_200_5.h"
-#include "CppRestOneSignalAPIClient/model/Inline_response_200_7.h"
-#include "CppRestOneSignalAPIClient/model/Inline_response_200_8.h"
-#include "CppRestOneSignalAPIClient/model/Inline_response_201.h"
-#include "CppRestOneSignalAPIClient/model/Inline_response_400.h"
-#include "CppRestOneSignalAPIClient/model/Inline_response_400_1.h"
-#include "CppRestOneSignalAPIClient/model/Inline_response_400_2.h"
-#include "CppRestOneSignalAPIClient/model/Inline_response_400_3.h"
 #include "CppRestOneSignalAPIClient/model/Notification.h"
+#include "CppRestOneSignalAPIClient/model/NotificationHistoryBadRequestResponse.h"
+#include "CppRestOneSignalAPIClient/model/NotificationHistorySuccessResponse.h"
 #include "CppRestOneSignalAPIClient/model/NotificationSlice.h"
 #include "CppRestOneSignalAPIClient/model/NotificationWithMeta.h"
 #include "CppRestOneSignalAPIClient/Object.h"
@@ -45,6 +50,8 @@
 #include "CppRestOneSignalAPIClient/model/Player.h"
 #include "CppRestOneSignalAPIClient/model/PlayerSlice.h"
 #include "CppRestOneSignalAPIClient/model/Segment.h"
+#include "CppRestOneSignalAPIClient/model/UpdatePlayerSuccessResponse.h"
+#include "CppRestOneSignalAPIClient/model/UpdatePlayerTagsSuccessResponse.h"
 #include "CppRestOneSignalAPIClient/model/Update_player_tags_request_body.h"
 #include <cpprest/details/basic_types.h>
 #include <boost/optional.hpp>
@@ -62,32 +69,32 @@ public:
     IDefaultApi() = default;
     virtual ~IDefaultApi() = default;
 
-    virtual pplx::task<std::shared_ptr<Inline_response_200_1>> cancelNotification(
+    virtual pplx::task<std::shared_ptr<CancelNotificationSuccessResponse>> cancelNotification(
         utility::string_t appId,
         utility::string_t notificationId
     ) const = 0;
     virtual pplx::task<std::shared_ptr<App>> createApp(
         std::shared_ptr<App> app
     ) const = 0;
-    virtual pplx::task<std::shared_ptr<Inline_response_200>> createNotification(
+    virtual pplx::task<std::shared_ptr<CreateNotificationSuccessResponse>> createNotification(
         std::shared_ptr<Notification> notification
     ) const = 0;
-    virtual pplx::task<std::shared_ptr<Inline_response_200_5>> createPlayer(
+    virtual pplx::task<std::shared_ptr<CreatePlayerSuccessResponse>> createPlayer(
         std::shared_ptr<Player> player
     ) const = 0;
-    virtual pplx::task<std::shared_ptr<Inline_response_201>> createSegments(
+    virtual pplx::task<std::shared_ptr<CreateSegmentSuccessResponse>> createSegments(
         utility::string_t appId,
         boost::optional<std::shared_ptr<Segment>> segment
     ) const = 0;
-    virtual pplx::task<std::shared_ptr<Inline_response_200_7>> deletePlayer(
+    virtual pplx::task<std::shared_ptr<DeletePlayerSuccessResponse>> deletePlayer(
         utility::string_t appId,
         utility::string_t playerId
     ) const = 0;
-    virtual pplx::task<std::shared_ptr<Inline_response_200_1>> deleteSegments(
+    virtual pplx::task<std::shared_ptr<DeleteSegmentSuccessResponse>> deleteSegments(
         utility::string_t appId,
         utility::string_t segmentId
     ) const = 0;
-    virtual pplx::task<std::shared_ptr<Inline_response_200_8>> exportPlayers(
+    virtual pplx::task<std::shared_ptr<ExportPlayersSuccessResponse>> exportPlayers(
         utility::string_t appId,
         boost::optional<std::shared_ptr<Export_players_request_body>> exportPlayersRequestBody
     ) const = 0;
@@ -100,7 +107,7 @@ public:
         utility::string_t appId,
         utility::string_t notificationId
     ) const = 0;
-    virtual pplx::task<std::shared_ptr<Inline_response_200_2>> getNotificationHistory(
+    virtual pplx::task<std::shared_ptr<NotificationHistorySuccessResponse>> getNotificationHistory(
         utility::string_t notificationId,
         std::shared_ptr<Get_notification_request_body> getNotificationRequestBody
     ) const = 0;
@@ -132,11 +139,11 @@ public:
         utility::string_t appId,
         std::shared_ptr<App> app
     ) const = 0;
-    virtual pplx::task<std::shared_ptr<Inline_response_200_1>> updatePlayer(
+    virtual pplx::task<std::shared_ptr<UpdatePlayerSuccessResponse>> updatePlayer(
         utility::string_t playerId,
         std::shared_ptr<Player> player
     ) const = 0;
-    virtual pplx::task<std::shared_ptr<Inline_response_200_1>> updatePlayerTags(
+    virtual pplx::task<std::shared_ptr<UpdatePlayerTagsSuccessResponse>> updatePlayerTags(
         utility::string_t appId,
         utility::string_t externalUserId,
         boost::optional<std::shared_ptr<Update_player_tags_request_body>> updatePlayerTagsRequestBody
@@ -160,7 +167,7 @@ public:
     /// </remarks>
     /// <param name="appId"></param>
     /// <param name="notificationId"></param>
-    pplx::task<std::shared_ptr<Inline_response_200_1>> cancelNotification(
+    pplx::task<std::shared_ptr<CancelNotificationSuccessResponse>> cancelNotification(
         utility::string_t appId,
         utility::string_t notificationId
     ) const override;
@@ -181,7 +188,7 @@ public:
     /// Sends notifications to your users 
     /// </remarks>
     /// <param name="notification"></param>
-    pplx::task<std::shared_ptr<Inline_response_200>> createNotification(
+    pplx::task<std::shared_ptr<CreateNotificationSuccessResponse>> createNotification(
         std::shared_ptr<Notification> notification
     ) const override;
     /// <summary>
@@ -191,7 +198,7 @@ public:
     /// Register a new device to one of your OneSignal apps &amp;#x1F6A7; Don&#39;t use this This API endpoint is designed to be used from our open source Mobile and Web Push SDKs. It is not designed for developers to use it directly, unless instructed to do so by OneSignal support. If you use this method instead of our SDKs, many OneSignal features such as conversion tracking, timezone tracking, language detection, and rich-push won&#39;t work out of the box. It will also make it harder to identify possible setup issues. This method is used to register a new device with OneSignal. If a device is already registered with the specified identifier, then this will update the existing device record instead of creating a new one. The returned player is a player / user ID. Use the returned ID to send push notifications to this specific user later, or to include this player when sending to a set of users. &amp;#x1F6A7; iOS Must set test_type to 1 when building your iOS app as development. Omit this field in your production app builds. 
     /// </remarks>
     /// <param name="player"></param>
-    pplx::task<std::shared_ptr<Inline_response_200_5>> createPlayer(
+    pplx::task<std::shared_ptr<CreatePlayerSuccessResponse>> createPlayer(
         std::shared_ptr<Player> player
     ) const override;
     /// <summary>
@@ -202,7 +209,7 @@ public:
     /// </remarks>
     /// <param name="appId">The OneSignal App ID for your app.  Available in Keys &amp; IDs.</param>
     /// <param name="segment"> (optional)</param>
-    pplx::task<std::shared_ptr<Inline_response_201>> createSegments(
+    pplx::task<std::shared_ptr<CreateSegmentSuccessResponse>> createSegments(
         utility::string_t appId,
         boost::optional<std::shared_ptr<Segment>> segment
     ) const override;
@@ -214,7 +221,7 @@ public:
     /// </remarks>
     /// <param name="appId">The OneSignal App ID for your app.  Available in Keys &amp; IDs.</param>
     /// <param name="playerId">The OneSignal player_id</param>
-    pplx::task<std::shared_ptr<Inline_response_200_7>> deletePlayer(
+    pplx::task<std::shared_ptr<DeletePlayerSuccessResponse>> deletePlayer(
         utility::string_t appId,
         utility::string_t playerId
     ) const override;
@@ -226,7 +233,7 @@ public:
     /// </remarks>
     /// <param name="appId">The OneSignal App ID for your app.  Available in Keys &amp; IDs.</param>
     /// <param name="segmentId">The segment_id can be found in the URL of the segment when viewing it in the dashboard.</param>
-    pplx::task<std::shared_ptr<Inline_response_200_1>> deleteSegments(
+    pplx::task<std::shared_ptr<DeleteSegmentSuccessResponse>> deleteSegments(
         utility::string_t appId,
         utility::string_t segmentId
     ) const override;
@@ -238,7 +245,7 @@ public:
     /// </remarks>
     /// <param name="appId">The app ID that you want to export devices from</param>
     /// <param name="exportPlayersRequestBody"> (optional)</param>
-    pplx::task<std::shared_ptr<Inline_response_200_8>> exportPlayers(
+    pplx::task<std::shared_ptr<ExportPlayersSuccessResponse>> exportPlayers(
         utility::string_t appId,
         boost::optional<std::shared_ptr<Export_players_request_body>> exportPlayersRequestBody
     ) const override;
@@ -280,7 +287,7 @@ public:
     /// </remarks>
     /// <param name="notificationId">The \&quot;id\&quot; of the message found in the Notification object</param>
     /// <param name="getNotificationRequestBody"></param>
-    pplx::task<std::shared_ptr<Inline_response_200_2>> getNotificationHistory(
+    pplx::task<std::shared_ptr<NotificationHistorySuccessResponse>> getNotificationHistory(
         utility::string_t notificationId,
         std::shared_ptr<Get_notification_request_body> getNotificationRequestBody
     ) const override;
@@ -368,7 +375,7 @@ public:
     /// </remarks>
     /// <param name="playerId">Player&#39;s OneSignal ID</param>
     /// <param name="player"></param>
-    pplx::task<std::shared_ptr<Inline_response_200_1>> updatePlayer(
+    pplx::task<std::shared_ptr<UpdatePlayerSuccessResponse>> updatePlayer(
         utility::string_t playerId,
         std::shared_ptr<Player> player
     ) const override;
@@ -381,7 +388,7 @@ public:
     /// <param name="appId">The OneSignal App ID the user record is found under.</param>
     /// <param name="externalUserId">The External User ID mapped to teh device record in OneSignal.  Must be actively set on the device to be updated.</param>
     /// <param name="updatePlayerTagsRequestBody"> (optional)</param>
-    pplx::task<std::shared_ptr<Inline_response_200_1>> updatePlayerTags(
+    pplx::task<std::shared_ptr<UpdatePlayerTagsSuccessResponse>> updatePlayerTags(
         utility::string_t appId,
         utility::string_t externalUserId,
         boost::optional<std::shared_ptr<Update_player_tags_request_body>> updatePlayerTagsRequestBody

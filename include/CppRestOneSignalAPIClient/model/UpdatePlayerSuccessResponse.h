@@ -11,19 +11,17 @@
  */
 
 /*
- * Inline_response_400_1.h
+ * UpdatePlayerSuccessResponse.h
  *
  * 
  */
 
-#ifndef COM_ONESIGNAL_CLIENT_MODEL_Inline_response_400_1_H_
-#define COM_ONESIGNAL_CLIENT_MODEL_Inline_response_400_1_H_
+#ifndef COM_ONESIGNAL_CLIENT_MODEL_UpdatePlayerSuccessResponse_H_
+#define COM_ONESIGNAL_CLIENT_MODEL_UpdatePlayerSuccessResponse_H_
 
 
 #include "CppRestOneSignalAPIClient/ModelBase.h"
 
-#include <cpprest/details/basic_types.h>
-#include <vector>
 
 namespace com {
 namespace onesignal {
@@ -34,12 +32,12 @@ namespace model {
 /// <summary>
 /// 
 /// </summary>
-class  Inline_response_400_1
+class  UpdatePlayerSuccessResponse
     : public ModelBase
 {
 public:
-    Inline_response_400_1();
-    virtual ~Inline_response_400_1();
+    UpdatePlayerSuccessResponse();
+    virtual ~UpdatePlayerSuccessResponse();
 
     /////////////////////////////////////////////
     /// ModelBase overrides
@@ -53,32 +51,21 @@ public:
     bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
 
     /////////////////////////////////////////////
-    /// Inline_response_400_1 members
+    /// UpdatePlayerSuccessResponse members
 
     /// <summary>
     /// 
     /// </summary>
-    utility::string_t getSuccess() const;
+    bool isSuccess() const;
     bool successIsSet() const;
     void unsetSuccess();
 
-    void setSuccess(const utility::string_t& value);
-
-    /// <summary>
-    /// 
-    /// </summary>
-    std::vector<utility::string_t>& getErrors();
-    bool errorsIsSet() const;
-    void unsetErrors();
-
-    void setErrors(const std::vector<utility::string_t>& value);
+    void setSuccess(bool value);
 
 
 protected:
-    utility::string_t m_Success;
+    bool m_Success;
     bool m_SuccessIsSet;
-    std::vector<utility::string_t> m_Errors;
-    bool m_ErrorsIsSet;
 };
 
 
@@ -87,4 +74,4 @@ protected:
 }
 }
 
-#endif /* COM_ONESIGNAL_CLIENT_MODEL_Inline_response_400_1_H_ */
+#endif /* COM_ONESIGNAL_CLIENT_MODEL_UpdatePlayerSuccessResponse_H_ */

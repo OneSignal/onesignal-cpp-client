@@ -12,7 +12,7 @@
 
 
 
-#include "CppRestOneSignalAPIClient/model/Inline_response_200.h"
+#include "CppRestOneSignalAPIClient/model/CreateNotificationSuccessResponse.h"
 
 namespace com {
 namespace onesignal {
@@ -21,7 +21,7 @@ namespace model {
 
 
 
-Inline_response_200::Inline_response_200()
+CreateNotificationSuccessResponse::CreateNotificationSuccessResponse()
 {
     m_Id = utility::conversions::to_string_t("");
     m_IdIsSet = false;
@@ -32,16 +32,16 @@ Inline_response_200::Inline_response_200()
     m_ErrorsIsSet = false;
 }
 
-Inline_response_200::~Inline_response_200()
+CreateNotificationSuccessResponse::~CreateNotificationSuccessResponse()
 {
 }
 
-void Inline_response_200::validate()
+void CreateNotificationSuccessResponse::validate()
 {
     // TODO: implement validation
 }
 
-web::json::value Inline_response_200::toJson() const
+web::json::value CreateNotificationSuccessResponse::toJson() const
 {
 
     web::json::value val = web::json::value::object();
@@ -66,7 +66,7 @@ web::json::value Inline_response_200::toJson() const
     return val;
 }
 
-bool Inline_response_200::fromJson(const web::json::value& val)
+bool CreateNotificationSuccessResponse::fromJson(const web::json::value& val)
 {
     bool ok = true;
     
@@ -113,7 +113,7 @@ bool Inline_response_200::fromJson(const web::json::value& val)
     return ok;
 }
 
-void Inline_response_200::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
+void CreateNotificationSuccessResponse::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
 {
     utility::string_t namePrefix = prefix;
     if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
@@ -138,7 +138,7 @@ void Inline_response_200::toMultipart(std::shared_ptr<MultipartFormData> multipa
     }
 }
 
-bool Inline_response_200::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
+bool CreateNotificationSuccessResponse::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
 {
     bool ok = true;
     utility::string_t namePrefix = prefix;
@@ -174,83 +174,83 @@ bool Inline_response_200::fromMultiPart(std::shared_ptr<MultipartFormData> multi
     return ok;
 }
 
-utility::string_t Inline_response_200::getId() const
+utility::string_t CreateNotificationSuccessResponse::getId() const
 {
     return m_Id;
 }
 
-void Inline_response_200::setId(const utility::string_t& value)
+void CreateNotificationSuccessResponse::setId(const utility::string_t& value)
 {
     m_Id = value;
     m_IdIsSet = true;
 }
 
-bool Inline_response_200::idIsSet() const
+bool CreateNotificationSuccessResponse::idIsSet() const
 {
     return m_IdIsSet;
 }
 
-void Inline_response_200::unsetId()
+void CreateNotificationSuccessResponse::unsetId()
 {
     m_IdIsSet = false;
 }
-int32_t Inline_response_200::getRecipients() const
+int32_t CreateNotificationSuccessResponse::getRecipients() const
 {
     return m_Recipients;
 }
 
-void Inline_response_200::setRecipients(int32_t value)
+void CreateNotificationSuccessResponse::setRecipients(int32_t value)
 {
     m_Recipients = value;
     m_RecipientsIsSet = true;
 }
 
-bool Inline_response_200::recipientsIsSet() const
+bool CreateNotificationSuccessResponse::recipientsIsSet() const
 {
     return m_RecipientsIsSet;
 }
 
-void Inline_response_200::unsetRecipients()
+void CreateNotificationSuccessResponse::unsetRecipients()
 {
     m_RecipientsIsSet = false;
 }
-utility::string_t Inline_response_200::getExternalId() const
+utility::string_t CreateNotificationSuccessResponse::getExternalId() const
 {
     return m_External_id;
 }
 
-void Inline_response_200::setExternalId(const utility::string_t& value)
+void CreateNotificationSuccessResponse::setExternalId(const utility::string_t& value)
 {
     m_External_id = value;
     m_External_idIsSet = true;
 }
 
-bool Inline_response_200::externalIdIsSet() const
+bool CreateNotificationSuccessResponse::externalIdIsSet() const
 {
     return m_External_idIsSet;
 }
 
-void Inline_response_200::unsetExternal_id()
+void CreateNotificationSuccessResponse::unsetExternal_id()
 {
     m_External_idIsSet = false;
 }
-std::shared_ptr<Notification200Errors> Inline_response_200::getErrors() const
+std::shared_ptr<Notification200Errors> CreateNotificationSuccessResponse::getErrors() const
 {
     return m_Errors;
 }
 
-void Inline_response_200::setErrors(const std::shared_ptr<Notification200Errors>& value)
+void CreateNotificationSuccessResponse::setErrors(const std::shared_ptr<Notification200Errors>& value)
 {
     m_Errors = value;
     m_ErrorsIsSet = true;
 }
 
-bool Inline_response_200::errorsIsSet() const
+bool CreateNotificationSuccessResponse::errorsIsSet() const
 {
     return m_ErrorsIsSet;
 }
 
-void Inline_response_200::unsetErrors()
+void CreateNotificationSuccessResponse::unsetErrors()
 {
     m_ErrorsIsSet = false;
 }

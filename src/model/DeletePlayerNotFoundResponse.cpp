@@ -12,7 +12,7 @@
 
 
 
-#include "CppRestOneSignalAPIClient/model/Inline_response_201.h"
+#include "CppRestOneSignalAPIClient/model/DeletePlayerNotFoundResponse.h"
 
 namespace com {
 namespace onesignal {
@@ -21,24 +21,22 @@ namespace model {
 
 
 
-Inline_response_201::Inline_response_201()
+DeletePlayerNotFoundResponse::DeletePlayerNotFoundResponse()
 {
-    m_Success = false;
+    m_Success = utility::conversions::to_string_t("");
     m_SuccessIsSet = false;
-    m_Id = utility::conversions::to_string_t("");
-    m_IdIsSet = false;
 }
 
-Inline_response_201::~Inline_response_201()
+DeletePlayerNotFoundResponse::~DeletePlayerNotFoundResponse()
 {
 }
 
-void Inline_response_201::validate()
+void DeletePlayerNotFoundResponse::validate()
 {
     // TODO: implement validation
 }
 
-web::json::value Inline_response_201::toJson() const
+web::json::value DeletePlayerNotFoundResponse::toJson() const
 {
 
     web::json::value val = web::json::value::object();
@@ -47,15 +45,11 @@ web::json::value Inline_response_201::toJson() const
     {
         val[utility::conversions::to_string_t(U("success"))] = ModelBase::toJson(m_Success);
     }
-    if(m_IdIsSet)
-    {
-        val[utility::conversions::to_string_t(U("id"))] = ModelBase::toJson(m_Id);
-    }
 
     return val;
 }
 
-bool Inline_response_201::fromJson(const web::json::value& val)
+bool DeletePlayerNotFoundResponse::fromJson(const web::json::value& val)
 {
     bool ok = true;
     
@@ -64,25 +58,15 @@ bool Inline_response_201::fromJson(const web::json::value& val)
         const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("success")));
         if(!fieldValue.is_null())
         {
-            bool refVal_setSuccess;
+            utility::string_t refVal_setSuccess;
             ok &= ModelBase::fromJson(fieldValue, refVal_setSuccess);
             setSuccess(refVal_setSuccess);
-        }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("id"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("id")));
-        if(!fieldValue.is_null())
-        {
-            utility::string_t refVal_setId;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setId);
-            setId(refVal_setId);
         }
     }
     return ok;
 }
 
-void Inline_response_201::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
+void DeletePlayerNotFoundResponse::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
 {
     utility::string_t namePrefix = prefix;
     if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
@@ -93,13 +77,9 @@ void Inline_response_201::toMultipart(std::shared_ptr<MultipartFormData> multipa
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("success")), m_Success));
     }
-    if(m_IdIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("id")), m_Id));
-    }
 }
 
-bool Inline_response_201::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
+bool DeletePlayerNotFoundResponse::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
 {
     bool ok = true;
     utility::string_t namePrefix = prefix;
@@ -110,58 +90,32 @@ bool Inline_response_201::fromMultiPart(std::shared_ptr<MultipartFormData> multi
 
     if(multipart->hasContent(utility::conversions::to_string_t(U("success"))))
     {
-        bool refVal_setSuccess;
+        utility::string_t refVal_setSuccess;
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("success"))), refVal_setSuccess );
         setSuccess(refVal_setSuccess);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("id"))))
-    {
-        utility::string_t refVal_setId;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("id"))), refVal_setId );
-        setId(refVal_setId);
     }
     return ok;
 }
 
-bool Inline_response_201::isSuccess() const
+utility::string_t DeletePlayerNotFoundResponse::getSuccess() const
 {
     return m_Success;
 }
 
-void Inline_response_201::setSuccess(bool value)
+void DeletePlayerNotFoundResponse::setSuccess(const utility::string_t& value)
 {
     m_Success = value;
     m_SuccessIsSet = true;
 }
 
-bool Inline_response_201::successIsSet() const
+bool DeletePlayerNotFoundResponse::successIsSet() const
 {
     return m_SuccessIsSet;
 }
 
-void Inline_response_201::unsetSuccess()
+void DeletePlayerNotFoundResponse::unsetSuccess()
 {
     m_SuccessIsSet = false;
-}
-utility::string_t Inline_response_201::getId() const
-{
-    return m_Id;
-}
-
-void Inline_response_201::setId(const utility::string_t& value)
-{
-    m_Id = value;
-    m_IdIsSet = true;
-}
-
-bool Inline_response_201::idIsSet() const
-{
-    return m_IdIsSet;
-}
-
-void Inline_response_201::unsetId()
-{
-    m_IdIsSet = false;
 }
 }
 }

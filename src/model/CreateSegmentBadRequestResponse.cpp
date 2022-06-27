@@ -12,7 +12,7 @@
 
 
 
-#include "CppRestOneSignalAPIClient/model/Inline_response_200_2.h"
+#include "CppRestOneSignalAPIClient/model/CreateSegmentBadRequestResponse.h"
 
 namespace com {
 namespace onesignal {
@@ -21,24 +21,23 @@ namespace model {
 
 
 
-Inline_response_200_2::Inline_response_200_2()
+CreateSegmentBadRequestResponse::CreateSegmentBadRequestResponse()
 {
     m_Success = false;
     m_SuccessIsSet = false;
-    m_Destination_url = utility::conversions::to_string_t("");
-    m_Destination_urlIsSet = false;
+    m_ErrorsIsSet = false;
 }
 
-Inline_response_200_2::~Inline_response_200_2()
+CreateSegmentBadRequestResponse::~CreateSegmentBadRequestResponse()
 {
 }
 
-void Inline_response_200_2::validate()
+void CreateSegmentBadRequestResponse::validate()
 {
     // TODO: implement validation
 }
 
-web::json::value Inline_response_200_2::toJson() const
+web::json::value CreateSegmentBadRequestResponse::toJson() const
 {
 
     web::json::value val = web::json::value::object();
@@ -47,15 +46,15 @@ web::json::value Inline_response_200_2::toJson() const
     {
         val[utility::conversions::to_string_t(U("success"))] = ModelBase::toJson(m_Success);
     }
-    if(m_Destination_urlIsSet)
+    if(m_ErrorsIsSet)
     {
-        val[utility::conversions::to_string_t(U("destination_url"))] = ModelBase::toJson(m_Destination_url);
+        val[utility::conversions::to_string_t(U("errors"))] = ModelBase::toJson(m_Errors);
     }
 
     return val;
 }
 
-bool Inline_response_200_2::fromJson(const web::json::value& val)
+bool CreateSegmentBadRequestResponse::fromJson(const web::json::value& val)
 {
     bool ok = true;
     
@@ -69,20 +68,20 @@ bool Inline_response_200_2::fromJson(const web::json::value& val)
             setSuccess(refVal_setSuccess);
         }
     }
-    if(val.has_field(utility::conversions::to_string_t(U("destination_url"))))
+    if(val.has_field(utility::conversions::to_string_t(U("errors"))))
     {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("destination_url")));
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("errors")));
         if(!fieldValue.is_null())
         {
-            utility::string_t refVal_setDestinationUrl;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setDestinationUrl);
-            setDestinationUrl(refVal_setDestinationUrl);
+            std::vector<utility::string_t> refVal_setErrors;
+            ok &= ModelBase::fromJson(fieldValue, refVal_setErrors);
+            setErrors(refVal_setErrors);
         }
     }
     return ok;
 }
 
-void Inline_response_200_2::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
+void CreateSegmentBadRequestResponse::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
 {
     utility::string_t namePrefix = prefix;
     if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
@@ -93,13 +92,13 @@ void Inline_response_200_2::toMultipart(std::shared_ptr<MultipartFormData> multi
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("success")), m_Success));
     }
-    if(m_Destination_urlIsSet)
+    if(m_ErrorsIsSet)
     {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("destination_url")), m_Destination_url));
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("errors")), m_Errors));
     }
 }
 
-bool Inline_response_200_2::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
+bool CreateSegmentBadRequestResponse::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
 {
     bool ok = true;
     utility::string_t namePrefix = prefix;
@@ -114,54 +113,54 @@ bool Inline_response_200_2::fromMultiPart(std::shared_ptr<MultipartFormData> mul
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("success"))), refVal_setSuccess );
         setSuccess(refVal_setSuccess);
     }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("destination_url"))))
+    if(multipart->hasContent(utility::conversions::to_string_t(U("errors"))))
     {
-        utility::string_t refVal_setDestinationUrl;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("destination_url"))), refVal_setDestinationUrl );
-        setDestinationUrl(refVal_setDestinationUrl);
+        std::vector<utility::string_t> refVal_setErrors;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("errors"))), refVal_setErrors );
+        setErrors(refVal_setErrors);
     }
     return ok;
 }
 
-bool Inline_response_200_2::isSuccess() const
+bool CreateSegmentBadRequestResponse::isSuccess() const
 {
     return m_Success;
 }
 
-void Inline_response_200_2::setSuccess(bool value)
+void CreateSegmentBadRequestResponse::setSuccess(bool value)
 {
     m_Success = value;
     m_SuccessIsSet = true;
 }
 
-bool Inline_response_200_2::successIsSet() const
+bool CreateSegmentBadRequestResponse::successIsSet() const
 {
     return m_SuccessIsSet;
 }
 
-void Inline_response_200_2::unsetSuccess()
+void CreateSegmentBadRequestResponse::unsetSuccess()
 {
     m_SuccessIsSet = false;
 }
-utility::string_t Inline_response_200_2::getDestinationUrl() const
+std::vector<utility::string_t>& CreateSegmentBadRequestResponse::getErrors()
 {
-    return m_Destination_url;
+    return m_Errors;
 }
 
-void Inline_response_200_2::setDestinationUrl(const utility::string_t& value)
+void CreateSegmentBadRequestResponse::setErrors(const std::vector<utility::string_t>& value)
 {
-    m_Destination_url = value;
-    m_Destination_urlIsSet = true;
+    m_Errors = value;
+    m_ErrorsIsSet = true;
 }
 
-bool Inline_response_200_2::destinationUrlIsSet() const
+bool CreateSegmentBadRequestResponse::errorsIsSet() const
 {
-    return m_Destination_urlIsSet;
+    return m_ErrorsIsSet;
 }
 
-void Inline_response_200_2::unsetDestination_url()
+void CreateSegmentBadRequestResponse::unsetErrors()
 {
-    m_Destination_urlIsSet = false;
+    m_ErrorsIsSet = false;
 }
 }
 }

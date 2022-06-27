@@ -12,7 +12,7 @@
 
 
 
-#include "CppRestOneSignalAPIClient/model/Inline_response_200_8.h"
+#include "CppRestOneSignalAPIClient/model/ExportPlayersSuccessResponse.h"
 
 namespace com {
 namespace onesignal {
@@ -21,22 +21,22 @@ namespace model {
 
 
 
-Inline_response_200_8::Inline_response_200_8()
+ExportPlayersSuccessResponse::ExportPlayersSuccessResponse()
 {
     m_Csv_file_url = utility::conversions::to_string_t("");
     m_Csv_file_urlIsSet = false;
 }
 
-Inline_response_200_8::~Inline_response_200_8()
+ExportPlayersSuccessResponse::~ExportPlayersSuccessResponse()
 {
 }
 
-void Inline_response_200_8::validate()
+void ExportPlayersSuccessResponse::validate()
 {
     // TODO: implement validation
 }
 
-web::json::value Inline_response_200_8::toJson() const
+web::json::value ExportPlayersSuccessResponse::toJson() const
 {
 
     web::json::value val = web::json::value::object();
@@ -49,7 +49,7 @@ web::json::value Inline_response_200_8::toJson() const
     return val;
 }
 
-bool Inline_response_200_8::fromJson(const web::json::value& val)
+bool ExportPlayersSuccessResponse::fromJson(const web::json::value& val)
 {
     bool ok = true;
     
@@ -66,7 +66,7 @@ bool Inline_response_200_8::fromJson(const web::json::value& val)
     return ok;
 }
 
-void Inline_response_200_8::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
+void ExportPlayersSuccessResponse::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
 {
     utility::string_t namePrefix = prefix;
     if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
@@ -79,7 +79,7 @@ void Inline_response_200_8::toMultipart(std::shared_ptr<MultipartFormData> multi
     }
 }
 
-bool Inline_response_200_8::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
+bool ExportPlayersSuccessResponse::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
 {
     bool ok = true;
     utility::string_t namePrefix = prefix;
@@ -97,23 +97,23 @@ bool Inline_response_200_8::fromMultiPart(std::shared_ptr<MultipartFormData> mul
     return ok;
 }
 
-utility::string_t Inline_response_200_8::getCsvFileUrl() const
+utility::string_t ExportPlayersSuccessResponse::getCsvFileUrl() const
 {
     return m_Csv_file_url;
 }
 
-void Inline_response_200_8::setCsvFileUrl(const utility::string_t& value)
+void ExportPlayersSuccessResponse::setCsvFileUrl(const utility::string_t& value)
 {
     m_Csv_file_url = value;
     m_Csv_file_urlIsSet = true;
 }
 
-bool Inline_response_200_8::csvFileUrlIsSet() const
+bool ExportPlayersSuccessResponse::csvFileUrlIsSet() const
 {
     return m_Csv_file_urlIsSet;
 }
 
-void Inline_response_200_8::unsetCsv_file_url()
+void ExportPlayersSuccessResponse::unsetCsv_file_url()
 {
     m_Csv_file_urlIsSet = false;
 }

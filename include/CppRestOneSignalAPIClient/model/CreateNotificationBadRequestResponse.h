@@ -11,18 +11,19 @@
  */
 
 /*
- * Inline_response_200_2.h
+ * CreateNotificationBadRequestResponse.h
  *
  * 
  */
 
-#ifndef COM_ONESIGNAL_CLIENT_MODEL_Inline_response_200_2_H_
-#define COM_ONESIGNAL_CLIENT_MODEL_Inline_response_200_2_H_
+#ifndef COM_ONESIGNAL_CLIENT_MODEL_CreateNotificationBadRequestResponse_H_
+#define COM_ONESIGNAL_CLIENT_MODEL_CreateNotificationBadRequestResponse_H_
 
 
 #include "CppRestOneSignalAPIClient/ModelBase.h"
 
 #include <cpprest/details/basic_types.h>
+#include <vector>
 
 namespace com {
 namespace onesignal {
@@ -33,12 +34,12 @@ namespace model {
 /// <summary>
 /// 
 /// </summary>
-class  Inline_response_200_2
+class  CreateNotificationBadRequestResponse
     : public ModelBase
 {
 public:
-    Inline_response_200_2();
-    virtual ~Inline_response_200_2();
+    CreateNotificationBadRequestResponse();
+    virtual ~CreateNotificationBadRequestResponse();
 
     /////////////////////////////////////////////
     /// ModelBase overrides
@@ -52,32 +53,21 @@ public:
     bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
 
     /////////////////////////////////////////////
-    /// Inline_response_200_2 members
+    /// CreateNotificationBadRequestResponse members
 
     /// <summary>
     /// 
     /// </summary>
-    bool isSuccess() const;
-    bool successIsSet() const;
-    void unsetSuccess();
+    std::vector<utility::string_t>& getErrors();
+    bool errorsIsSet() const;
+    void unsetErrors();
 
-    void setSuccess(bool value);
-
-    /// <summary>
-    /// 
-    /// </summary>
-    utility::string_t getDestinationUrl() const;
-    bool destinationUrlIsSet() const;
-    void unsetDestination_url();
-
-    void setDestinationUrl(const utility::string_t& value);
+    void setErrors(const std::vector<utility::string_t>& value);
 
 
 protected:
-    bool m_Success;
-    bool m_SuccessIsSet;
-    utility::string_t m_Destination_url;
-    bool m_Destination_urlIsSet;
+    std::vector<utility::string_t> m_Errors;
+    bool m_ErrorsIsSet;
 };
 
 
@@ -86,4 +76,4 @@ protected:
 }
 }
 
-#endif /* COM_ONESIGNAL_CLIENT_MODEL_Inline_response_200_2_H_ */
+#endif /* COM_ONESIGNAL_CLIENT_MODEL_CreateNotificationBadRequestResponse_H_ */

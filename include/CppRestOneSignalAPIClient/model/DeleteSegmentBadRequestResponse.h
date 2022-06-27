@@ -11,18 +11,19 @@
  */
 
 /*
- * Inline_response_200_5.h
+ * DeleteSegmentBadRequestResponse.h
  *
  * 
  */
 
-#ifndef COM_ONESIGNAL_CLIENT_MODEL_Inline_response_200_5_H_
-#define COM_ONESIGNAL_CLIENT_MODEL_Inline_response_200_5_H_
+#ifndef COM_ONESIGNAL_CLIENT_MODEL_DeleteSegmentBadRequestResponse_H_
+#define COM_ONESIGNAL_CLIENT_MODEL_DeleteSegmentBadRequestResponse_H_
 
 
 #include "CppRestOneSignalAPIClient/ModelBase.h"
 
 #include <cpprest/details/basic_types.h>
+#include <vector>
 
 namespace com {
 namespace onesignal {
@@ -33,12 +34,12 @@ namespace model {
 /// <summary>
 /// 
 /// </summary>
-class  Inline_response_200_5
+class  DeleteSegmentBadRequestResponse
     : public ModelBase
 {
 public:
-    Inline_response_200_5();
-    virtual ~Inline_response_200_5();
+    DeleteSegmentBadRequestResponse();
+    virtual ~DeleteSegmentBadRequestResponse();
 
     /////////////////////////////////////////////
     /// ModelBase overrides
@@ -52,32 +53,21 @@ public:
     bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
 
     /////////////////////////////////////////////
-    /// Inline_response_200_5 members
+    /// DeleteSegmentBadRequestResponse members
 
     /// <summary>
     /// 
     /// </summary>
-    bool isSuccess() const;
-    bool successIsSet() const;
-    void unsetSuccess();
+    std::vector<utility::string_t>& getErorrs();
+    bool erorrsIsSet() const;
+    void unsetErorrs();
 
-    void setSuccess(bool value);
-
-    /// <summary>
-    /// 
-    /// </summary>
-    utility::string_t getId() const;
-    bool idIsSet() const;
-    void unsetId();
-
-    void setId(const utility::string_t& value);
+    void setErorrs(const std::vector<utility::string_t>& value);
 
 
 protected:
-    bool m_Success;
-    bool m_SuccessIsSet;
-    utility::string_t m_Id;
-    bool m_IdIsSet;
+    std::vector<utility::string_t> m_Erorrs;
+    bool m_ErorrsIsSet;
 };
 
 
@@ -86,4 +76,4 @@ protected:
 }
 }
 
-#endif /* COM_ONESIGNAL_CLIENT_MODEL_Inline_response_200_5_H_ */
+#endif /* COM_ONESIGNAL_CLIENT_MODEL_DeleteSegmentBadRequestResponse_H_ */

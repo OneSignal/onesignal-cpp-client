@@ -11,13 +11,13 @@
  */
 
 /*
- * Inline_response_201.h
+ * DeletePlayerNotFoundResponse.h
  *
  * 
  */
 
-#ifndef COM_ONESIGNAL_CLIENT_MODEL_Inline_response_201_H_
-#define COM_ONESIGNAL_CLIENT_MODEL_Inline_response_201_H_
+#ifndef COM_ONESIGNAL_CLIENT_MODEL_DeletePlayerNotFoundResponse_H_
+#define COM_ONESIGNAL_CLIENT_MODEL_DeletePlayerNotFoundResponse_H_
 
 
 #include "CppRestOneSignalAPIClient/ModelBase.h"
@@ -33,12 +33,12 @@ namespace model {
 /// <summary>
 /// 
 /// </summary>
-class  Inline_response_201
+class  DeletePlayerNotFoundResponse
     : public ModelBase
 {
 public:
-    Inline_response_201();
-    virtual ~Inline_response_201();
+    DeletePlayerNotFoundResponse();
+    virtual ~DeletePlayerNotFoundResponse();
 
     /////////////////////////////////////////////
     /// ModelBase overrides
@@ -52,32 +52,21 @@ public:
     bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
 
     /////////////////////////////////////////////
-    /// Inline_response_201 members
+    /// DeletePlayerNotFoundResponse members
 
     /// <summary>
     /// 
     /// </summary>
-    bool isSuccess() const;
+    utility::string_t getSuccess() const;
     bool successIsSet() const;
     void unsetSuccess();
 
-    void setSuccess(bool value);
-
-    /// <summary>
-    /// UUID of created segment
-    /// </summary>
-    utility::string_t getId() const;
-    bool idIsSet() const;
-    void unsetId();
-
-    void setId(const utility::string_t& value);
+    void setSuccess(const utility::string_t& value);
 
 
 protected:
-    bool m_Success;
+    utility::string_t m_Success;
     bool m_SuccessIsSet;
-    utility::string_t m_Id;
-    bool m_IdIsSet;
 };
 
 
@@ -86,4 +75,4 @@ protected:
 }
 }
 
-#endif /* COM_ONESIGNAL_CLIENT_MODEL_Inline_response_201_H_ */
+#endif /* COM_ONESIGNAL_CLIENT_MODEL_DeletePlayerNotFoundResponse_H_ */

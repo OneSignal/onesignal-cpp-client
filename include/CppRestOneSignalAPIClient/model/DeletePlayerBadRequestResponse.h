@@ -11,13 +11,13 @@
  */
 
 /*
- * Inline_response_400.h
+ * DeletePlayerBadRequestResponse.h
  *
  * 
  */
 
-#ifndef COM_ONESIGNAL_CLIENT_MODEL_Inline_response_400_H_
-#define COM_ONESIGNAL_CLIENT_MODEL_Inline_response_400_H_
+#ifndef COM_ONESIGNAL_CLIENT_MODEL_DeletePlayerBadRequestResponse_H_
+#define COM_ONESIGNAL_CLIENT_MODEL_DeletePlayerBadRequestResponse_H_
 
 
 #include "CppRestOneSignalAPIClient/ModelBase.h"
@@ -34,12 +34,12 @@ namespace model {
 /// <summary>
 /// 
 /// </summary>
-class  Inline_response_400
+class  DeletePlayerBadRequestResponse
     : public ModelBase
 {
 public:
-    Inline_response_400();
-    virtual ~Inline_response_400();
+    DeletePlayerBadRequestResponse();
+    virtual ~DeletePlayerBadRequestResponse();
 
     /////////////////////////////////////////////
     /// ModelBase overrides
@@ -53,21 +53,21 @@ public:
     bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
 
     /////////////////////////////////////////////
-    /// Inline_response_400 members
+    /// DeletePlayerBadRequestResponse members
 
     /// <summary>
     /// 
     /// </summary>
-    std::vector<utility::string_t>& getErrors();
-    bool errorsIsSet() const;
-    void unsetErrors();
+    std::vector<utility::string_t>& getErorrs();
+    bool erorrsIsSet() const;
+    void unsetErorrs();
 
-    void setErrors(const std::vector<utility::string_t>& value);
+    void setErorrs(const std::vector<utility::string_t>& value);
 
 
 protected:
-    std::vector<utility::string_t> m_Errors;
-    bool m_ErrorsIsSet;
+    std::vector<utility::string_t> m_Erorrs;
+    bool m_ErorrsIsSet;
 };
 
 
@@ -76,4 +76,4 @@ protected:
 }
 }
 
-#endif /* COM_ONESIGNAL_CLIENT_MODEL_Inline_response_400_H_ */
+#endif /* COM_ONESIGNAL_CLIENT_MODEL_DeletePlayerBadRequestResponse_H_ */

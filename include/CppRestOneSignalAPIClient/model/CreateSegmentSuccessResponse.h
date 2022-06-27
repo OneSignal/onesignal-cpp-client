@@ -11,17 +11,18 @@
  */
 
 /*
- * Inline_response_200_1.h
+ * CreateSegmentSuccessResponse.h
  *
  * 
  */
 
-#ifndef COM_ONESIGNAL_CLIENT_MODEL_Inline_response_200_1_H_
-#define COM_ONESIGNAL_CLIENT_MODEL_Inline_response_200_1_H_
+#ifndef COM_ONESIGNAL_CLIENT_MODEL_CreateSegmentSuccessResponse_H_
+#define COM_ONESIGNAL_CLIENT_MODEL_CreateSegmentSuccessResponse_H_
 
 
 #include "CppRestOneSignalAPIClient/ModelBase.h"
 
+#include <cpprest/details/basic_types.h>
 
 namespace com {
 namespace onesignal {
@@ -32,12 +33,12 @@ namespace model {
 /// <summary>
 /// 
 /// </summary>
-class  Inline_response_200_1
+class  CreateSegmentSuccessResponse
     : public ModelBase
 {
 public:
-    Inline_response_200_1();
-    virtual ~Inline_response_200_1();
+    CreateSegmentSuccessResponse();
+    virtual ~CreateSegmentSuccessResponse();
 
     /////////////////////////////////////////////
     /// ModelBase overrides
@@ -51,7 +52,7 @@ public:
     bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
 
     /////////////////////////////////////////////
-    /// Inline_response_200_1 members
+    /// CreateSegmentSuccessResponse members
 
     /// <summary>
     /// 
@@ -62,10 +63,21 @@ public:
 
     void setSuccess(bool value);
 
+    /// <summary>
+    /// UUID of created segment
+    /// </summary>
+    utility::string_t getId() const;
+    bool idIsSet() const;
+    void unsetId();
+
+    void setId(const utility::string_t& value);
+
 
 protected:
     bool m_Success;
     bool m_SuccessIsSet;
+    utility::string_t m_Id;
+    bool m_IdIsSet;
 };
 
 
@@ -74,4 +86,4 @@ protected:
 }
 }
 
-#endif /* COM_ONESIGNAL_CLIENT_MODEL_Inline_response_200_1_H_ */
+#endif /* COM_ONESIGNAL_CLIENT_MODEL_CreateSegmentSuccessResponse_H_ */

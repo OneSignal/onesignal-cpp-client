@@ -12,7 +12,7 @@
 
 
 
-#include "CppRestOneSignalAPIClient/model/Inline_response_200_1.h"
+#include "CppRestOneSignalAPIClient/model/CancelNotificationSuccessResponse.h"
 
 namespace com {
 namespace onesignal {
@@ -21,22 +21,22 @@ namespace model {
 
 
 
-Inline_response_200_1::Inline_response_200_1()
+CancelNotificationSuccessResponse::CancelNotificationSuccessResponse()
 {
     m_Success = false;
     m_SuccessIsSet = false;
 }
 
-Inline_response_200_1::~Inline_response_200_1()
+CancelNotificationSuccessResponse::~CancelNotificationSuccessResponse()
 {
 }
 
-void Inline_response_200_1::validate()
+void CancelNotificationSuccessResponse::validate()
 {
     // TODO: implement validation
 }
 
-web::json::value Inline_response_200_1::toJson() const
+web::json::value CancelNotificationSuccessResponse::toJson() const
 {
 
     web::json::value val = web::json::value::object();
@@ -49,7 +49,7 @@ web::json::value Inline_response_200_1::toJson() const
     return val;
 }
 
-bool Inline_response_200_1::fromJson(const web::json::value& val)
+bool CancelNotificationSuccessResponse::fromJson(const web::json::value& val)
 {
     bool ok = true;
     
@@ -66,7 +66,7 @@ bool Inline_response_200_1::fromJson(const web::json::value& val)
     return ok;
 }
 
-void Inline_response_200_1::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
+void CancelNotificationSuccessResponse::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
 {
     utility::string_t namePrefix = prefix;
     if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
@@ -79,7 +79,7 @@ void Inline_response_200_1::toMultipart(std::shared_ptr<MultipartFormData> multi
     }
 }
 
-bool Inline_response_200_1::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
+bool CancelNotificationSuccessResponse::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
 {
     bool ok = true;
     utility::string_t namePrefix = prefix;
@@ -97,23 +97,23 @@ bool Inline_response_200_1::fromMultiPart(std::shared_ptr<MultipartFormData> mul
     return ok;
 }
 
-bool Inline_response_200_1::isSuccess() const
+bool CancelNotificationSuccessResponse::isSuccess() const
 {
     return m_Success;
 }
 
-void Inline_response_200_1::setSuccess(bool value)
+void CancelNotificationSuccessResponse::setSuccess(bool value)
 {
     m_Success = value;
     m_SuccessIsSet = true;
 }
 
-bool Inline_response_200_1::successIsSet() const
+bool CancelNotificationSuccessResponse::successIsSet() const
 {
     return m_SuccessIsSet;
 }
 
-void Inline_response_200_1::unsetSuccess()
+void CancelNotificationSuccessResponse::unsetSuccess()
 {
     m_SuccessIsSet = false;
 }

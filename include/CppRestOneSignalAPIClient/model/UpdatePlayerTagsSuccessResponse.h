@@ -11,19 +11,17 @@
  */
 
 /*
- * Inline_response_400_2.h
+ * UpdatePlayerTagsSuccessResponse.h
  *
  * 
  */
 
-#ifndef COM_ONESIGNAL_CLIENT_MODEL_Inline_response_400_2_H_
-#define COM_ONESIGNAL_CLIENT_MODEL_Inline_response_400_2_H_
+#ifndef COM_ONESIGNAL_CLIENT_MODEL_UpdatePlayerTagsSuccessResponse_H_
+#define COM_ONESIGNAL_CLIENT_MODEL_UpdatePlayerTagsSuccessResponse_H_
 
 
 #include "CppRestOneSignalAPIClient/ModelBase.h"
 
-#include <cpprest/details/basic_types.h>
-#include <vector>
 
 namespace com {
 namespace onesignal {
@@ -34,12 +32,12 @@ namespace model {
 /// <summary>
 /// 
 /// </summary>
-class  Inline_response_400_2
+class  UpdatePlayerTagsSuccessResponse
     : public ModelBase
 {
 public:
-    Inline_response_400_2();
-    virtual ~Inline_response_400_2();
+    UpdatePlayerTagsSuccessResponse();
+    virtual ~UpdatePlayerTagsSuccessResponse();
 
     /////////////////////////////////////////////
     /// ModelBase overrides
@@ -53,7 +51,7 @@ public:
     bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
 
     /////////////////////////////////////////////
-    /// Inline_response_400_2 members
+    /// UpdatePlayerTagsSuccessResponse members
 
     /// <summary>
     /// 
@@ -64,21 +62,10 @@ public:
 
     void setSuccess(bool value);
 
-    /// <summary>
-    /// 
-    /// </summary>
-    std::vector<utility::string_t>& getErrors();
-    bool errorsIsSet() const;
-    void unsetErrors();
-
-    void setErrors(const std::vector<utility::string_t>& value);
-
 
 protected:
     bool m_Success;
     bool m_SuccessIsSet;
-    std::vector<utility::string_t> m_Errors;
-    bool m_ErrorsIsSet;
 };
 
 
@@ -87,4 +74,4 @@ protected:
 }
 }
 
-#endif /* COM_ONESIGNAL_CLIENT_MODEL_Inline_response_400_2_H_ */
+#endif /* COM_ONESIGNAL_CLIENT_MODEL_UpdatePlayerTagsSuccessResponse_H_ */

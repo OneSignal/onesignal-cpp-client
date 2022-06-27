@@ -12,7 +12,7 @@
 
 
 
-#include "CppRestOneSignalAPIClient/model/Inline_response_400_3.h"
+#include "CppRestOneSignalAPIClient/model/DeleteSegmentBadRequestResponse.h"
 
 namespace com {
 namespace onesignal {
@@ -21,21 +21,21 @@ namespace model {
 
 
 
-Inline_response_400_3::Inline_response_400_3()
+DeleteSegmentBadRequestResponse::DeleteSegmentBadRequestResponse()
 {
     m_ErorrsIsSet = false;
 }
 
-Inline_response_400_3::~Inline_response_400_3()
+DeleteSegmentBadRequestResponse::~DeleteSegmentBadRequestResponse()
 {
 }
 
-void Inline_response_400_3::validate()
+void DeleteSegmentBadRequestResponse::validate()
 {
     // TODO: implement validation
 }
 
-web::json::value Inline_response_400_3::toJson() const
+web::json::value DeleteSegmentBadRequestResponse::toJson() const
 {
 
     web::json::value val = web::json::value::object();
@@ -48,7 +48,7 @@ web::json::value Inline_response_400_3::toJson() const
     return val;
 }
 
-bool Inline_response_400_3::fromJson(const web::json::value& val)
+bool DeleteSegmentBadRequestResponse::fromJson(const web::json::value& val)
 {
     bool ok = true;
     
@@ -65,7 +65,7 @@ bool Inline_response_400_3::fromJson(const web::json::value& val)
     return ok;
 }
 
-void Inline_response_400_3::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
+void DeleteSegmentBadRequestResponse::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
 {
     utility::string_t namePrefix = prefix;
     if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
@@ -78,7 +78,7 @@ void Inline_response_400_3::toMultipart(std::shared_ptr<MultipartFormData> multi
     }
 }
 
-bool Inline_response_400_3::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
+bool DeleteSegmentBadRequestResponse::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
 {
     bool ok = true;
     utility::string_t namePrefix = prefix;
@@ -96,23 +96,23 @@ bool Inline_response_400_3::fromMultiPart(std::shared_ptr<MultipartFormData> mul
     return ok;
 }
 
-std::vector<utility::string_t>& Inline_response_400_3::getErorrs()
+std::vector<utility::string_t>& DeleteSegmentBadRequestResponse::getErorrs()
 {
     return m_Erorrs;
 }
 
-void Inline_response_400_3::setErorrs(const std::vector<utility::string_t>& value)
+void DeleteSegmentBadRequestResponse::setErorrs(const std::vector<utility::string_t>& value)
 {
     m_Erorrs = value;
     m_ErorrsIsSet = true;
 }
 
-bool Inline_response_400_3::erorrsIsSet() const
+bool DeleteSegmentBadRequestResponse::erorrsIsSet() const
 {
     return m_ErorrsIsSet;
 }
 
-void Inline_response_400_3::unsetErorrs()
+void DeleteSegmentBadRequestResponse::unsetErorrs()
 {
     m_ErorrsIsSet = false;
 }

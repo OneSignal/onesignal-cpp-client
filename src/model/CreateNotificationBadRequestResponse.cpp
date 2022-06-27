@@ -12,7 +12,7 @@
 
 
 
-#include "CppRestOneSignalAPIClient/model/Inline_response_400.h"
+#include "CppRestOneSignalAPIClient/model/CreateNotificationBadRequestResponse.h"
 
 namespace com {
 namespace onesignal {
@@ -21,21 +21,21 @@ namespace model {
 
 
 
-Inline_response_400::Inline_response_400()
+CreateNotificationBadRequestResponse::CreateNotificationBadRequestResponse()
 {
     m_ErrorsIsSet = false;
 }
 
-Inline_response_400::~Inline_response_400()
+CreateNotificationBadRequestResponse::~CreateNotificationBadRequestResponse()
 {
 }
 
-void Inline_response_400::validate()
+void CreateNotificationBadRequestResponse::validate()
 {
     // TODO: implement validation
 }
 
-web::json::value Inline_response_400::toJson() const
+web::json::value CreateNotificationBadRequestResponse::toJson() const
 {
 
     web::json::value val = web::json::value::object();
@@ -48,7 +48,7 @@ web::json::value Inline_response_400::toJson() const
     return val;
 }
 
-bool Inline_response_400::fromJson(const web::json::value& val)
+bool CreateNotificationBadRequestResponse::fromJson(const web::json::value& val)
 {
     bool ok = true;
     
@@ -65,7 +65,7 @@ bool Inline_response_400::fromJson(const web::json::value& val)
     return ok;
 }
 
-void Inline_response_400::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
+void CreateNotificationBadRequestResponse::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
 {
     utility::string_t namePrefix = prefix;
     if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
@@ -78,7 +78,7 @@ void Inline_response_400::toMultipart(std::shared_ptr<MultipartFormData> multipa
     }
 }
 
-bool Inline_response_400::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
+bool CreateNotificationBadRequestResponse::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
 {
     bool ok = true;
     utility::string_t namePrefix = prefix;
@@ -96,23 +96,23 @@ bool Inline_response_400::fromMultiPart(std::shared_ptr<MultipartFormData> multi
     return ok;
 }
 
-std::vector<utility::string_t>& Inline_response_400::getErrors()
+std::vector<utility::string_t>& CreateNotificationBadRequestResponse::getErrors()
 {
     return m_Errors;
 }
 
-void Inline_response_400::setErrors(const std::vector<utility::string_t>& value)
+void CreateNotificationBadRequestResponse::setErrors(const std::vector<utility::string_t>& value)
 {
     m_Errors = value;
     m_ErrorsIsSet = true;
 }
 
-bool Inline_response_400::errorsIsSet() const
+bool CreateNotificationBadRequestResponse::errorsIsSet() const
 {
     return m_ErrorsIsSet;
 }
 
-void Inline_response_400::unsetErrors()
+void CreateNotificationBadRequestResponse::unsetErrors()
 {
     m_ErrorsIsSet = false;
 }

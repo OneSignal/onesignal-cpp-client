@@ -11,19 +11,17 @@
  */
 
 /*
- * Inline_response_400_3.h
+ * CancelNotificationSuccessResponse.h
  *
  * 
  */
 
-#ifndef COM_ONESIGNAL_CLIENT_MODEL_Inline_response_400_3_H_
-#define COM_ONESIGNAL_CLIENT_MODEL_Inline_response_400_3_H_
+#ifndef COM_ONESIGNAL_CLIENT_MODEL_CancelNotificationSuccessResponse_H_
+#define COM_ONESIGNAL_CLIENT_MODEL_CancelNotificationSuccessResponse_H_
 
 
 #include "CppRestOneSignalAPIClient/ModelBase.h"
 
-#include <cpprest/details/basic_types.h>
-#include <vector>
 
 namespace com {
 namespace onesignal {
@@ -34,12 +32,12 @@ namespace model {
 /// <summary>
 /// 
 /// </summary>
-class  Inline_response_400_3
+class  CancelNotificationSuccessResponse
     : public ModelBase
 {
 public:
-    Inline_response_400_3();
-    virtual ~Inline_response_400_3();
+    CancelNotificationSuccessResponse();
+    virtual ~CancelNotificationSuccessResponse();
 
     /////////////////////////////////////////////
     /// ModelBase overrides
@@ -53,21 +51,21 @@ public:
     bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
 
     /////////////////////////////////////////////
-    /// Inline_response_400_3 members
+    /// CancelNotificationSuccessResponse members
 
     /// <summary>
     /// 
     /// </summary>
-    std::vector<utility::string_t>& getErorrs();
-    bool erorrsIsSet() const;
-    void unsetErorrs();
+    bool isSuccess() const;
+    bool successIsSet() const;
+    void unsetSuccess();
 
-    void setErorrs(const std::vector<utility::string_t>& value);
+    void setSuccess(bool value);
 
 
 protected:
-    std::vector<utility::string_t> m_Erorrs;
-    bool m_ErorrsIsSet;
+    bool m_Success;
+    bool m_SuccessIsSet;
 };
 
 
@@ -76,4 +74,4 @@ protected:
 }
 }
 
-#endif /* COM_ONESIGNAL_CLIENT_MODEL_Inline_response_400_3_H_ */
+#endif /* COM_ONESIGNAL_CLIENT_MODEL_CancelNotificationSuccessResponse_H_ */
