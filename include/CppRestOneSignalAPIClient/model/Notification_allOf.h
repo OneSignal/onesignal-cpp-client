@@ -81,6 +81,15 @@ public:
     void setValue(int32_t value);
 
     /// <summary>
+    /// Required for SMS Messages. An identifier for tracking message within the OneSignal dashboard or export analytics. Not shown to end user.
+    /// </summary>
+    utility::string_t getName() const;
+    bool nameIsSet() const;
+    void unsetName();
+
+    void setName(const utility::string_t& value);
+
+    /// <summary>
     /// 
     /// </summary>
     utility::string_t getAggregation() const;
@@ -860,6 +869,8 @@ protected:
     bool m_IdIsSet;
     int32_t m_Value;
     bool m_ValueIsSet;
+    utility::string_t m_Name;
+    bool m_NameIsSet;
     utility::string_t m_Aggregation;
     bool m_AggregationIsSet;
     bool m_IsIos;

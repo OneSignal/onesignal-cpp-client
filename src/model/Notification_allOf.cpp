@@ -27,6 +27,8 @@ Notification_allOf::Notification_allOf()
     m_IdIsSet = false;
     m_Value = 0;
     m_ValueIsSet = false;
+    m_Name = utility::conversions::to_string_t("");
+    m_NameIsSet = false;
     m_Aggregation = utility::conversions::to_string_t("");
     m_AggregationIsSet = false;
     m_IsIos = false;
@@ -211,6 +213,10 @@ web::json::value Notification_allOf::toJson() const
     if(m_ValueIsSet)
     {
         val[utility::conversions::to_string_t(U("value"))] = ModelBase::toJson(m_Value);
+    }
+    if(m_NameIsSet)
+    {
+        val[utility::conversions::to_string_t(U("name"))] = ModelBase::toJson(m_Name);
     }
     if(m_AggregationIsSet)
     {
@@ -582,6 +588,16 @@ bool Notification_allOf::fromJson(const web::json::value& val)
             int32_t refVal_setValue;
             ok &= ModelBase::fromJson(fieldValue, refVal_setValue);
             setValue(refVal_setValue);
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t(U("name"))))
+    {
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("name")));
+        if(!fieldValue.is_null())
+        {
+            utility::string_t refVal_setName;
+            ok &= ModelBase::fromJson(fieldValue, refVal_setName);
+            setName(refVal_setName);
         }
     }
     if(val.has_field(utility::conversions::to_string_t(U("aggregation"))))
@@ -1462,6 +1478,10 @@ void Notification_allOf::toMultipart(std::shared_ptr<MultipartFormData> multipar
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("value")), m_Value));
     }
+    if(m_NameIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("name")), m_Name));
+    }
     if(m_AggregationIsSet)
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("aggregation")), m_Aggregation));
@@ -1828,6 +1848,12 @@ bool Notification_allOf::fromMultiPart(std::shared_ptr<MultipartFormData> multip
         int32_t refVal_setValue;
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("value"))), refVal_setValue );
         setValue(refVal_setValue);
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t(U("name"))))
+    {
+        utility::string_t refVal_setName;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("name"))), refVal_setName );
+        setName(refVal_setName);
     }
     if(multipart->hasContent(utility::conversions::to_string_t(U("aggregation"))))
     {
@@ -2387,6 +2413,26 @@ bool Notification_allOf::valueIsSet() const
 void Notification_allOf::unsetValue()
 {
     m_ValueIsSet = false;
+}
+utility::string_t Notification_allOf::getName() const
+{
+    return m_Name;
+}
+
+void Notification_allOf::setName(const utility::string_t& value)
+{
+    m_Name = value;
+    m_NameIsSet = true;
+}
+
+bool Notification_allOf::nameIsSet() const
+{
+    return m_NameIsSet;
+}
+
+void Notification_allOf::unsetName()
+{
+    m_NameIsSet = false;
 }
 utility::string_t Notification_allOf::getAggregation() const
 {
