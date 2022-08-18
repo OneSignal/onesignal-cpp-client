@@ -23,7 +23,7 @@ namespace model {
 
 DeletePlayerNotFoundResponse::DeletePlayerNotFoundResponse()
 {
-    m_Success = utility::conversions::to_string_t("");
+    m_Success = false;
     m_SuccessIsSet = false;
 }
 
@@ -58,7 +58,7 @@ bool DeletePlayerNotFoundResponse::fromJson(const web::json::value& val)
         const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("success")));
         if(!fieldValue.is_null())
         {
-            utility::string_t refVal_setSuccess;
+            bool refVal_setSuccess;
             ok &= ModelBase::fromJson(fieldValue, refVal_setSuccess);
             setSuccess(refVal_setSuccess);
         }
@@ -90,19 +90,19 @@ bool DeletePlayerNotFoundResponse::fromMultiPart(std::shared_ptr<MultipartFormDa
 
     if(multipart->hasContent(utility::conversions::to_string_t(U("success"))))
     {
-        utility::string_t refVal_setSuccess;
+        bool refVal_setSuccess;
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("success"))), refVal_setSuccess );
         setSuccess(refVal_setSuccess);
     }
     return ok;
 }
 
-utility::string_t DeletePlayerNotFoundResponse::getSuccess() const
+bool DeletePlayerNotFoundResponse::isSuccess() const
 {
     return m_Success;
 }
 
-void DeletePlayerNotFoundResponse::setSuccess(const utility::string_t& value)
+void DeletePlayerNotFoundResponse::setSuccess(bool value)
 {
     m_Success = value;
     m_SuccessIsSet = true;

@@ -22,7 +22,6 @@
 
 #include "CppRestOneSignalAPIClient/ModelBase.h"
 
-#include <cpprest/details/basic_types.h>
 
 namespace com {
 namespace onesignal {
@@ -57,15 +56,15 @@ public:
     /// <summary>
     /// 
     /// </summary>
-    utility::string_t getSuccess() const;
+    bool isSuccess() const;
     bool successIsSet() const;
     void unsetSuccess();
 
-    void setSuccess(const utility::string_t& value);
+    void setSuccess(bool value);
 
 
 protected:
-    utility::string_t m_Success;
+    bool m_Success;
     bool m_SuccessIsSet;
 };
 

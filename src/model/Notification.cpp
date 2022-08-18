@@ -188,8 +188,6 @@ Notification::Notification()
     m_Web_push_topic = utility::conversions::to_string_t("");
     m_Web_push_topicIsSet = false;
     m_Apns_alertIsSet = false;
-    m_Send_after = utility::datetime();
-    m_Send_afterIsSet = false;
     m_Delayed_option = utility::conversions::to_string_t("");
     m_Delayed_optionIsSet = false;
     m_Delivery_time_of_day = utility::conversions::to_string_t("");
@@ -226,6 +224,8 @@ Notification::Notification()
     m_Sms_from = utility::conversions::to_string_t("");
     m_Sms_fromIsSet = false;
     m_Sms_media_urlsIsSet = false;
+    m_Send_after = utility::datetime();
+    m_Send_afterIsSet = false;
 }
 
 Notification::~Notification()
@@ -614,10 +614,6 @@ web::json::value Notification::toJson() const
     {
         val[utility::conversions::to_string_t(U("apns_alert"))] = ModelBase::toJson(m_Apns_alert);
     }
-    if(m_Send_afterIsSet)
-    {
-        val[utility::conversions::to_string_t(U("send_after"))] = ModelBase::toJson(m_Send_after);
-    }
     if(m_Delayed_optionIsSet)
     {
         val[utility::conversions::to_string_t(U("delayed_option"))] = ModelBase::toJson(m_Delayed_option);
@@ -693,6 +689,10 @@ web::json::value Notification::toJson() const
     if(m_Sms_media_urlsIsSet)
     {
         val[utility::conversions::to_string_t(U("sms_media_urls"))] = ModelBase::toJson(m_Sms_media_urls);
+    }
+    if(m_Send_afterIsSet)
+    {
+        val[utility::conversions::to_string_t(U("send_after"))] = ModelBase::toJson(m_Send_after);
     }
 
     return val;
@@ -1367,7 +1367,7 @@ bool Notification::fromJson(const web::json::value& val)
         const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("android_background_layout")));
         if(!fieldValue.is_null())
         {
-            std::shared_ptr<Notification_allOf_android_background_layout> refVal_setAndroidBackgroundLayout;
+            std::shared_ptr<BasicNotification_allOf_android_background_layout> refVal_setAndroidBackgroundLayout;
             ok &= ModelBase::fromJson(fieldValue, refVal_setAndroidBackgroundLayout);
             setAndroidBackgroundLayout(refVal_setAndroidBackgroundLayout);
         }
@@ -1632,16 +1632,6 @@ bool Notification::fromJson(const web::json::value& val)
             setApnsAlert(refVal_setApnsAlert);
         }
     }
-    if(val.has_field(utility::conversions::to_string_t(U("send_after"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("send_after")));
-        if(!fieldValue.is_null())
-        {
-            utility::datetime refVal_setSendAfter;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setSendAfter);
-            setSendAfter(refVal_setSendAfter);
-        }
-    }
     if(val.has_field(utility::conversions::to_string_t(U("delayed_option"))))
     {
         const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("delayed_option")));
@@ -1830,6 +1820,16 @@ bool Notification::fromJson(const web::json::value& val)
             std::vector<utility::string_t> refVal_setSmsMediaUrls;
             ok &= ModelBase::fromJson(fieldValue, refVal_setSmsMediaUrls);
             setSmsMediaUrls(refVal_setSmsMediaUrls);
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t(U("send_after"))))
+    {
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("send_after")));
+        if(!fieldValue.is_null())
+        {
+            utility::datetime refVal_setSendAfter;
+            ok &= ModelBase::fromJson(fieldValue, refVal_setSendAfter);
+            setSendAfter(refVal_setSendAfter);
         }
     }
     return ok;
@@ -2214,10 +2214,6 @@ void Notification::toMultipart(std::shared_ptr<MultipartFormData> multipart, con
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("apns_alert")), m_Apns_alert));
     }
-    if(m_Send_afterIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("send_after")), m_Send_after));
-    }
     if(m_Delayed_optionIsSet)
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("delayed_option")), m_Delayed_option));
@@ -2293,6 +2289,10 @@ void Notification::toMultipart(std::shared_ptr<MultipartFormData> multipart, con
     if(m_Sms_media_urlsIsSet)
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("sms_media_urls")), m_Sms_media_urls));
+    }
+    if(m_Send_afterIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("send_after")), m_Send_after));
     }
 }
 
@@ -2703,7 +2703,7 @@ bool Notification::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, c
     }
     if(multipart->hasContent(utility::conversions::to_string_t(U("android_background_layout"))))
     {
-        std::shared_ptr<Notification_allOf_android_background_layout> refVal_setAndroidBackgroundLayout;
+        std::shared_ptr<BasicNotification_allOf_android_background_layout> refVal_setAndroidBackgroundLayout;
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("android_background_layout"))), refVal_setAndroidBackgroundLayout );
         setAndroidBackgroundLayout(refVal_setAndroidBackgroundLayout);
     }
@@ -2863,12 +2863,6 @@ bool Notification::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, c
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("apns_alert"))), refVal_setApnsAlert );
         setApnsAlert(refVal_setApnsAlert);
     }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("send_after"))))
-    {
-        utility::datetime refVal_setSendAfter;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("send_after"))), refVal_setSendAfter );
-        setSendAfter(refVal_setSendAfter);
-    }
     if(multipart->hasContent(utility::conversions::to_string_t(U("delayed_option"))))
     {
         utility::string_t refVal_setDelayedOption;
@@ -2982,6 +2976,12 @@ bool Notification::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, c
         std::vector<utility::string_t> refVal_setSmsMediaUrls;
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("sms_media_urls"))), refVal_setSmsMediaUrls );
         setSmsMediaUrls(refVal_setSmsMediaUrls);
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t(U("send_after"))))
+    {
+        utility::datetime refVal_setSendAfter;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("send_after"))), refVal_setSendAfter );
+        setSendAfter(refVal_setSendAfter);
     }
     return ok;
 }
@@ -4306,12 +4306,12 @@ void Notification::unsetHuawei_existing_channel_id()
 {
     m_Huawei_existing_channel_idIsSet = false;
 }
-std::shared_ptr<Notification_allOf_android_background_layout> Notification::getAndroidBackgroundLayout() const
+std::shared_ptr<BasicNotification_allOf_android_background_layout> Notification::getAndroidBackgroundLayout() const
 {
     return m_Android_background_layout;
 }
 
-void Notification::setAndroidBackgroundLayout(const std::shared_ptr<Notification_allOf_android_background_layout>& value)
+void Notification::setAndroidBackgroundLayout(const std::shared_ptr<BasicNotification_allOf_android_background_layout>& value)
 {
     m_Android_background_layout = value;
     m_Android_background_layoutIsSet = true;
@@ -4846,26 +4846,6 @@ void Notification::unsetApns_alert()
 {
     m_Apns_alertIsSet = false;
 }
-utility::datetime Notification::getSendAfter() const
-{
-    return m_Send_after;
-}
-
-void Notification::setSendAfter(const utility::datetime& value)
-{
-    m_Send_after = value;
-    m_Send_afterIsSet = true;
-}
-
-bool Notification::sendAfterIsSet() const
-{
-    return m_Send_afterIsSet;
-}
-
-void Notification::unsetSend_after()
-{
-    m_Send_afterIsSet = false;
-}
 utility::string_t Notification::getDelayedOption() const
 {
     return m_Delayed_option;
@@ -5245,6 +5225,26 @@ bool Notification::smsMediaUrlsIsSet() const
 void Notification::unsetSms_media_urls()
 {
     m_Sms_media_urlsIsSet = false;
+}
+utility::datetime Notification::getSendAfter() const
+{
+    return m_Send_after;
+}
+
+void Notification::setSendAfter(const utility::datetime& value)
+{
+    m_Send_after = value;
+    m_Send_afterIsSet = true;
+}
+
+bool Notification::sendAfterIsSet() const
+{
+    return m_Send_afterIsSet;
+}
+
+void Notification::unsetSend_after()
+{
+    m_Send_afterIsSet = false;
 }
 }
 }

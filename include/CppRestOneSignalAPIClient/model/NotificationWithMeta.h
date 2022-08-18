@@ -25,11 +25,11 @@
 #include "CppRestOneSignalAPIClient/model/PlatformDeliveryData.h"
 #include "CppRestOneSignalAPIClient/model/Button.h"
 #include "CppRestOneSignalAPIClient/Object.h"
+#include "CppRestOneSignalAPIClient/model/BasicNotification.h"
 #include "CppRestOneSignalAPIClient/model/OutcomesData.h"
-#include "CppRestOneSignalAPIClient/model/Notification.h"
 #include "CppRestOneSignalAPIClient/model/StringMap.h"
 #include <cpprest/details/basic_types.h>
-#include "CppRestOneSignalAPIClient/model/Notification_allOf_android_background_layout.h"
+#include "CppRestOneSignalAPIClient/model/BasicNotification_allOf_android_background_layout.h"
 #include "CppRestOneSignalAPIClient/model/DeliveryData.h"
 #include "CppRestOneSignalAPIClient/model/OutcomeData.h"
 #include "CppRestOneSignalAPIClient/model/NotificationWithMeta_allOf.h"
@@ -42,7 +42,7 @@ namespace model {
 
 class StringMap;
 class Button;
-class Notification_allOf_android_background_layout;
+class BasicNotification_allOf_android_background_layout;
 class OutcomeData;
 class PlatformDeliveryData;
 
@@ -667,11 +667,11 @@ public:
     /// <summary>
     /// 
     /// </summary>
-    std::shared_ptr<Notification_allOf_android_background_layout> getAndroidBackgroundLayout() const;
+    std::shared_ptr<BasicNotification_allOf_android_background_layout> getAndroidBackgroundLayout() const;
     bool androidBackgroundLayoutIsSet() const;
     void unsetAndroid_background_layout();
 
-    void setAndroidBackgroundLayout(const std::shared_ptr<Notification_allOf_android_background_layout>& value);
+    void setAndroidBackgroundLayout(const std::shared_ptr<BasicNotification_allOf_android_background_layout>& value);
 
     /// <summary>
     /// Channel: Push Notifications Platform: Android Icon shown in the status bar and on the top left of the notification. If not set a bell icon will be used or ic_stat_onesignal_default if you have set this resource name. See: How to create small icons 
@@ -906,15 +906,6 @@ public:
     void unsetApns_alert();
 
     void setApnsAlert(const std::shared_ptr<Object>& value);
-
-    /// <summary>
-    /// Unix timestamp indicating when notification delivery should begin.
-    /// </summary>
-    int64_t getSendAfter() const;
-    bool sendAfterIsSet() const;
-    void unsetSend_after();
-
-    void setSendAfter(int64_t value);
 
     /// <summary>
     /// Channel: All Possible values are: timezone (Deliver at a specific time-of-day in each users own timezone) last-active Same as Intelligent Delivery . (Deliver at the same time of day as each user last used your app). If send_after is used, this takes effect after the send_after time has elapsed. 
@@ -1160,6 +1151,15 @@ public:
     void setQueuedAt(int64_t value);
 
     /// <summary>
+    /// Unix timestamp indicating when notification delivery should begin.
+    /// </summary>
+    int64_t getSendAfter() const;
+    bool sendAfterIsSet() const;
+    void unsetSend_after();
+
+    void setSendAfter(int64_t value);
+
+    /// <summary>
     /// Unix timestamp indicating when notification delivery completed. The delivery duration from start to finish can be calculated with completed_at - send_after.
     /// </summary>
     int64_t getCompletedAt() const;
@@ -1311,7 +1311,7 @@ protected:
     bool m_Existing_android_channel_idIsSet;
     utility::string_t m_Huawei_existing_channel_id;
     bool m_Huawei_existing_channel_idIsSet;
-    std::shared_ptr<Notification_allOf_android_background_layout> m_Android_background_layout;
+    std::shared_ptr<BasicNotification_allOf_android_background_layout> m_Android_background_layout;
     bool m_Android_background_layoutIsSet;
     utility::string_t m_Small_icon;
     bool m_Small_iconIsSet;
@@ -1365,8 +1365,6 @@ protected:
     bool m_Web_push_topicIsSet;
     std::shared_ptr<Object> m_Apns_alert;
     bool m_Apns_alertIsSet;
-    int64_t m_Send_after;
-    bool m_Send_afterIsSet;
     utility::string_t m_Delayed_option;
     bool m_Delayed_optionIsSet;
     utility::string_t m_Delivery_time_of_day;
@@ -1421,6 +1419,8 @@ protected:
     bool m_RemainingIsSet;
     int64_t m_Queued_at;
     bool m_Queued_atIsSet;
+    int64_t m_Send_after;
+    bool m_Send_afterIsSet;
     int64_t m_Completed_at;
     bool m_Completed_atIsSet;
     std::shared_ptr<PlatformDeliveryData> m_Platform_delivery_stats;

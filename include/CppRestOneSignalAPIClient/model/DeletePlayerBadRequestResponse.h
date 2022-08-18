@@ -22,7 +22,6 @@
 
 #include "CppRestOneSignalAPIClient/ModelBase.h"
 
-#include <cpprest/details/basic_types.h>
 #include <vector>
 
 namespace com {
@@ -58,15 +57,15 @@ public:
     /// <summary>
     /// 
     /// </summary>
-    std::vector<utility::string_t>& getErorrs();
+    std::vector<bool>& getErorrs();
     bool erorrsIsSet() const;
     void unsetErorrs();
 
-    void setErorrs(const std::vector<utility::string_t>& value);
+    void setErorrs(std::vector<bool> value);
 
 
 protected:
-    std::vector<utility::string_t> m_Erorrs;
+    std::vector<bool> m_Erorrs;
     bool m_ErorrsIsSet;
 };
 

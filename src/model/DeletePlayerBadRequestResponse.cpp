@@ -57,7 +57,7 @@ bool DeletePlayerBadRequestResponse::fromJson(const web::json::value& val)
         const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("erorrs")));
         if(!fieldValue.is_null())
         {
-            std::vector<utility::string_t> refVal_setErorrs;
+            std::vector<bool> refVal_setErorrs;
             ok &= ModelBase::fromJson(fieldValue, refVal_setErorrs);
             setErorrs(refVal_setErorrs);
         }
@@ -89,19 +89,19 @@ bool DeletePlayerBadRequestResponse::fromMultiPart(std::shared_ptr<MultipartForm
 
     if(multipart->hasContent(utility::conversions::to_string_t(U("erorrs"))))
     {
-        std::vector<utility::string_t> refVal_setErorrs;
+        std::vector<bool> refVal_setErorrs;
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("erorrs"))), refVal_setErorrs );
         setErorrs(refVal_setErorrs);
     }
     return ok;
 }
 
-std::vector<utility::string_t>& DeletePlayerBadRequestResponse::getErorrs()
+std::vector<bool>& DeletePlayerBadRequestResponse::getErorrs()
 {
     return m_Erorrs;
 }
 
-void DeletePlayerBadRequestResponse::setErorrs(const std::vector<utility::string_t>& value)
+void DeletePlayerBadRequestResponse::setErorrs(std::vector<bool> value)
 {
     m_Erorrs = value;
     m_ErorrsIsSet = true;

@@ -24,7 +24,7 @@ namespace model {
 Export_players_request_body::Export_players_request_body()
 {
     m_Extra_fieldsIsSet = false;
-    m_Last_active_since = 0;
+    m_Last_active_since = utility::conversions::to_string_t("");
     m_Last_active_sinceIsSet = false;
     m_Segment_name = utility::conversions::to_string_t("");
     m_Segment_nameIsSet = false;
@@ -79,7 +79,7 @@ bool Export_players_request_body::fromJson(const web::json::value& val)
         const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("last_active_since")));
         if(!fieldValue.is_null())
         {
-            int32_t refVal_setLastActiveSince;
+            utility::string_t refVal_setLastActiveSince;
             ok &= ModelBase::fromJson(fieldValue, refVal_setLastActiveSince);
             setLastActiveSince(refVal_setLastActiveSince);
         }
@@ -135,7 +135,7 @@ bool Export_players_request_body::fromMultiPart(std::shared_ptr<MultipartFormDat
     }
     if(multipart->hasContent(utility::conversions::to_string_t(U("last_active_since"))))
     {
-        int32_t refVal_setLastActiveSince;
+        utility::string_t refVal_setLastActiveSince;
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("last_active_since"))), refVal_setLastActiveSince );
         setLastActiveSince(refVal_setLastActiveSince);
     }
@@ -168,12 +168,12 @@ void Export_players_request_body::unsetExtra_fields()
 {
     m_Extra_fieldsIsSet = false;
 }
-int32_t Export_players_request_body::getLastActiveSince() const
+utility::string_t Export_players_request_body::getLastActiveSince() const
 {
     return m_Last_active_since;
 }
 
-void Export_players_request_body::setLastActiveSince(int32_t value)
+void Export_players_request_body::setLastActiveSince(const utility::string_t& value)
 {
     m_Last_active_since = value;
     m_Last_active_sinceIsSet = true;

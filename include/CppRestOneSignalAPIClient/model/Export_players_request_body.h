@@ -67,11 +67,11 @@ public:
     /// <summary>
     /// Export all devices with a last_active timestamp greater than this time.  Unixtime in seconds.
     /// </summary>
-    int32_t getLastActiveSince() const;
+    utility::string_t getLastActiveSince() const;
     bool lastActiveSinceIsSet() const;
     void unsetLast_active_since();
 
-    void setLastActiveSince(int32_t value);
+    void setLastActiveSince(const utility::string_t& value);
 
     /// <summary>
     /// Export al ldevices belonging to the segment.
@@ -86,7 +86,7 @@ public:
 protected:
     std::vector<utility::string_t> m_Extra_fields;
     bool m_Extra_fieldsIsSet;
-    int32_t m_Last_active_since;
+    utility::string_t m_Last_active_since;
     bool m_Last_active_sinceIsSet;
     utility::string_t m_Segment_name;
     bool m_Segment_nameIsSet;
