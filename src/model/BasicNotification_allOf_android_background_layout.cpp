@@ -12,7 +12,7 @@
 
 
 
-#include "CppRestOneSignalAPIClient/model/Notification_allOf_android_background_layout.h"
+#include "CppRestOneSignalAPIClient/model/BasicNotification_allOf_android_background_layout.h"
 
 namespace com {
 namespace onesignal {
@@ -21,7 +21,7 @@ namespace model {
 
 
 
-Notification_allOf_android_background_layout::Notification_allOf_android_background_layout()
+BasicNotification_allOf_android_background_layout::BasicNotification_allOf_android_background_layout()
 {
     m_Image = utility::conversions::to_string_t("");
     m_ImageIsSet = false;
@@ -31,16 +31,16 @@ Notification_allOf_android_background_layout::Notification_allOf_android_backgro
     m_Contents_colorIsSet = false;
 }
 
-Notification_allOf_android_background_layout::~Notification_allOf_android_background_layout()
+BasicNotification_allOf_android_background_layout::~BasicNotification_allOf_android_background_layout()
 {
 }
 
-void Notification_allOf_android_background_layout::validate()
+void BasicNotification_allOf_android_background_layout::validate()
 {
     // TODO: implement validation
 }
 
-web::json::value Notification_allOf_android_background_layout::toJson() const
+web::json::value BasicNotification_allOf_android_background_layout::toJson() const
 {
 
     web::json::value val = web::json::value::object();
@@ -61,7 +61,7 @@ web::json::value Notification_allOf_android_background_layout::toJson() const
     return val;
 }
 
-bool Notification_allOf_android_background_layout::fromJson(const web::json::value& val)
+bool BasicNotification_allOf_android_background_layout::fromJson(const web::json::value& val)
 {
     bool ok = true;
     
@@ -98,7 +98,7 @@ bool Notification_allOf_android_background_layout::fromJson(const web::json::val
     return ok;
 }
 
-void Notification_allOf_android_background_layout::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
+void BasicNotification_allOf_android_background_layout::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
 {
     utility::string_t namePrefix = prefix;
     if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
@@ -119,7 +119,7 @@ void Notification_allOf_android_background_layout::toMultipart(std::shared_ptr<M
     }
 }
 
-bool Notification_allOf_android_background_layout::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
+bool BasicNotification_allOf_android_background_layout::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
 {
     bool ok = true;
     utility::string_t namePrefix = prefix;
@@ -149,63 +149,63 @@ bool Notification_allOf_android_background_layout::fromMultiPart(std::shared_ptr
     return ok;
 }
 
-utility::string_t Notification_allOf_android_background_layout::getImage() const
+utility::string_t BasicNotification_allOf_android_background_layout::getImage() const
 {
     return m_Image;
 }
 
-void Notification_allOf_android_background_layout::setImage(const utility::string_t& value)
+void BasicNotification_allOf_android_background_layout::setImage(const utility::string_t& value)
 {
     m_Image = value;
     m_ImageIsSet = true;
 }
 
-bool Notification_allOf_android_background_layout::imageIsSet() const
+bool BasicNotification_allOf_android_background_layout::imageIsSet() const
 {
     return m_ImageIsSet;
 }
 
-void Notification_allOf_android_background_layout::unsetImage()
+void BasicNotification_allOf_android_background_layout::unsetImage()
 {
     m_ImageIsSet = false;
 }
-utility::string_t Notification_allOf_android_background_layout::getHeadingsColor() const
+utility::string_t BasicNotification_allOf_android_background_layout::getHeadingsColor() const
 {
     return m_Headings_color;
 }
 
-void Notification_allOf_android_background_layout::setHeadingsColor(const utility::string_t& value)
+void BasicNotification_allOf_android_background_layout::setHeadingsColor(const utility::string_t& value)
 {
     m_Headings_color = value;
     m_Headings_colorIsSet = true;
 }
 
-bool Notification_allOf_android_background_layout::headingsColorIsSet() const
+bool BasicNotification_allOf_android_background_layout::headingsColorIsSet() const
 {
     return m_Headings_colorIsSet;
 }
 
-void Notification_allOf_android_background_layout::unsetHeadings_color()
+void BasicNotification_allOf_android_background_layout::unsetHeadings_color()
 {
     m_Headings_colorIsSet = false;
 }
-utility::string_t Notification_allOf_android_background_layout::getContentsColor() const
+utility::string_t BasicNotification_allOf_android_background_layout::getContentsColor() const
 {
     return m_Contents_color;
 }
 
-void Notification_allOf_android_background_layout::setContentsColor(const utility::string_t& value)
+void BasicNotification_allOf_android_background_layout::setContentsColor(const utility::string_t& value)
 {
     m_Contents_color = value;
     m_Contents_colorIsSet = true;
 }
 
-bool Notification_allOf_android_background_layout::contentsColorIsSet() const
+bool BasicNotification_allOf_android_background_layout::contentsColorIsSet() const
 {
     return m_Contents_colorIsSet;
 }
 
-void Notification_allOf_android_background_layout::unsetContents_color()
+void BasicNotification_allOf_android_background_layout::unsetContents_color()
 {
     m_Contents_colorIsSet = false;
 }

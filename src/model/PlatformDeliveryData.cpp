@@ -29,6 +29,8 @@ PlatformDeliveryData::PlatformDeliveryData()
     m_Safari_web_pushIsSet = false;
     m_AndroidIsSet = false;
     m_IosIsSet = false;
+    m_SmsIsSet = false;
+    m_EmailIsSet = false;
 }
 
 PlatformDeliveryData::~PlatformDeliveryData()
@@ -68,6 +70,14 @@ web::json::value PlatformDeliveryData::toJson() const
     if(m_IosIsSet)
     {
         val[utility::conversions::to_string_t(U("ios"))] = ModelBase::toJson(m_Ios);
+    }
+    if(m_SmsIsSet)
+    {
+        val[utility::conversions::to_string_t(U("sms"))] = ModelBase::toJson(m_Sms);
+    }
+    if(m_EmailIsSet)
+    {
+        val[utility::conversions::to_string_t(U("email"))] = ModelBase::toJson(m_Email);
     }
 
     return val;
@@ -137,6 +147,26 @@ bool PlatformDeliveryData::fromJson(const web::json::value& val)
             setIos(refVal_setIos);
         }
     }
+    if(val.has_field(utility::conversions::to_string_t(U("sms"))))
+    {
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("sms")));
+        if(!fieldValue.is_null())
+        {
+            std::shared_ptr<DeliveryData> refVal_setSms;
+            ok &= ModelBase::fromJson(fieldValue, refVal_setSms);
+            setSms(refVal_setSms);
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t(U("email"))))
+    {
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("email")));
+        if(!fieldValue.is_null())
+        {
+            std::shared_ptr<DeliveryData> refVal_setEmail;
+            ok &= ModelBase::fromJson(fieldValue, refVal_setEmail);
+            setEmail(refVal_setEmail);
+        }
+    }
     return ok;
 }
 
@@ -170,6 +200,14 @@ void PlatformDeliveryData::toMultipart(std::shared_ptr<MultipartFormData> multip
     if(m_IosIsSet)
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("ios")), m_Ios));
+    }
+    if(m_SmsIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("sms")), m_Sms));
+    }
+    if(m_EmailIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("email")), m_Email));
     }
 }
 
@@ -217,6 +255,18 @@ bool PlatformDeliveryData::fromMultiPart(std::shared_ptr<MultipartFormData> mult
         std::shared_ptr<DeliveryData> refVal_setIos;
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("ios"))), refVal_setIos );
         setIos(refVal_setIos);
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t(U("sms"))))
+    {
+        std::shared_ptr<DeliveryData> refVal_setSms;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("sms"))), refVal_setSms );
+        setSms(refVal_setSms);
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t(U("email"))))
+    {
+        std::shared_ptr<DeliveryData> refVal_setEmail;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("email"))), refVal_setEmail );
+        setEmail(refVal_setEmail);
     }
     return ok;
 }
@@ -340,6 +390,46 @@ bool PlatformDeliveryData::iosIsSet() const
 void PlatformDeliveryData::unsetIos()
 {
     m_IosIsSet = false;
+}
+std::shared_ptr<DeliveryData> PlatformDeliveryData::getSms() const
+{
+    return m_Sms;
+}
+
+void PlatformDeliveryData::setSms(const std::shared_ptr<DeliveryData>& value)
+{
+    m_Sms = value;
+    m_SmsIsSet = true;
+}
+
+bool PlatformDeliveryData::smsIsSet() const
+{
+    return m_SmsIsSet;
+}
+
+void PlatformDeliveryData::unsetSms()
+{
+    m_SmsIsSet = false;
+}
+std::shared_ptr<DeliveryData> PlatformDeliveryData::getEmail() const
+{
+    return m_Email;
+}
+
+void PlatformDeliveryData::setEmail(const std::shared_ptr<DeliveryData>& value)
+{
+    m_Email = value;
+    m_EmailIsSet = true;
+}
+
+bool PlatformDeliveryData::emailIsSet() const
+{
+    return m_EmailIsSet;
+}
+
+void PlatformDeliveryData::unsetEmail()
+{
+    m_EmailIsSet = false;
 }
 }
 }

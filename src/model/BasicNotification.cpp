@@ -12,7 +12,7 @@
 
 
 
-#include "CppRestOneSignalAPIClient/model/NotificationWithMeta.h"
+#include "CppRestOneSignalAPIClient/model/BasicNotification.h"
 
 namespace com {
 namespace onesignal {
@@ -21,7 +21,7 @@ namespace model {
 
 
 
-NotificationWithMeta::NotificationWithMeta()
+BasicNotification::BasicNotification()
 {
     m_Included_segmentsIsSet = false;
     m_Excluded_segmentsIsSet = false;
@@ -198,7 +198,7 @@ NotificationWithMeta::NotificationWithMeta()
     m_PriorityIsSet = false;
     m_Apns_push_type_override = utility::conversions::to_string_t("");
     m_Apns_push_type_overrideIsSet = false;
-    m_Throttle_rate_per_minute = 0;
+    m_Throttle_rate_per_minute = utility::conversions::to_string_t("");
     m_Throttle_rate_per_minuteIsSet = false;
     m_Android_group = utility::conversions::to_string_t("");
     m_Android_groupIsSet = false;
@@ -224,38 +224,18 @@ NotificationWithMeta::NotificationWithMeta()
     m_Sms_from = utility::conversions::to_string_t("");
     m_Sms_fromIsSet = false;
     m_Sms_media_urlsIsSet = false;
-    m_Successful = 0;
-    m_SuccessfulIsSet = false;
-    m_Failed = 0;
-    m_FailedIsSet = false;
-    m_Errored = 0;
-    m_ErroredIsSet = false;
-    m_Converted = 0;
-    m_ConvertedIsSet = false;
-    m_Received = 0;
-    m_ReceivedIsSet = false;
-    m_OutcomesIsSet = false;
-    m_Remaining = 0;
-    m_RemainingIsSet = false;
-    m_Queued_at = 0L;
-    m_Queued_atIsSet = false;
-    m_Send_after = 0L;
-    m_Send_afterIsSet = false;
-    m_Completed_at = 0L;
-    m_Completed_atIsSet = false;
-    m_Platform_delivery_statsIsSet = false;
 }
 
-NotificationWithMeta::~NotificationWithMeta()
+BasicNotification::~BasicNotification()
 {
 }
 
-void NotificationWithMeta::validate()
+void BasicNotification::validate()
 {
     // TODO: implement validation
 }
 
-web::json::value NotificationWithMeta::toJson() const
+web::json::value BasicNotification::toJson() const
 {
 
     web::json::value val = web::json::value::object();
@@ -708,55 +688,11 @@ web::json::value NotificationWithMeta::toJson() const
     {
         val[utility::conversions::to_string_t(U("sms_media_urls"))] = ModelBase::toJson(m_Sms_media_urls);
     }
-    if(m_SuccessfulIsSet)
-    {
-        val[utility::conversions::to_string_t(U("successful"))] = ModelBase::toJson(m_Successful);
-    }
-    if(m_FailedIsSet)
-    {
-        val[utility::conversions::to_string_t(U("failed"))] = ModelBase::toJson(m_Failed);
-    }
-    if(m_ErroredIsSet)
-    {
-        val[utility::conversions::to_string_t(U("errored"))] = ModelBase::toJson(m_Errored);
-    }
-    if(m_ConvertedIsSet)
-    {
-        val[utility::conversions::to_string_t(U("converted"))] = ModelBase::toJson(m_Converted);
-    }
-    if(m_ReceivedIsSet)
-    {
-        val[utility::conversions::to_string_t(U("received"))] = ModelBase::toJson(m_Received);
-    }
-    if(m_OutcomesIsSet)
-    {
-        val[utility::conversions::to_string_t(U("outcomes"))] = ModelBase::toJson(m_Outcomes);
-    }
-    if(m_RemainingIsSet)
-    {
-        val[utility::conversions::to_string_t(U("remaining"))] = ModelBase::toJson(m_Remaining);
-    }
-    if(m_Queued_atIsSet)
-    {
-        val[utility::conversions::to_string_t(U("queued_at"))] = ModelBase::toJson(m_Queued_at);
-    }
-    if(m_Send_afterIsSet)
-    {
-        val[utility::conversions::to_string_t(U("send_after"))] = ModelBase::toJson(m_Send_after);
-    }
-    if(m_Completed_atIsSet)
-    {
-        val[utility::conversions::to_string_t(U("completed_at"))] = ModelBase::toJson(m_Completed_at);
-    }
-    if(m_Platform_delivery_statsIsSet)
-    {
-        val[utility::conversions::to_string_t(U("platform_delivery_stats"))] = ModelBase::toJson(m_Platform_delivery_stats);
-    }
 
     return val;
 }
 
-bool NotificationWithMeta::fromJson(const web::json::value& val)
+bool BasicNotification::fromJson(const web::json::value& val)
 {
     bool ok = true;
     
@@ -1745,7 +1681,7 @@ bool NotificationWithMeta::fromJson(const web::json::value& val)
         const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("throttle_rate_per_minute")));
         if(!fieldValue.is_null())
         {
-            int32_t refVal_setThrottleRatePerMinute;
+            utility::string_t refVal_setThrottleRatePerMinute;
             ok &= ModelBase::fromJson(fieldValue, refVal_setThrottleRatePerMinute);
             setThrottleRatePerMinute(refVal_setThrottleRatePerMinute);
         }
@@ -1880,120 +1816,10 @@ bool NotificationWithMeta::fromJson(const web::json::value& val)
             setSmsMediaUrls(refVal_setSmsMediaUrls);
         }
     }
-    if(val.has_field(utility::conversions::to_string_t(U("successful"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("successful")));
-        if(!fieldValue.is_null())
-        {
-            int32_t refVal_setSuccessful;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setSuccessful);
-            setSuccessful(refVal_setSuccessful);
-        }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("failed"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("failed")));
-        if(!fieldValue.is_null())
-        {
-            int32_t refVal_setFailed;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setFailed);
-            setFailed(refVal_setFailed);
-        }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("errored"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("errored")));
-        if(!fieldValue.is_null())
-        {
-            int32_t refVal_setErrored;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setErrored);
-            setErrored(refVal_setErrored);
-        }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("converted"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("converted")));
-        if(!fieldValue.is_null())
-        {
-            int32_t refVal_setConverted;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setConverted);
-            setConverted(refVal_setConverted);
-        }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("received"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("received")));
-        if(!fieldValue.is_null())
-        {
-            int32_t refVal_setReceived;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setReceived);
-            setReceived(refVal_setReceived);
-        }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("outcomes"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("outcomes")));
-        if(!fieldValue.is_null())
-        {
-            std::vector<std::shared_ptr<OutcomeData>> refVal_setOutcomes;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setOutcomes);
-            setOutcomes(refVal_setOutcomes);
-        }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("remaining"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("remaining")));
-        if(!fieldValue.is_null())
-        {
-            int32_t refVal_setRemaining;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setRemaining);
-            setRemaining(refVal_setRemaining);
-        }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("queued_at"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("queued_at")));
-        if(!fieldValue.is_null())
-        {
-            int64_t refVal_setQueuedAt;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setQueuedAt);
-            setQueuedAt(refVal_setQueuedAt);
-        }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("send_after"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("send_after")));
-        if(!fieldValue.is_null())
-        {
-            int64_t refVal_setSendAfter;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setSendAfter);
-            setSendAfter(refVal_setSendAfter);
-        }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("completed_at"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("completed_at")));
-        if(!fieldValue.is_null())
-        {
-            int64_t refVal_setCompletedAt;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setCompletedAt);
-            setCompletedAt(refVal_setCompletedAt);
-        }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("platform_delivery_stats"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("platform_delivery_stats")));
-        if(!fieldValue.is_null())
-        {
-            std::shared_ptr<PlatformDeliveryData> refVal_setPlatformDeliveryStats;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setPlatformDeliveryStats);
-            setPlatformDeliveryStats(refVal_setPlatformDeliveryStats);
-        }
-    }
     return ok;
 }
 
-void NotificationWithMeta::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
+void BasicNotification::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
 {
     utility::string_t namePrefix = prefix;
     if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
@@ -2448,53 +2274,9 @@ void NotificationWithMeta::toMultipart(std::shared_ptr<MultipartFormData> multip
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("sms_media_urls")), m_Sms_media_urls));
     }
-    if(m_SuccessfulIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("successful")), m_Successful));
-    }
-    if(m_FailedIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("failed")), m_Failed));
-    }
-    if(m_ErroredIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("errored")), m_Errored));
-    }
-    if(m_ConvertedIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("converted")), m_Converted));
-    }
-    if(m_ReceivedIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("received")), m_Received));
-    }
-    if(m_OutcomesIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("outcomes")), m_Outcomes));
-    }
-    if(m_RemainingIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("remaining")), m_Remaining));
-    }
-    if(m_Queued_atIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("queued_at")), m_Queued_at));
-    }
-    if(m_Send_afterIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("send_after")), m_Send_after));
-    }
-    if(m_Completed_atIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("completed_at")), m_Completed_at));
-    }
-    if(m_Platform_delivery_statsIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("platform_delivery_stats")), m_Platform_delivery_stats));
-    }
 }
 
-bool NotificationWithMeta::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
+bool BasicNotification::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
 {
     bool ok = true;
     utility::string_t namePrefix = prefix;
@@ -3093,7 +2875,7 @@ bool NotificationWithMeta::fromMultiPart(std::shared_ptr<MultipartFormData> mult
     }
     if(multipart->hasContent(utility::conversions::to_string_t(U("throttle_rate_per_minute"))))
     {
-        int32_t refVal_setThrottleRatePerMinute;
+        utility::string_t refVal_setThrottleRatePerMinute;
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("throttle_rate_per_minute"))), refVal_setThrottleRatePerMinute );
         setThrottleRatePerMinute(refVal_setThrottleRatePerMinute);
     }
@@ -3175,2534 +2957,2248 @@ bool NotificationWithMeta::fromMultiPart(std::shared_ptr<MultipartFormData> mult
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("sms_media_urls"))), refVal_setSmsMediaUrls );
         setSmsMediaUrls(refVal_setSmsMediaUrls);
     }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("successful"))))
-    {
-        int32_t refVal_setSuccessful;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("successful"))), refVal_setSuccessful );
-        setSuccessful(refVal_setSuccessful);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("failed"))))
-    {
-        int32_t refVal_setFailed;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("failed"))), refVal_setFailed );
-        setFailed(refVal_setFailed);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("errored"))))
-    {
-        int32_t refVal_setErrored;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("errored"))), refVal_setErrored );
-        setErrored(refVal_setErrored);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("converted"))))
-    {
-        int32_t refVal_setConverted;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("converted"))), refVal_setConverted );
-        setConverted(refVal_setConverted);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("received"))))
-    {
-        int32_t refVal_setReceived;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("received"))), refVal_setReceived );
-        setReceived(refVal_setReceived);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("outcomes"))))
-    {
-        std::vector<std::shared_ptr<OutcomeData>> refVal_setOutcomes;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("outcomes"))), refVal_setOutcomes );
-        setOutcomes(refVal_setOutcomes);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("remaining"))))
-    {
-        int32_t refVal_setRemaining;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("remaining"))), refVal_setRemaining );
-        setRemaining(refVal_setRemaining);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("queued_at"))))
-    {
-        int64_t refVal_setQueuedAt;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("queued_at"))), refVal_setQueuedAt );
-        setQueuedAt(refVal_setQueuedAt);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("send_after"))))
-    {
-        int64_t refVal_setSendAfter;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("send_after"))), refVal_setSendAfter );
-        setSendAfter(refVal_setSendAfter);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("completed_at"))))
-    {
-        int64_t refVal_setCompletedAt;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("completed_at"))), refVal_setCompletedAt );
-        setCompletedAt(refVal_setCompletedAt);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("platform_delivery_stats"))))
-    {
-        std::shared_ptr<PlatformDeliveryData> refVal_setPlatformDeliveryStats;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("platform_delivery_stats"))), refVal_setPlatformDeliveryStats );
-        setPlatformDeliveryStats(refVal_setPlatformDeliveryStats);
-    }
     return ok;
 }
 
-std::vector<utility::string_t>& NotificationWithMeta::getIncludedSegments()
+std::vector<utility::string_t>& BasicNotification::getIncludedSegments()
 {
     return m_Included_segments;
 }
 
-void NotificationWithMeta::setIncludedSegments(const std::vector<utility::string_t>& value)
+void BasicNotification::setIncludedSegments(const std::vector<utility::string_t>& value)
 {
     m_Included_segments = value;
     m_Included_segmentsIsSet = true;
 }
 
-bool NotificationWithMeta::includedSegmentsIsSet() const
+bool BasicNotification::includedSegmentsIsSet() const
 {
     return m_Included_segmentsIsSet;
 }
 
-void NotificationWithMeta::unsetIncluded_segments()
+void BasicNotification::unsetIncluded_segments()
 {
     m_Included_segmentsIsSet = false;
 }
-std::vector<utility::string_t>& NotificationWithMeta::getExcludedSegments()
+std::vector<utility::string_t>& BasicNotification::getExcludedSegments()
 {
     return m_Excluded_segments;
 }
 
-void NotificationWithMeta::setExcludedSegments(const std::vector<utility::string_t>& value)
+void BasicNotification::setExcludedSegments(const std::vector<utility::string_t>& value)
 {
     m_Excluded_segments = value;
     m_Excluded_segmentsIsSet = true;
 }
 
-bool NotificationWithMeta::excludedSegmentsIsSet() const
+bool BasicNotification::excludedSegmentsIsSet() const
 {
     return m_Excluded_segmentsIsSet;
 }
 
-void NotificationWithMeta::unsetExcluded_segments()
+void BasicNotification::unsetExcluded_segments()
 {
     m_Excluded_segmentsIsSet = false;
 }
-utility::string_t NotificationWithMeta::getLastSession() const
+utility::string_t BasicNotification::getLastSession() const
 {
     return m_Last_session;
 }
 
-void NotificationWithMeta::setLastSession(const utility::string_t& value)
+void BasicNotification::setLastSession(const utility::string_t& value)
 {
     m_Last_session = value;
     m_Last_sessionIsSet = true;
 }
 
-bool NotificationWithMeta::lastSessionIsSet() const
+bool BasicNotification::lastSessionIsSet() const
 {
     return m_Last_sessionIsSet;
 }
 
-void NotificationWithMeta::unsetLast_session()
+void BasicNotification::unsetLast_session()
 {
     m_Last_sessionIsSet = false;
 }
-utility::string_t NotificationWithMeta::getFirstSession() const
+utility::string_t BasicNotification::getFirstSession() const
 {
     return m_First_session;
 }
 
-void NotificationWithMeta::setFirstSession(const utility::string_t& value)
+void BasicNotification::setFirstSession(const utility::string_t& value)
 {
     m_First_session = value;
     m_First_sessionIsSet = true;
 }
 
-bool NotificationWithMeta::firstSessionIsSet() const
+bool BasicNotification::firstSessionIsSet() const
 {
     return m_First_sessionIsSet;
 }
 
-void NotificationWithMeta::unsetFirst_session()
+void BasicNotification::unsetFirst_session()
 {
     m_First_sessionIsSet = false;
 }
-utility::string_t NotificationWithMeta::getSessionCount() const
+utility::string_t BasicNotification::getSessionCount() const
 {
     return m_Session_count;
 }
 
-void NotificationWithMeta::setSessionCount(const utility::string_t& value)
+void BasicNotification::setSessionCount(const utility::string_t& value)
 {
     m_Session_count = value;
     m_Session_countIsSet = true;
 }
 
-bool NotificationWithMeta::sessionCountIsSet() const
+bool BasicNotification::sessionCountIsSet() const
 {
     return m_Session_countIsSet;
 }
 
-void NotificationWithMeta::unsetSession_count()
+void BasicNotification::unsetSession_count()
 {
     m_Session_countIsSet = false;
 }
-utility::string_t NotificationWithMeta::getSessionTime() const
+utility::string_t BasicNotification::getSessionTime() const
 {
     return m_Session_time;
 }
 
-void NotificationWithMeta::setSessionTime(const utility::string_t& value)
+void BasicNotification::setSessionTime(const utility::string_t& value)
 {
     m_Session_time = value;
     m_Session_timeIsSet = true;
 }
 
-bool NotificationWithMeta::sessionTimeIsSet() const
+bool BasicNotification::sessionTimeIsSet() const
 {
     return m_Session_timeIsSet;
 }
 
-void NotificationWithMeta::unsetSession_time()
+void BasicNotification::unsetSession_time()
 {
     m_Session_timeIsSet = false;
 }
-utility::string_t NotificationWithMeta::getAmountSpent() const
+utility::string_t BasicNotification::getAmountSpent() const
 {
     return m_Amount_spent;
 }
 
-void NotificationWithMeta::setAmountSpent(const utility::string_t& value)
+void BasicNotification::setAmountSpent(const utility::string_t& value)
 {
     m_Amount_spent = value;
     m_Amount_spentIsSet = true;
 }
 
-bool NotificationWithMeta::amountSpentIsSet() const
+bool BasicNotification::amountSpentIsSet() const
 {
     return m_Amount_spentIsSet;
 }
 
-void NotificationWithMeta::unsetAmount_spent()
+void BasicNotification::unsetAmount_spent()
 {
     m_Amount_spentIsSet = false;
 }
-utility::string_t NotificationWithMeta::getBoughtSku() const
+utility::string_t BasicNotification::getBoughtSku() const
 {
     return m_Bought_sku;
 }
 
-void NotificationWithMeta::setBoughtSku(const utility::string_t& value)
+void BasicNotification::setBoughtSku(const utility::string_t& value)
 {
     m_Bought_sku = value;
     m_Bought_skuIsSet = true;
 }
 
-bool NotificationWithMeta::boughtSkuIsSet() const
+bool BasicNotification::boughtSkuIsSet() const
 {
     return m_Bought_skuIsSet;
 }
 
-void NotificationWithMeta::unsetBought_sku()
+void BasicNotification::unsetBought_sku()
 {
     m_Bought_skuIsSet = false;
 }
-utility::string_t NotificationWithMeta::getTag() const
+utility::string_t BasicNotification::getTag() const
 {
     return m_Tag;
 }
 
-void NotificationWithMeta::setTag(const utility::string_t& value)
+void BasicNotification::setTag(const utility::string_t& value)
 {
     m_Tag = value;
     m_TagIsSet = true;
 }
 
-bool NotificationWithMeta::tagIsSet() const
+bool BasicNotification::tagIsSet() const
 {
     return m_TagIsSet;
 }
 
-void NotificationWithMeta::unsetTag()
+void BasicNotification::unsetTag()
 {
     m_TagIsSet = false;
 }
-utility::string_t NotificationWithMeta::getLanguage() const
+utility::string_t BasicNotification::getLanguage() const
 {
     return m_Language;
 }
 
-void NotificationWithMeta::setLanguage(const utility::string_t& value)
+void BasicNotification::setLanguage(const utility::string_t& value)
 {
     m_Language = value;
     m_LanguageIsSet = true;
 }
 
-bool NotificationWithMeta::languageIsSet() const
+bool BasicNotification::languageIsSet() const
 {
     return m_LanguageIsSet;
 }
 
-void NotificationWithMeta::unsetLanguage()
+void BasicNotification::unsetLanguage()
 {
     m_LanguageIsSet = false;
 }
-utility::string_t NotificationWithMeta::getAppVersion() const
+utility::string_t BasicNotification::getAppVersion() const
 {
     return m_App_version;
 }
 
-void NotificationWithMeta::setAppVersion(const utility::string_t& value)
+void BasicNotification::setAppVersion(const utility::string_t& value)
 {
     m_App_version = value;
     m_App_versionIsSet = true;
 }
 
-bool NotificationWithMeta::appVersionIsSet() const
+bool BasicNotification::appVersionIsSet() const
 {
     return m_App_versionIsSet;
 }
 
-void NotificationWithMeta::unsetApp_version()
+void BasicNotification::unsetApp_version()
 {
     m_App_versionIsSet = false;
 }
-utility::string_t NotificationWithMeta::getLocation() const
+utility::string_t BasicNotification::getLocation() const
 {
     return m_Location;
 }
 
-void NotificationWithMeta::setLocation(const utility::string_t& value)
+void BasicNotification::setLocation(const utility::string_t& value)
 {
     m_Location = value;
     m_LocationIsSet = true;
 }
 
-bool NotificationWithMeta::locationIsSet() const
+bool BasicNotification::locationIsSet() const
 {
     return m_LocationIsSet;
 }
 
-void NotificationWithMeta::unsetLocation()
+void BasicNotification::unsetLocation()
 {
     m_LocationIsSet = false;
 }
-utility::string_t NotificationWithMeta::getEmail() const
+utility::string_t BasicNotification::getEmail() const
 {
     return m_Email;
 }
 
-void NotificationWithMeta::setEmail(const utility::string_t& value)
+void BasicNotification::setEmail(const utility::string_t& value)
 {
     m_Email = value;
     m_EmailIsSet = true;
 }
 
-bool NotificationWithMeta::emailIsSet() const
+bool BasicNotification::emailIsSet() const
 {
     return m_EmailIsSet;
 }
 
-void NotificationWithMeta::unsetEmail()
+void BasicNotification::unsetEmail()
 {
     m_EmailIsSet = false;
 }
-utility::string_t NotificationWithMeta::getCountry() const
+utility::string_t BasicNotification::getCountry() const
 {
     return m_Country;
 }
 
-void NotificationWithMeta::setCountry(const utility::string_t& value)
+void BasicNotification::setCountry(const utility::string_t& value)
 {
     m_Country = value;
     m_CountryIsSet = true;
 }
 
-bool NotificationWithMeta::countryIsSet() const
+bool BasicNotification::countryIsSet() const
 {
     return m_CountryIsSet;
 }
 
-void NotificationWithMeta::unsetCountry()
+void BasicNotification::unsetCountry()
 {
     m_CountryIsSet = false;
 }
-std::vector<utility::string_t>& NotificationWithMeta::getIncludePlayerIds()
+std::vector<utility::string_t>& BasicNotification::getIncludePlayerIds()
 {
     return m_Include_player_ids;
 }
 
-void NotificationWithMeta::setIncludePlayerIds(const std::vector<utility::string_t>& value)
+void BasicNotification::setIncludePlayerIds(const std::vector<utility::string_t>& value)
 {
     m_Include_player_ids = value;
     m_Include_player_idsIsSet = true;
 }
 
-bool NotificationWithMeta::includePlayerIdsIsSet() const
+bool BasicNotification::includePlayerIdsIsSet() const
 {
     return m_Include_player_idsIsSet;
 }
 
-void NotificationWithMeta::unsetInclude_player_ids()
+void BasicNotification::unsetInclude_player_ids()
 {
     m_Include_player_idsIsSet = false;
 }
-std::vector<utility::string_t>& NotificationWithMeta::getIncludeExternalUserIds()
+std::vector<utility::string_t>& BasicNotification::getIncludeExternalUserIds()
 {
     return m_Include_external_user_ids;
 }
 
-void NotificationWithMeta::setIncludeExternalUserIds(const std::vector<utility::string_t>& value)
+void BasicNotification::setIncludeExternalUserIds(const std::vector<utility::string_t>& value)
 {
     m_Include_external_user_ids = value;
     m_Include_external_user_idsIsSet = true;
 }
 
-bool NotificationWithMeta::includeExternalUserIdsIsSet() const
+bool BasicNotification::includeExternalUserIdsIsSet() const
 {
     return m_Include_external_user_idsIsSet;
 }
 
-void NotificationWithMeta::unsetInclude_external_user_ids()
+void BasicNotification::unsetInclude_external_user_ids()
 {
     m_Include_external_user_idsIsSet = false;
 }
-std::vector<utility::string_t>& NotificationWithMeta::getIncludeEmailTokens()
+std::vector<utility::string_t>& BasicNotification::getIncludeEmailTokens()
 {
     return m_Include_email_tokens;
 }
 
-void NotificationWithMeta::setIncludeEmailTokens(const std::vector<utility::string_t>& value)
+void BasicNotification::setIncludeEmailTokens(const std::vector<utility::string_t>& value)
 {
     m_Include_email_tokens = value;
     m_Include_email_tokensIsSet = true;
 }
 
-bool NotificationWithMeta::includeEmailTokensIsSet() const
+bool BasicNotification::includeEmailTokensIsSet() const
 {
     return m_Include_email_tokensIsSet;
 }
 
-void NotificationWithMeta::unsetInclude_email_tokens()
+void BasicNotification::unsetInclude_email_tokens()
 {
     m_Include_email_tokensIsSet = false;
 }
-std::vector<utility::string_t>& NotificationWithMeta::getIncludePhoneNumbers()
+std::vector<utility::string_t>& BasicNotification::getIncludePhoneNumbers()
 {
     return m_Include_phone_numbers;
 }
 
-void NotificationWithMeta::setIncludePhoneNumbers(const std::vector<utility::string_t>& value)
+void BasicNotification::setIncludePhoneNumbers(const std::vector<utility::string_t>& value)
 {
     m_Include_phone_numbers = value;
     m_Include_phone_numbersIsSet = true;
 }
 
-bool NotificationWithMeta::includePhoneNumbersIsSet() const
+bool BasicNotification::includePhoneNumbersIsSet() const
 {
     return m_Include_phone_numbersIsSet;
 }
 
-void NotificationWithMeta::unsetInclude_phone_numbers()
+void BasicNotification::unsetInclude_phone_numbers()
 {
     m_Include_phone_numbersIsSet = false;
 }
-std::vector<utility::string_t>& NotificationWithMeta::getIncludeIosTokens()
+std::vector<utility::string_t>& BasicNotification::getIncludeIosTokens()
 {
     return m_Include_ios_tokens;
 }
 
-void NotificationWithMeta::setIncludeIosTokens(const std::vector<utility::string_t>& value)
+void BasicNotification::setIncludeIosTokens(const std::vector<utility::string_t>& value)
 {
     m_Include_ios_tokens = value;
     m_Include_ios_tokensIsSet = true;
 }
 
-bool NotificationWithMeta::includeIosTokensIsSet() const
+bool BasicNotification::includeIosTokensIsSet() const
 {
     return m_Include_ios_tokensIsSet;
 }
 
-void NotificationWithMeta::unsetInclude_ios_tokens()
+void BasicNotification::unsetInclude_ios_tokens()
 {
     m_Include_ios_tokensIsSet = false;
 }
-std::vector<utility::string_t>& NotificationWithMeta::getIncludeWpWnsUris()
+std::vector<utility::string_t>& BasicNotification::getIncludeWpWnsUris()
 {
     return m_Include_wp_wns_uris;
 }
 
-void NotificationWithMeta::setIncludeWpWnsUris(const std::vector<utility::string_t>& value)
+void BasicNotification::setIncludeWpWnsUris(const std::vector<utility::string_t>& value)
 {
     m_Include_wp_wns_uris = value;
     m_Include_wp_wns_urisIsSet = true;
 }
 
-bool NotificationWithMeta::includeWpWnsUrisIsSet() const
+bool BasicNotification::includeWpWnsUrisIsSet() const
 {
     return m_Include_wp_wns_urisIsSet;
 }
 
-void NotificationWithMeta::unsetInclude_wp_wns_uris()
+void BasicNotification::unsetInclude_wp_wns_uris()
 {
     m_Include_wp_wns_urisIsSet = false;
 }
-std::vector<utility::string_t>& NotificationWithMeta::getIncludeAmazonRegIds()
+std::vector<utility::string_t>& BasicNotification::getIncludeAmazonRegIds()
 {
     return m_Include_amazon_reg_ids;
 }
 
-void NotificationWithMeta::setIncludeAmazonRegIds(const std::vector<utility::string_t>& value)
+void BasicNotification::setIncludeAmazonRegIds(const std::vector<utility::string_t>& value)
 {
     m_Include_amazon_reg_ids = value;
     m_Include_amazon_reg_idsIsSet = true;
 }
 
-bool NotificationWithMeta::includeAmazonRegIdsIsSet() const
+bool BasicNotification::includeAmazonRegIdsIsSet() const
 {
     return m_Include_amazon_reg_idsIsSet;
 }
 
-void NotificationWithMeta::unsetInclude_amazon_reg_ids()
+void BasicNotification::unsetInclude_amazon_reg_ids()
 {
     m_Include_amazon_reg_idsIsSet = false;
 }
-std::vector<utility::string_t>& NotificationWithMeta::getIncludeChromeRegIds()
+std::vector<utility::string_t>& BasicNotification::getIncludeChromeRegIds()
 {
     return m_Include_chrome_reg_ids;
 }
 
-void NotificationWithMeta::setIncludeChromeRegIds(const std::vector<utility::string_t>& value)
+void BasicNotification::setIncludeChromeRegIds(const std::vector<utility::string_t>& value)
 {
     m_Include_chrome_reg_ids = value;
     m_Include_chrome_reg_idsIsSet = true;
 }
 
-bool NotificationWithMeta::includeChromeRegIdsIsSet() const
+bool BasicNotification::includeChromeRegIdsIsSet() const
 {
     return m_Include_chrome_reg_idsIsSet;
 }
 
-void NotificationWithMeta::unsetInclude_chrome_reg_ids()
+void BasicNotification::unsetInclude_chrome_reg_ids()
 {
     m_Include_chrome_reg_idsIsSet = false;
 }
-std::vector<utility::string_t>& NotificationWithMeta::getIncludeChromeWebRegIds()
+std::vector<utility::string_t>& BasicNotification::getIncludeChromeWebRegIds()
 {
     return m_Include_chrome_web_reg_ids;
 }
 
-void NotificationWithMeta::setIncludeChromeWebRegIds(const std::vector<utility::string_t>& value)
+void BasicNotification::setIncludeChromeWebRegIds(const std::vector<utility::string_t>& value)
 {
     m_Include_chrome_web_reg_ids = value;
     m_Include_chrome_web_reg_idsIsSet = true;
 }
 
-bool NotificationWithMeta::includeChromeWebRegIdsIsSet() const
+bool BasicNotification::includeChromeWebRegIdsIsSet() const
 {
     return m_Include_chrome_web_reg_idsIsSet;
 }
 
-void NotificationWithMeta::unsetInclude_chrome_web_reg_ids()
+void BasicNotification::unsetInclude_chrome_web_reg_ids()
 {
     m_Include_chrome_web_reg_idsIsSet = false;
 }
-std::vector<utility::string_t>& NotificationWithMeta::getIncludeAndroidRegIds()
+std::vector<utility::string_t>& BasicNotification::getIncludeAndroidRegIds()
 {
     return m_Include_android_reg_ids;
 }
 
-void NotificationWithMeta::setIncludeAndroidRegIds(const std::vector<utility::string_t>& value)
+void BasicNotification::setIncludeAndroidRegIds(const std::vector<utility::string_t>& value)
 {
     m_Include_android_reg_ids = value;
     m_Include_android_reg_idsIsSet = true;
 }
 
-bool NotificationWithMeta::includeAndroidRegIdsIsSet() const
+bool BasicNotification::includeAndroidRegIdsIsSet() const
 {
     return m_Include_android_reg_idsIsSet;
 }
 
-void NotificationWithMeta::unsetInclude_android_reg_ids()
+void BasicNotification::unsetInclude_android_reg_ids()
 {
     m_Include_android_reg_idsIsSet = false;
 }
-utility::string_t NotificationWithMeta::getId() const
+utility::string_t BasicNotification::getId() const
 {
     return m_Id;
 }
 
-void NotificationWithMeta::setId(const utility::string_t& value)
+void BasicNotification::setId(const utility::string_t& value)
 {
     m_Id = value;
     m_IdIsSet = true;
 }
 
-bool NotificationWithMeta::idIsSet() const
+bool BasicNotification::idIsSet() const
 {
     return m_IdIsSet;
 }
 
-void NotificationWithMeta::unsetId()
+void BasicNotification::unsetId()
 {
     m_IdIsSet = false;
 }
-int32_t NotificationWithMeta::getValue() const
+int32_t BasicNotification::getValue() const
 {
     return m_Value;
 }
 
-void NotificationWithMeta::setValue(int32_t value)
+void BasicNotification::setValue(int32_t value)
 {
     m_Value = value;
     m_ValueIsSet = true;
 }
 
-bool NotificationWithMeta::valueIsSet() const
+bool BasicNotification::valueIsSet() const
 {
     return m_ValueIsSet;
 }
 
-void NotificationWithMeta::unsetValue()
+void BasicNotification::unsetValue()
 {
     m_ValueIsSet = false;
 }
-utility::string_t NotificationWithMeta::getName() const
+utility::string_t BasicNotification::getName() const
 {
     return m_Name;
 }
 
-void NotificationWithMeta::setName(const utility::string_t& value)
+void BasicNotification::setName(const utility::string_t& value)
 {
     m_Name = value;
     m_NameIsSet = true;
 }
 
-bool NotificationWithMeta::nameIsSet() const
+bool BasicNotification::nameIsSet() const
 {
     return m_NameIsSet;
 }
 
-void NotificationWithMeta::unsetName()
+void BasicNotification::unsetName()
 {
     m_NameIsSet = false;
 }
-utility::string_t NotificationWithMeta::getAggregation() const
+utility::string_t BasicNotification::getAggregation() const
 {
     return m_Aggregation;
 }
 
-void NotificationWithMeta::setAggregation(const utility::string_t& value)
+void BasicNotification::setAggregation(const utility::string_t& value)
 {
     m_Aggregation = value;
     m_AggregationIsSet = true;
 }
 
-bool NotificationWithMeta::aggregationIsSet() const
+bool BasicNotification::aggregationIsSet() const
 {
     return m_AggregationIsSet;
 }
 
-void NotificationWithMeta::unsetAggregation()
+void BasicNotification::unsetAggregation()
 {
     m_AggregationIsSet = false;
 }
-bool NotificationWithMeta::isIsIos() const
+bool BasicNotification::isIsIos() const
 {
     return m_IsIos;
 }
 
-void NotificationWithMeta::setIsIos(bool value)
+void BasicNotification::setIsIos(bool value)
 {
     m_IsIos = value;
     m_IsIosIsSet = true;
 }
 
-bool NotificationWithMeta::isIosIsSet() const
+bool BasicNotification::isIosIsSet() const
 {
     return m_IsIosIsSet;
 }
 
-void NotificationWithMeta::unsetIsIos()
+void BasicNotification::unsetIsIos()
 {
     m_IsIosIsSet = false;
 }
-bool NotificationWithMeta::isIsAndroid() const
+bool BasicNotification::isIsAndroid() const
 {
     return m_IsAndroid;
 }
 
-void NotificationWithMeta::setIsAndroid(bool value)
+void BasicNotification::setIsAndroid(bool value)
 {
     m_IsAndroid = value;
     m_IsAndroidIsSet = true;
 }
 
-bool NotificationWithMeta::isAndroidIsSet() const
+bool BasicNotification::isAndroidIsSet() const
 {
     return m_IsAndroidIsSet;
 }
 
-void NotificationWithMeta::unsetIsAndroid()
+void BasicNotification::unsetIsAndroid()
 {
     m_IsAndroidIsSet = false;
 }
-bool NotificationWithMeta::isIsHuawei() const
+bool BasicNotification::isIsHuawei() const
 {
     return m_IsHuawei;
 }
 
-void NotificationWithMeta::setIsHuawei(bool value)
+void BasicNotification::setIsHuawei(bool value)
 {
     m_IsHuawei = value;
     m_IsHuaweiIsSet = true;
 }
 
-bool NotificationWithMeta::isHuaweiIsSet() const
+bool BasicNotification::isHuaweiIsSet() const
 {
     return m_IsHuaweiIsSet;
 }
 
-void NotificationWithMeta::unsetIsHuawei()
+void BasicNotification::unsetIsHuawei()
 {
     m_IsHuaweiIsSet = false;
 }
-bool NotificationWithMeta::isIsAnyWeb() const
+bool BasicNotification::isIsAnyWeb() const
 {
     return m_IsAnyWeb;
 }
 
-void NotificationWithMeta::setIsAnyWeb(bool value)
+void BasicNotification::setIsAnyWeb(bool value)
 {
     m_IsAnyWeb = value;
     m_IsAnyWebIsSet = true;
 }
 
-bool NotificationWithMeta::isAnyWebIsSet() const
+bool BasicNotification::isAnyWebIsSet() const
 {
     return m_IsAnyWebIsSet;
 }
 
-void NotificationWithMeta::unsetIsAnyWeb()
+void BasicNotification::unsetIsAnyWeb()
 {
     m_IsAnyWebIsSet = false;
 }
-bool NotificationWithMeta::isIsChromeWeb() const
+bool BasicNotification::isIsChromeWeb() const
 {
     return m_IsChromeWeb;
 }
 
-void NotificationWithMeta::setIsChromeWeb(bool value)
+void BasicNotification::setIsChromeWeb(bool value)
 {
     m_IsChromeWeb = value;
     m_IsChromeWebIsSet = true;
 }
 
-bool NotificationWithMeta::isChromeWebIsSet() const
+bool BasicNotification::isChromeWebIsSet() const
 {
     return m_IsChromeWebIsSet;
 }
 
-void NotificationWithMeta::unsetIsChromeWeb()
+void BasicNotification::unsetIsChromeWeb()
 {
     m_IsChromeWebIsSet = false;
 }
-bool NotificationWithMeta::isIsFirefox() const
+bool BasicNotification::isIsFirefox() const
 {
     return m_IsFirefox;
 }
 
-void NotificationWithMeta::setIsFirefox(bool value)
+void BasicNotification::setIsFirefox(bool value)
 {
     m_IsFirefox = value;
     m_IsFirefoxIsSet = true;
 }
 
-bool NotificationWithMeta::isFirefoxIsSet() const
+bool BasicNotification::isFirefoxIsSet() const
 {
     return m_IsFirefoxIsSet;
 }
 
-void NotificationWithMeta::unsetIsFirefox()
+void BasicNotification::unsetIsFirefox()
 {
     m_IsFirefoxIsSet = false;
 }
-bool NotificationWithMeta::isIsSafari() const
+bool BasicNotification::isIsSafari() const
 {
     return m_IsSafari;
 }
 
-void NotificationWithMeta::setIsSafari(bool value)
+void BasicNotification::setIsSafari(bool value)
 {
     m_IsSafari = value;
     m_IsSafariIsSet = true;
 }
 
-bool NotificationWithMeta::isSafariIsSet() const
+bool BasicNotification::isSafariIsSet() const
 {
     return m_IsSafariIsSet;
 }
 
-void NotificationWithMeta::unsetIsSafari()
+void BasicNotification::unsetIsSafari()
 {
     m_IsSafariIsSet = false;
 }
-bool NotificationWithMeta::isIsWPWNS() const
+bool BasicNotification::isIsWPWNS() const
 {
     return m_IsWP_WNS;
 }
 
-void NotificationWithMeta::setIsWPWNS(bool value)
+void BasicNotification::setIsWPWNS(bool value)
 {
     m_IsWP_WNS = value;
     m_IsWP_WNSIsSet = true;
 }
 
-bool NotificationWithMeta::isWPWNSIsSet() const
+bool BasicNotification::isWPWNSIsSet() const
 {
     return m_IsWP_WNSIsSet;
 }
 
-void NotificationWithMeta::unsetIsWP_WNS()
+void BasicNotification::unsetIsWP_WNS()
 {
     m_IsWP_WNSIsSet = false;
 }
-bool NotificationWithMeta::isIsAdm() const
+bool BasicNotification::isIsAdm() const
 {
     return m_IsAdm;
 }
 
-void NotificationWithMeta::setIsAdm(bool value)
+void BasicNotification::setIsAdm(bool value)
 {
     m_IsAdm = value;
     m_IsAdmIsSet = true;
 }
 
-bool NotificationWithMeta::isAdmIsSet() const
+bool BasicNotification::isAdmIsSet() const
 {
     return m_IsAdmIsSet;
 }
 
-void NotificationWithMeta::unsetIsAdm()
+void BasicNotification::unsetIsAdm()
 {
     m_IsAdmIsSet = false;
 }
-bool NotificationWithMeta::isIsChrome() const
+bool BasicNotification::isIsChrome() const
 {
     return m_IsChrome;
 }
 
-void NotificationWithMeta::setIsChrome(bool value)
+void BasicNotification::setIsChrome(bool value)
 {
     m_IsChrome = value;
     m_IsChromeIsSet = true;
 }
 
-bool NotificationWithMeta::isChromeIsSet() const
+bool BasicNotification::isChromeIsSet() const
 {
     return m_IsChromeIsSet;
 }
 
-void NotificationWithMeta::unsetIsChrome()
+void BasicNotification::unsetIsChrome()
 {
     m_IsChromeIsSet = false;
 }
-utility::string_t NotificationWithMeta::getChannelForExternalUserIds() const
+utility::string_t BasicNotification::getChannelForExternalUserIds() const
 {
     return m_Channel_for_external_user_ids;
 }
 
-void NotificationWithMeta::setChannelForExternalUserIds(const utility::string_t& value)
+void BasicNotification::setChannelForExternalUserIds(const utility::string_t& value)
 {
     m_Channel_for_external_user_ids = value;
     m_Channel_for_external_user_idsIsSet = true;
 }
 
-bool NotificationWithMeta::channelForExternalUserIdsIsSet() const
+bool BasicNotification::channelForExternalUserIdsIsSet() const
 {
     return m_Channel_for_external_user_idsIsSet;
 }
 
-void NotificationWithMeta::unsetChannel_for_external_user_ids()
+void BasicNotification::unsetChannel_for_external_user_ids()
 {
     m_Channel_for_external_user_idsIsSet = false;
 }
-utility::string_t NotificationWithMeta::getAppId() const
+utility::string_t BasicNotification::getAppId() const
 {
     return m_App_id;
 }
 
-void NotificationWithMeta::setAppId(const utility::string_t& value)
+void BasicNotification::setAppId(const utility::string_t& value)
 {
     m_App_id = value;
     m_App_idIsSet = true;
 }
 
-bool NotificationWithMeta::appIdIsSet() const
+bool BasicNotification::appIdIsSet() const
 {
     return m_App_idIsSet;
 }
 
-void NotificationWithMeta::unsetApp_id()
+void BasicNotification::unsetApp_id()
 {
     m_App_idIsSet = false;
 }
-utility::string_t NotificationWithMeta::getExternalId() const
+utility::string_t BasicNotification::getExternalId() const
 {
     return m_External_id;
 }
 
-void NotificationWithMeta::setExternalId(const utility::string_t& value)
+void BasicNotification::setExternalId(const utility::string_t& value)
 {
     m_External_id = value;
     m_External_idIsSet = true;
 }
 
-bool NotificationWithMeta::externalIdIsSet() const
+bool BasicNotification::externalIdIsSet() const
 {
     return m_External_idIsSet;
 }
 
-void NotificationWithMeta::unsetExternal_id()
+void BasicNotification::unsetExternal_id()
 {
     m_External_idIsSet = false;
 }
-std::shared_ptr<StringMap> NotificationWithMeta::getContents() const
+std::shared_ptr<StringMap> BasicNotification::getContents() const
 {
     return m_Contents;
 }
 
-void NotificationWithMeta::setContents(const std::shared_ptr<StringMap>& value)
+void BasicNotification::setContents(const std::shared_ptr<StringMap>& value)
 {
     m_Contents = value;
     m_ContentsIsSet = true;
 }
 
-bool NotificationWithMeta::contentsIsSet() const
+bool BasicNotification::contentsIsSet() const
 {
     return m_ContentsIsSet;
 }
 
-void NotificationWithMeta::unsetContents()
+void BasicNotification::unsetContents()
 {
     m_ContentsIsSet = false;
 }
-std::shared_ptr<StringMap> NotificationWithMeta::getHeadings() const
+std::shared_ptr<StringMap> BasicNotification::getHeadings() const
 {
     return m_Headings;
 }
 
-void NotificationWithMeta::setHeadings(const std::shared_ptr<StringMap>& value)
+void BasicNotification::setHeadings(const std::shared_ptr<StringMap>& value)
 {
     m_Headings = value;
     m_HeadingsIsSet = true;
 }
 
-bool NotificationWithMeta::headingsIsSet() const
+bool BasicNotification::headingsIsSet() const
 {
     return m_HeadingsIsSet;
 }
 
-void NotificationWithMeta::unsetHeadings()
+void BasicNotification::unsetHeadings()
 {
     m_HeadingsIsSet = false;
 }
-std::shared_ptr<StringMap> NotificationWithMeta::getSubtitle() const
+std::shared_ptr<StringMap> BasicNotification::getSubtitle() const
 {
     return m_Subtitle;
 }
 
-void NotificationWithMeta::setSubtitle(const std::shared_ptr<StringMap>& value)
+void BasicNotification::setSubtitle(const std::shared_ptr<StringMap>& value)
 {
     m_Subtitle = value;
     m_SubtitleIsSet = true;
 }
 
-bool NotificationWithMeta::subtitleIsSet() const
+bool BasicNotification::subtitleIsSet() const
 {
     return m_SubtitleIsSet;
 }
 
-void NotificationWithMeta::unsetSubtitle()
+void BasicNotification::unsetSubtitle()
 {
     m_SubtitleIsSet = false;
 }
-std::shared_ptr<Object> NotificationWithMeta::getData() const
+std::shared_ptr<Object> BasicNotification::getData() const
 {
     return m_Data;
 }
 
-void NotificationWithMeta::setData(const std::shared_ptr<Object>& value)
+void BasicNotification::setData(const std::shared_ptr<Object>& value)
 {
     m_Data = value;
     m_DataIsSet = true;
 }
 
-bool NotificationWithMeta::dataIsSet() const
+bool BasicNotification::dataIsSet() const
 {
     return m_DataIsSet;
 }
 
-void NotificationWithMeta::unsetData()
+void BasicNotification::unsetData()
 {
     m_DataIsSet = false;
 }
-utility::string_t NotificationWithMeta::getHuaweiMsgType() const
+utility::string_t BasicNotification::getHuaweiMsgType() const
 {
     return m_Huawei_msg_type;
 }
 
-void NotificationWithMeta::setHuaweiMsgType(const utility::string_t& value)
+void BasicNotification::setHuaweiMsgType(const utility::string_t& value)
 {
     m_Huawei_msg_type = value;
     m_Huawei_msg_typeIsSet = true;
 }
 
-bool NotificationWithMeta::huaweiMsgTypeIsSet() const
+bool BasicNotification::huaweiMsgTypeIsSet() const
 {
     return m_Huawei_msg_typeIsSet;
 }
 
-void NotificationWithMeta::unsetHuawei_msg_type()
+void BasicNotification::unsetHuawei_msg_type()
 {
     m_Huawei_msg_typeIsSet = false;
 }
-utility::string_t NotificationWithMeta::getUrl() const
+utility::string_t BasicNotification::getUrl() const
 {
     return m_Url;
 }
 
-void NotificationWithMeta::setUrl(const utility::string_t& value)
+void BasicNotification::setUrl(const utility::string_t& value)
 {
     m_Url = value;
     m_UrlIsSet = true;
 }
 
-bool NotificationWithMeta::urlIsSet() const
+bool BasicNotification::urlIsSet() const
 {
     return m_UrlIsSet;
 }
 
-void NotificationWithMeta::unsetUrl()
+void BasicNotification::unsetUrl()
 {
     m_UrlIsSet = false;
 }
-utility::string_t NotificationWithMeta::getWebUrl() const
+utility::string_t BasicNotification::getWebUrl() const
 {
     return m_Web_url;
 }
 
-void NotificationWithMeta::setWebUrl(const utility::string_t& value)
+void BasicNotification::setWebUrl(const utility::string_t& value)
 {
     m_Web_url = value;
     m_Web_urlIsSet = true;
 }
 
-bool NotificationWithMeta::webUrlIsSet() const
+bool BasicNotification::webUrlIsSet() const
 {
     return m_Web_urlIsSet;
 }
 
-void NotificationWithMeta::unsetWeb_url()
+void BasicNotification::unsetWeb_url()
 {
     m_Web_urlIsSet = false;
 }
-utility::string_t NotificationWithMeta::getAppUrl() const
+utility::string_t BasicNotification::getAppUrl() const
 {
     return m_App_url;
 }
 
-void NotificationWithMeta::setAppUrl(const utility::string_t& value)
+void BasicNotification::setAppUrl(const utility::string_t& value)
 {
     m_App_url = value;
     m_App_urlIsSet = true;
 }
 
-bool NotificationWithMeta::appUrlIsSet() const
+bool BasicNotification::appUrlIsSet() const
 {
     return m_App_urlIsSet;
 }
 
-void NotificationWithMeta::unsetApp_url()
+void BasicNotification::unsetApp_url()
 {
     m_App_urlIsSet = false;
 }
-std::shared_ptr<Object> NotificationWithMeta::getIosAttachments() const
+std::shared_ptr<Object> BasicNotification::getIosAttachments() const
 {
     return m_Ios_attachments;
 }
 
-void NotificationWithMeta::setIosAttachments(const std::shared_ptr<Object>& value)
+void BasicNotification::setIosAttachments(const std::shared_ptr<Object>& value)
 {
     m_Ios_attachments = value;
     m_Ios_attachmentsIsSet = true;
 }
 
-bool NotificationWithMeta::iosAttachmentsIsSet() const
+bool BasicNotification::iosAttachmentsIsSet() const
 {
     return m_Ios_attachmentsIsSet;
 }
 
-void NotificationWithMeta::unsetIos_attachments()
+void BasicNotification::unsetIos_attachments()
 {
     m_Ios_attachmentsIsSet = false;
 }
-utility::string_t NotificationWithMeta::getTemplateId() const
+utility::string_t BasicNotification::getTemplateId() const
 {
     return m_Template_id;
 }
 
-void NotificationWithMeta::setTemplateId(const utility::string_t& value)
+void BasicNotification::setTemplateId(const utility::string_t& value)
 {
     m_Template_id = value;
     m_Template_idIsSet = true;
 }
 
-bool NotificationWithMeta::templateIdIsSet() const
+bool BasicNotification::templateIdIsSet() const
 {
     return m_Template_idIsSet;
 }
 
-void NotificationWithMeta::unsetTemplate_id()
+void BasicNotification::unsetTemplate_id()
 {
     m_Template_idIsSet = false;
 }
-bool NotificationWithMeta::isContentAvailable() const
+bool BasicNotification::isContentAvailable() const
 {
     return m_Content_available;
 }
 
-void NotificationWithMeta::setContentAvailable(bool value)
+void BasicNotification::setContentAvailable(bool value)
 {
     m_Content_available = value;
     m_Content_availableIsSet = true;
 }
 
-bool NotificationWithMeta::contentAvailableIsSet() const
+bool BasicNotification::contentAvailableIsSet() const
 {
     return m_Content_availableIsSet;
 }
 
-void NotificationWithMeta::unsetContent_available()
+void BasicNotification::unsetContent_available()
 {
     m_Content_availableIsSet = false;
 }
-bool NotificationWithMeta::isMutableContent() const
+bool BasicNotification::isMutableContent() const
 {
     return m_Mutable_content;
 }
 
-void NotificationWithMeta::setMutableContent(bool value)
+void BasicNotification::setMutableContent(bool value)
 {
     m_Mutable_content = value;
     m_Mutable_contentIsSet = true;
 }
 
-bool NotificationWithMeta::mutableContentIsSet() const
+bool BasicNotification::mutableContentIsSet() const
 {
     return m_Mutable_contentIsSet;
 }
 
-void NotificationWithMeta::unsetMutable_content()
+void BasicNotification::unsetMutable_content()
 {
     m_Mutable_contentIsSet = false;
 }
-utility::string_t NotificationWithMeta::getTargetContentIdentifier() const
+utility::string_t BasicNotification::getTargetContentIdentifier() const
 {
     return m_Target_content_identifier;
 }
 
-void NotificationWithMeta::setTargetContentIdentifier(const utility::string_t& value)
+void BasicNotification::setTargetContentIdentifier(const utility::string_t& value)
 {
     m_Target_content_identifier = value;
     m_Target_content_identifierIsSet = true;
 }
 
-bool NotificationWithMeta::targetContentIdentifierIsSet() const
+bool BasicNotification::targetContentIdentifierIsSet() const
 {
     return m_Target_content_identifierIsSet;
 }
 
-void NotificationWithMeta::unsetTarget_content_identifier()
+void BasicNotification::unsetTarget_content_identifier()
 {
     m_Target_content_identifierIsSet = false;
 }
-utility::string_t NotificationWithMeta::getBigPicture() const
+utility::string_t BasicNotification::getBigPicture() const
 {
     return m_Big_picture;
 }
 
-void NotificationWithMeta::setBigPicture(const utility::string_t& value)
+void BasicNotification::setBigPicture(const utility::string_t& value)
 {
     m_Big_picture = value;
     m_Big_pictureIsSet = true;
 }
 
-bool NotificationWithMeta::bigPictureIsSet() const
+bool BasicNotification::bigPictureIsSet() const
 {
     return m_Big_pictureIsSet;
 }
 
-void NotificationWithMeta::unsetBig_picture()
+void BasicNotification::unsetBig_picture()
 {
     m_Big_pictureIsSet = false;
 }
-utility::string_t NotificationWithMeta::getHuaweiBigPicture() const
+utility::string_t BasicNotification::getHuaweiBigPicture() const
 {
     return m_Huawei_big_picture;
 }
 
-void NotificationWithMeta::setHuaweiBigPicture(const utility::string_t& value)
+void BasicNotification::setHuaweiBigPicture(const utility::string_t& value)
 {
     m_Huawei_big_picture = value;
     m_Huawei_big_pictureIsSet = true;
 }
 
-bool NotificationWithMeta::huaweiBigPictureIsSet() const
+bool BasicNotification::huaweiBigPictureIsSet() const
 {
     return m_Huawei_big_pictureIsSet;
 }
 
-void NotificationWithMeta::unsetHuawei_big_picture()
+void BasicNotification::unsetHuawei_big_picture()
 {
     m_Huawei_big_pictureIsSet = false;
 }
-utility::string_t NotificationWithMeta::getAdmBigPicture() const
+utility::string_t BasicNotification::getAdmBigPicture() const
 {
     return m_Adm_big_picture;
 }
 
-void NotificationWithMeta::setAdmBigPicture(const utility::string_t& value)
+void BasicNotification::setAdmBigPicture(const utility::string_t& value)
 {
     m_Adm_big_picture = value;
     m_Adm_big_pictureIsSet = true;
 }
 
-bool NotificationWithMeta::admBigPictureIsSet() const
+bool BasicNotification::admBigPictureIsSet() const
 {
     return m_Adm_big_pictureIsSet;
 }
 
-void NotificationWithMeta::unsetAdm_big_picture()
+void BasicNotification::unsetAdm_big_picture()
 {
     m_Adm_big_pictureIsSet = false;
 }
-utility::string_t NotificationWithMeta::getChromeBigPicture() const
+utility::string_t BasicNotification::getChromeBigPicture() const
 {
     return m_Chrome_big_picture;
 }
 
-void NotificationWithMeta::setChromeBigPicture(const utility::string_t& value)
+void BasicNotification::setChromeBigPicture(const utility::string_t& value)
 {
     m_Chrome_big_picture = value;
     m_Chrome_big_pictureIsSet = true;
 }
 
-bool NotificationWithMeta::chromeBigPictureIsSet() const
+bool BasicNotification::chromeBigPictureIsSet() const
 {
     return m_Chrome_big_pictureIsSet;
 }
 
-void NotificationWithMeta::unsetChrome_big_picture()
+void BasicNotification::unsetChrome_big_picture()
 {
     m_Chrome_big_pictureIsSet = false;
 }
-utility::string_t NotificationWithMeta::getChromeWebImage() const
+utility::string_t BasicNotification::getChromeWebImage() const
 {
     return m_Chrome_web_image;
 }
 
-void NotificationWithMeta::setChromeWebImage(const utility::string_t& value)
+void BasicNotification::setChromeWebImage(const utility::string_t& value)
 {
     m_Chrome_web_image = value;
     m_Chrome_web_imageIsSet = true;
 }
 
-bool NotificationWithMeta::chromeWebImageIsSet() const
+bool BasicNotification::chromeWebImageIsSet() const
 {
     return m_Chrome_web_imageIsSet;
 }
 
-void NotificationWithMeta::unsetChrome_web_image()
+void BasicNotification::unsetChrome_web_image()
 {
     m_Chrome_web_imageIsSet = false;
 }
-std::vector<std::shared_ptr<Button>>& NotificationWithMeta::getButtons()
+std::vector<std::shared_ptr<Button>>& BasicNotification::getButtons()
 {
     return m_Buttons;
 }
 
-void NotificationWithMeta::setButtons(const std::vector<std::shared_ptr<Button>>& value)
+void BasicNotification::setButtons(const std::vector<std::shared_ptr<Button>>& value)
 {
     m_Buttons = value;
     m_ButtonsIsSet = true;
 }
 
-bool NotificationWithMeta::buttonsIsSet() const
+bool BasicNotification::buttonsIsSet() const
 {
     return m_ButtonsIsSet;
 }
 
-void NotificationWithMeta::unsetButtons()
+void BasicNotification::unsetButtons()
 {
     m_ButtonsIsSet = false;
 }
-std::vector<std::shared_ptr<Button>>& NotificationWithMeta::getWebButtons()
+std::vector<std::shared_ptr<Button>>& BasicNotification::getWebButtons()
 {
     return m_Web_buttons;
 }
 
-void NotificationWithMeta::setWebButtons(const std::vector<std::shared_ptr<Button>>& value)
+void BasicNotification::setWebButtons(const std::vector<std::shared_ptr<Button>>& value)
 {
     m_Web_buttons = value;
     m_Web_buttonsIsSet = true;
 }
 
-bool NotificationWithMeta::webButtonsIsSet() const
+bool BasicNotification::webButtonsIsSet() const
 {
     return m_Web_buttonsIsSet;
 }
 
-void NotificationWithMeta::unsetWeb_buttons()
+void BasicNotification::unsetWeb_buttons()
 {
     m_Web_buttonsIsSet = false;
 }
-utility::string_t NotificationWithMeta::getIosCategory() const
+utility::string_t BasicNotification::getIosCategory() const
 {
     return m_Ios_category;
 }
 
-void NotificationWithMeta::setIosCategory(const utility::string_t& value)
+void BasicNotification::setIosCategory(const utility::string_t& value)
 {
     m_Ios_category = value;
     m_Ios_categoryIsSet = true;
 }
 
-bool NotificationWithMeta::iosCategoryIsSet() const
+bool BasicNotification::iosCategoryIsSet() const
 {
     return m_Ios_categoryIsSet;
 }
 
-void NotificationWithMeta::unsetIos_category()
+void BasicNotification::unsetIos_category()
 {
     m_Ios_categoryIsSet = false;
 }
-utility::string_t NotificationWithMeta::getAndroidChannelId() const
+utility::string_t BasicNotification::getAndroidChannelId() const
 {
     return m_Android_channel_id;
 }
 
-void NotificationWithMeta::setAndroidChannelId(const utility::string_t& value)
+void BasicNotification::setAndroidChannelId(const utility::string_t& value)
 {
     m_Android_channel_id = value;
     m_Android_channel_idIsSet = true;
 }
 
-bool NotificationWithMeta::androidChannelIdIsSet() const
+bool BasicNotification::androidChannelIdIsSet() const
 {
     return m_Android_channel_idIsSet;
 }
 
-void NotificationWithMeta::unsetAndroid_channel_id()
+void BasicNotification::unsetAndroid_channel_id()
 {
     m_Android_channel_idIsSet = false;
 }
-utility::string_t NotificationWithMeta::getHuaweiChannelId() const
+utility::string_t BasicNotification::getHuaweiChannelId() const
 {
     return m_Huawei_channel_id;
 }
 
-void NotificationWithMeta::setHuaweiChannelId(const utility::string_t& value)
+void BasicNotification::setHuaweiChannelId(const utility::string_t& value)
 {
     m_Huawei_channel_id = value;
     m_Huawei_channel_idIsSet = true;
 }
 
-bool NotificationWithMeta::huaweiChannelIdIsSet() const
+bool BasicNotification::huaweiChannelIdIsSet() const
 {
     return m_Huawei_channel_idIsSet;
 }
 
-void NotificationWithMeta::unsetHuawei_channel_id()
+void BasicNotification::unsetHuawei_channel_id()
 {
     m_Huawei_channel_idIsSet = false;
 }
-utility::string_t NotificationWithMeta::getExistingAndroidChannelId() const
+utility::string_t BasicNotification::getExistingAndroidChannelId() const
 {
     return m_Existing_android_channel_id;
 }
 
-void NotificationWithMeta::setExistingAndroidChannelId(const utility::string_t& value)
+void BasicNotification::setExistingAndroidChannelId(const utility::string_t& value)
 {
     m_Existing_android_channel_id = value;
     m_Existing_android_channel_idIsSet = true;
 }
 
-bool NotificationWithMeta::existingAndroidChannelIdIsSet() const
+bool BasicNotification::existingAndroidChannelIdIsSet() const
 {
     return m_Existing_android_channel_idIsSet;
 }
 
-void NotificationWithMeta::unsetExisting_android_channel_id()
+void BasicNotification::unsetExisting_android_channel_id()
 {
     m_Existing_android_channel_idIsSet = false;
 }
-utility::string_t NotificationWithMeta::getHuaweiExistingChannelId() const
+utility::string_t BasicNotification::getHuaweiExistingChannelId() const
 {
     return m_Huawei_existing_channel_id;
 }
 
-void NotificationWithMeta::setHuaweiExistingChannelId(const utility::string_t& value)
+void BasicNotification::setHuaweiExistingChannelId(const utility::string_t& value)
 {
     m_Huawei_existing_channel_id = value;
     m_Huawei_existing_channel_idIsSet = true;
 }
 
-bool NotificationWithMeta::huaweiExistingChannelIdIsSet() const
+bool BasicNotification::huaweiExistingChannelIdIsSet() const
 {
     return m_Huawei_existing_channel_idIsSet;
 }
 
-void NotificationWithMeta::unsetHuawei_existing_channel_id()
+void BasicNotification::unsetHuawei_existing_channel_id()
 {
     m_Huawei_existing_channel_idIsSet = false;
 }
-std::shared_ptr<BasicNotification_allOf_android_background_layout> NotificationWithMeta::getAndroidBackgroundLayout() const
+std::shared_ptr<BasicNotification_allOf_android_background_layout> BasicNotification::getAndroidBackgroundLayout() const
 {
     return m_Android_background_layout;
 }
 
-void NotificationWithMeta::setAndroidBackgroundLayout(const std::shared_ptr<BasicNotification_allOf_android_background_layout>& value)
+void BasicNotification::setAndroidBackgroundLayout(const std::shared_ptr<BasicNotification_allOf_android_background_layout>& value)
 {
     m_Android_background_layout = value;
     m_Android_background_layoutIsSet = true;
 }
 
-bool NotificationWithMeta::androidBackgroundLayoutIsSet() const
+bool BasicNotification::androidBackgroundLayoutIsSet() const
 {
     return m_Android_background_layoutIsSet;
 }
 
-void NotificationWithMeta::unsetAndroid_background_layout()
+void BasicNotification::unsetAndroid_background_layout()
 {
     m_Android_background_layoutIsSet = false;
 }
-utility::string_t NotificationWithMeta::getSmallIcon() const
+utility::string_t BasicNotification::getSmallIcon() const
 {
     return m_Small_icon;
 }
 
-void NotificationWithMeta::setSmallIcon(const utility::string_t& value)
+void BasicNotification::setSmallIcon(const utility::string_t& value)
 {
     m_Small_icon = value;
     m_Small_iconIsSet = true;
 }
 
-bool NotificationWithMeta::smallIconIsSet() const
+bool BasicNotification::smallIconIsSet() const
 {
     return m_Small_iconIsSet;
 }
 
-void NotificationWithMeta::unsetSmall_icon()
+void BasicNotification::unsetSmall_icon()
 {
     m_Small_iconIsSet = false;
 }
-utility::string_t NotificationWithMeta::getHuaweiSmallIcon() const
+utility::string_t BasicNotification::getHuaweiSmallIcon() const
 {
     return m_Huawei_small_icon;
 }
 
-void NotificationWithMeta::setHuaweiSmallIcon(const utility::string_t& value)
+void BasicNotification::setHuaweiSmallIcon(const utility::string_t& value)
 {
     m_Huawei_small_icon = value;
     m_Huawei_small_iconIsSet = true;
 }
 
-bool NotificationWithMeta::huaweiSmallIconIsSet() const
+bool BasicNotification::huaweiSmallIconIsSet() const
 {
     return m_Huawei_small_iconIsSet;
 }
 
-void NotificationWithMeta::unsetHuawei_small_icon()
+void BasicNotification::unsetHuawei_small_icon()
 {
     m_Huawei_small_iconIsSet = false;
 }
-utility::string_t NotificationWithMeta::getLargeIcon() const
+utility::string_t BasicNotification::getLargeIcon() const
 {
     return m_Large_icon;
 }
 
-void NotificationWithMeta::setLargeIcon(const utility::string_t& value)
+void BasicNotification::setLargeIcon(const utility::string_t& value)
 {
     m_Large_icon = value;
     m_Large_iconIsSet = true;
 }
 
-bool NotificationWithMeta::largeIconIsSet() const
+bool BasicNotification::largeIconIsSet() const
 {
     return m_Large_iconIsSet;
 }
 
-void NotificationWithMeta::unsetLarge_icon()
+void BasicNotification::unsetLarge_icon()
 {
     m_Large_iconIsSet = false;
 }
-utility::string_t NotificationWithMeta::getHuaweiLargeIcon() const
+utility::string_t BasicNotification::getHuaweiLargeIcon() const
 {
     return m_Huawei_large_icon;
 }
 
-void NotificationWithMeta::setHuaweiLargeIcon(const utility::string_t& value)
+void BasicNotification::setHuaweiLargeIcon(const utility::string_t& value)
 {
     m_Huawei_large_icon = value;
     m_Huawei_large_iconIsSet = true;
 }
 
-bool NotificationWithMeta::huaweiLargeIconIsSet() const
+bool BasicNotification::huaweiLargeIconIsSet() const
 {
     return m_Huawei_large_iconIsSet;
 }
 
-void NotificationWithMeta::unsetHuawei_large_icon()
+void BasicNotification::unsetHuawei_large_icon()
 {
     m_Huawei_large_iconIsSet = false;
 }
-utility::string_t NotificationWithMeta::getAdmSmallIcon() const
+utility::string_t BasicNotification::getAdmSmallIcon() const
 {
     return m_Adm_small_icon;
 }
 
-void NotificationWithMeta::setAdmSmallIcon(const utility::string_t& value)
+void BasicNotification::setAdmSmallIcon(const utility::string_t& value)
 {
     m_Adm_small_icon = value;
     m_Adm_small_iconIsSet = true;
 }
 
-bool NotificationWithMeta::admSmallIconIsSet() const
+bool BasicNotification::admSmallIconIsSet() const
 {
     return m_Adm_small_iconIsSet;
 }
 
-void NotificationWithMeta::unsetAdm_small_icon()
+void BasicNotification::unsetAdm_small_icon()
 {
     m_Adm_small_iconIsSet = false;
 }
-utility::string_t NotificationWithMeta::getAdmLargeIcon() const
+utility::string_t BasicNotification::getAdmLargeIcon() const
 {
     return m_Adm_large_icon;
 }
 
-void NotificationWithMeta::setAdmLargeIcon(const utility::string_t& value)
+void BasicNotification::setAdmLargeIcon(const utility::string_t& value)
 {
     m_Adm_large_icon = value;
     m_Adm_large_iconIsSet = true;
 }
 
-bool NotificationWithMeta::admLargeIconIsSet() const
+bool BasicNotification::admLargeIconIsSet() const
 {
     return m_Adm_large_iconIsSet;
 }
 
-void NotificationWithMeta::unsetAdm_large_icon()
+void BasicNotification::unsetAdm_large_icon()
 {
     m_Adm_large_iconIsSet = false;
 }
-utility::string_t NotificationWithMeta::getChromeWebIcon() const
+utility::string_t BasicNotification::getChromeWebIcon() const
 {
     return m_Chrome_web_icon;
 }
 
-void NotificationWithMeta::setChromeWebIcon(const utility::string_t& value)
+void BasicNotification::setChromeWebIcon(const utility::string_t& value)
 {
     m_Chrome_web_icon = value;
     m_Chrome_web_iconIsSet = true;
 }
 
-bool NotificationWithMeta::chromeWebIconIsSet() const
+bool BasicNotification::chromeWebIconIsSet() const
 {
     return m_Chrome_web_iconIsSet;
 }
 
-void NotificationWithMeta::unsetChrome_web_icon()
+void BasicNotification::unsetChrome_web_icon()
 {
     m_Chrome_web_iconIsSet = false;
 }
-utility::string_t NotificationWithMeta::getChromeWebBadge() const
+utility::string_t BasicNotification::getChromeWebBadge() const
 {
     return m_Chrome_web_badge;
 }
 
-void NotificationWithMeta::setChromeWebBadge(const utility::string_t& value)
+void BasicNotification::setChromeWebBadge(const utility::string_t& value)
 {
     m_Chrome_web_badge = value;
     m_Chrome_web_badgeIsSet = true;
 }
 
-bool NotificationWithMeta::chromeWebBadgeIsSet() const
+bool BasicNotification::chromeWebBadgeIsSet() const
 {
     return m_Chrome_web_badgeIsSet;
 }
 
-void NotificationWithMeta::unsetChrome_web_badge()
+void BasicNotification::unsetChrome_web_badge()
 {
     m_Chrome_web_badgeIsSet = false;
 }
-utility::string_t NotificationWithMeta::getFirefoxIcon() const
+utility::string_t BasicNotification::getFirefoxIcon() const
 {
     return m_Firefox_icon;
 }
 
-void NotificationWithMeta::setFirefoxIcon(const utility::string_t& value)
+void BasicNotification::setFirefoxIcon(const utility::string_t& value)
 {
     m_Firefox_icon = value;
     m_Firefox_iconIsSet = true;
 }
 
-bool NotificationWithMeta::firefoxIconIsSet() const
+bool BasicNotification::firefoxIconIsSet() const
 {
     return m_Firefox_iconIsSet;
 }
 
-void NotificationWithMeta::unsetFirefox_icon()
+void BasicNotification::unsetFirefox_icon()
 {
     m_Firefox_iconIsSet = false;
 }
-utility::string_t NotificationWithMeta::getChromeIcon() const
+utility::string_t BasicNotification::getChromeIcon() const
 {
     return m_Chrome_icon;
 }
 
-void NotificationWithMeta::setChromeIcon(const utility::string_t& value)
+void BasicNotification::setChromeIcon(const utility::string_t& value)
 {
     m_Chrome_icon = value;
     m_Chrome_iconIsSet = true;
 }
 
-bool NotificationWithMeta::chromeIconIsSet() const
+bool BasicNotification::chromeIconIsSet() const
 {
     return m_Chrome_iconIsSet;
 }
 
-void NotificationWithMeta::unsetChrome_icon()
+void BasicNotification::unsetChrome_icon()
 {
     m_Chrome_iconIsSet = false;
 }
-utility::string_t NotificationWithMeta::getIosSound() const
+utility::string_t BasicNotification::getIosSound() const
 {
     return m_Ios_sound;
 }
 
-void NotificationWithMeta::setIosSound(const utility::string_t& value)
+void BasicNotification::setIosSound(const utility::string_t& value)
 {
     m_Ios_sound = value;
     m_Ios_soundIsSet = true;
 }
 
-bool NotificationWithMeta::iosSoundIsSet() const
+bool BasicNotification::iosSoundIsSet() const
 {
     return m_Ios_soundIsSet;
 }
 
-void NotificationWithMeta::unsetIos_sound()
+void BasicNotification::unsetIos_sound()
 {
     m_Ios_soundIsSet = false;
 }
-utility::string_t NotificationWithMeta::getAndroidSound() const
+utility::string_t BasicNotification::getAndroidSound() const
 {
     return m_Android_sound;
 }
 
-void NotificationWithMeta::setAndroidSound(const utility::string_t& value)
+void BasicNotification::setAndroidSound(const utility::string_t& value)
 {
     m_Android_sound = value;
     m_Android_soundIsSet = true;
 }
 
-bool NotificationWithMeta::androidSoundIsSet() const
+bool BasicNotification::androidSoundIsSet() const
 {
     return m_Android_soundIsSet;
 }
 
-void NotificationWithMeta::unsetAndroid_sound()
+void BasicNotification::unsetAndroid_sound()
 {
     m_Android_soundIsSet = false;
 }
-utility::string_t NotificationWithMeta::getHuaweiSound() const
+utility::string_t BasicNotification::getHuaweiSound() const
 {
     return m_Huawei_sound;
 }
 
-void NotificationWithMeta::setHuaweiSound(const utility::string_t& value)
+void BasicNotification::setHuaweiSound(const utility::string_t& value)
 {
     m_Huawei_sound = value;
     m_Huawei_soundIsSet = true;
 }
 
-bool NotificationWithMeta::huaweiSoundIsSet() const
+bool BasicNotification::huaweiSoundIsSet() const
 {
     return m_Huawei_soundIsSet;
 }
 
-void NotificationWithMeta::unsetHuawei_sound()
+void BasicNotification::unsetHuawei_sound()
 {
     m_Huawei_soundIsSet = false;
 }
-utility::string_t NotificationWithMeta::getAdmSound() const
+utility::string_t BasicNotification::getAdmSound() const
 {
     return m_Adm_sound;
 }
 
-void NotificationWithMeta::setAdmSound(const utility::string_t& value)
+void BasicNotification::setAdmSound(const utility::string_t& value)
 {
     m_Adm_sound = value;
     m_Adm_soundIsSet = true;
 }
 
-bool NotificationWithMeta::admSoundIsSet() const
+bool BasicNotification::admSoundIsSet() const
 {
     return m_Adm_soundIsSet;
 }
 
-void NotificationWithMeta::unsetAdm_sound()
+void BasicNotification::unsetAdm_sound()
 {
     m_Adm_soundIsSet = false;
 }
-utility::string_t NotificationWithMeta::getWpWnsSound() const
+utility::string_t BasicNotification::getWpWnsSound() const
 {
     return m_Wp_wns_sound;
 }
 
-void NotificationWithMeta::setWpWnsSound(const utility::string_t& value)
+void BasicNotification::setWpWnsSound(const utility::string_t& value)
 {
     m_Wp_wns_sound = value;
     m_Wp_wns_soundIsSet = true;
 }
 
-bool NotificationWithMeta::wpWnsSoundIsSet() const
+bool BasicNotification::wpWnsSoundIsSet() const
 {
     return m_Wp_wns_soundIsSet;
 }
 
-void NotificationWithMeta::unsetWp_wns_sound()
+void BasicNotification::unsetWp_wns_sound()
 {
     m_Wp_wns_soundIsSet = false;
 }
-utility::string_t NotificationWithMeta::getAndroidLedColor() const
+utility::string_t BasicNotification::getAndroidLedColor() const
 {
     return m_Android_led_color;
 }
 
-void NotificationWithMeta::setAndroidLedColor(const utility::string_t& value)
+void BasicNotification::setAndroidLedColor(const utility::string_t& value)
 {
     m_Android_led_color = value;
     m_Android_led_colorIsSet = true;
 }
 
-bool NotificationWithMeta::androidLedColorIsSet() const
+bool BasicNotification::androidLedColorIsSet() const
 {
     return m_Android_led_colorIsSet;
 }
 
-void NotificationWithMeta::unsetAndroid_led_color()
+void BasicNotification::unsetAndroid_led_color()
 {
     m_Android_led_colorIsSet = false;
 }
-utility::string_t NotificationWithMeta::getHuaweiLedColor() const
+utility::string_t BasicNotification::getHuaweiLedColor() const
 {
     return m_Huawei_led_color;
 }
 
-void NotificationWithMeta::setHuaweiLedColor(const utility::string_t& value)
+void BasicNotification::setHuaweiLedColor(const utility::string_t& value)
 {
     m_Huawei_led_color = value;
     m_Huawei_led_colorIsSet = true;
 }
 
-bool NotificationWithMeta::huaweiLedColorIsSet() const
+bool BasicNotification::huaweiLedColorIsSet() const
 {
     return m_Huawei_led_colorIsSet;
 }
 
-void NotificationWithMeta::unsetHuawei_led_color()
+void BasicNotification::unsetHuawei_led_color()
 {
     m_Huawei_led_colorIsSet = false;
 }
-utility::string_t NotificationWithMeta::getAndroidAccentColor() const
+utility::string_t BasicNotification::getAndroidAccentColor() const
 {
     return m_Android_accent_color;
 }
 
-void NotificationWithMeta::setAndroidAccentColor(const utility::string_t& value)
+void BasicNotification::setAndroidAccentColor(const utility::string_t& value)
 {
     m_Android_accent_color = value;
     m_Android_accent_colorIsSet = true;
 }
 
-bool NotificationWithMeta::androidAccentColorIsSet() const
+bool BasicNotification::androidAccentColorIsSet() const
 {
     return m_Android_accent_colorIsSet;
 }
 
-void NotificationWithMeta::unsetAndroid_accent_color()
+void BasicNotification::unsetAndroid_accent_color()
 {
     m_Android_accent_colorIsSet = false;
 }
-utility::string_t NotificationWithMeta::getHuaweiAccentColor() const
+utility::string_t BasicNotification::getHuaweiAccentColor() const
 {
     return m_Huawei_accent_color;
 }
 
-void NotificationWithMeta::setHuaweiAccentColor(const utility::string_t& value)
+void BasicNotification::setHuaweiAccentColor(const utility::string_t& value)
 {
     m_Huawei_accent_color = value;
     m_Huawei_accent_colorIsSet = true;
 }
 
-bool NotificationWithMeta::huaweiAccentColorIsSet() const
+bool BasicNotification::huaweiAccentColorIsSet() const
 {
     return m_Huawei_accent_colorIsSet;
 }
 
-void NotificationWithMeta::unsetHuawei_accent_color()
+void BasicNotification::unsetHuawei_accent_color()
 {
     m_Huawei_accent_colorIsSet = false;
 }
-int32_t NotificationWithMeta::getAndroidVisibility() const
+int32_t BasicNotification::getAndroidVisibility() const
 {
     return m_Android_visibility;
 }
 
-void NotificationWithMeta::setAndroidVisibility(int32_t value)
+void BasicNotification::setAndroidVisibility(int32_t value)
 {
     m_Android_visibility = value;
     m_Android_visibilityIsSet = true;
 }
 
-bool NotificationWithMeta::androidVisibilityIsSet() const
+bool BasicNotification::androidVisibilityIsSet() const
 {
     return m_Android_visibilityIsSet;
 }
 
-void NotificationWithMeta::unsetAndroid_visibility()
+void BasicNotification::unsetAndroid_visibility()
 {
     m_Android_visibilityIsSet = false;
 }
-int32_t NotificationWithMeta::getHuaweiVisibility() const
+int32_t BasicNotification::getHuaweiVisibility() const
 {
     return m_Huawei_visibility;
 }
 
-void NotificationWithMeta::setHuaweiVisibility(int32_t value)
+void BasicNotification::setHuaweiVisibility(int32_t value)
 {
     m_Huawei_visibility = value;
     m_Huawei_visibilityIsSet = true;
 }
 
-bool NotificationWithMeta::huaweiVisibilityIsSet() const
+bool BasicNotification::huaweiVisibilityIsSet() const
 {
     return m_Huawei_visibilityIsSet;
 }
 
-void NotificationWithMeta::unsetHuawei_visibility()
+void BasicNotification::unsetHuawei_visibility()
 {
     m_Huawei_visibilityIsSet = false;
 }
-utility::string_t NotificationWithMeta::getIosBadgeType() const
+utility::string_t BasicNotification::getIosBadgeType() const
 {
     return m_Ios_badgeType;
 }
 
-void NotificationWithMeta::setIosBadgeType(const utility::string_t& value)
+void BasicNotification::setIosBadgeType(const utility::string_t& value)
 {
     m_Ios_badgeType = value;
     m_Ios_badgeTypeIsSet = true;
 }
 
-bool NotificationWithMeta::iosBadgeTypeIsSet() const
+bool BasicNotification::iosBadgeTypeIsSet() const
 {
     return m_Ios_badgeTypeIsSet;
 }
 
-void NotificationWithMeta::unsetIos_badgeType()
+void BasicNotification::unsetIos_badgeType()
 {
     m_Ios_badgeTypeIsSet = false;
 }
-int32_t NotificationWithMeta::getIosBadgeCount() const
+int32_t BasicNotification::getIosBadgeCount() const
 {
     return m_Ios_badgeCount;
 }
 
-void NotificationWithMeta::setIosBadgeCount(int32_t value)
+void BasicNotification::setIosBadgeCount(int32_t value)
 {
     m_Ios_badgeCount = value;
     m_Ios_badgeCountIsSet = true;
 }
 
-bool NotificationWithMeta::iosBadgeCountIsSet() const
+bool BasicNotification::iosBadgeCountIsSet() const
 {
     return m_Ios_badgeCountIsSet;
 }
 
-void NotificationWithMeta::unsetIos_badgeCount()
+void BasicNotification::unsetIos_badgeCount()
 {
     m_Ios_badgeCountIsSet = false;
 }
-utility::string_t NotificationWithMeta::getCollapseId() const
+utility::string_t BasicNotification::getCollapseId() const
 {
     return m_Collapse_id;
 }
 
-void NotificationWithMeta::setCollapseId(const utility::string_t& value)
+void BasicNotification::setCollapseId(const utility::string_t& value)
 {
     m_Collapse_id = value;
     m_Collapse_idIsSet = true;
 }
 
-bool NotificationWithMeta::collapseIdIsSet() const
+bool BasicNotification::collapseIdIsSet() const
 {
     return m_Collapse_idIsSet;
 }
 
-void NotificationWithMeta::unsetCollapse_id()
+void BasicNotification::unsetCollapse_id()
 {
     m_Collapse_idIsSet = false;
 }
-utility::string_t NotificationWithMeta::getWebPushTopic() const
+utility::string_t BasicNotification::getWebPushTopic() const
 {
     return m_Web_push_topic;
 }
 
-void NotificationWithMeta::setWebPushTopic(const utility::string_t& value)
+void BasicNotification::setWebPushTopic(const utility::string_t& value)
 {
     m_Web_push_topic = value;
     m_Web_push_topicIsSet = true;
 }
 
-bool NotificationWithMeta::webPushTopicIsSet() const
+bool BasicNotification::webPushTopicIsSet() const
 {
     return m_Web_push_topicIsSet;
 }
 
-void NotificationWithMeta::unsetWeb_push_topic()
+void BasicNotification::unsetWeb_push_topic()
 {
     m_Web_push_topicIsSet = false;
 }
-std::shared_ptr<Object> NotificationWithMeta::getApnsAlert() const
+std::shared_ptr<Object> BasicNotification::getApnsAlert() const
 {
     return m_Apns_alert;
 }
 
-void NotificationWithMeta::setApnsAlert(const std::shared_ptr<Object>& value)
+void BasicNotification::setApnsAlert(const std::shared_ptr<Object>& value)
 {
     m_Apns_alert = value;
     m_Apns_alertIsSet = true;
 }
 
-bool NotificationWithMeta::apnsAlertIsSet() const
+bool BasicNotification::apnsAlertIsSet() const
 {
     return m_Apns_alertIsSet;
 }
 
-void NotificationWithMeta::unsetApns_alert()
+void BasicNotification::unsetApns_alert()
 {
     m_Apns_alertIsSet = false;
 }
-utility::string_t NotificationWithMeta::getDelayedOption() const
+utility::string_t BasicNotification::getDelayedOption() const
 {
     return m_Delayed_option;
 }
 
-void NotificationWithMeta::setDelayedOption(const utility::string_t& value)
+void BasicNotification::setDelayedOption(const utility::string_t& value)
 {
     m_Delayed_option = value;
     m_Delayed_optionIsSet = true;
 }
 
-bool NotificationWithMeta::delayedOptionIsSet() const
+bool BasicNotification::delayedOptionIsSet() const
 {
     return m_Delayed_optionIsSet;
 }
 
-void NotificationWithMeta::unsetDelayed_option()
+void BasicNotification::unsetDelayed_option()
 {
     m_Delayed_optionIsSet = false;
 }
-utility::string_t NotificationWithMeta::getDeliveryTimeOfDay() const
+utility::string_t BasicNotification::getDeliveryTimeOfDay() const
 {
     return m_Delivery_time_of_day;
 }
 
-void NotificationWithMeta::setDeliveryTimeOfDay(const utility::string_t& value)
+void BasicNotification::setDeliveryTimeOfDay(const utility::string_t& value)
 {
     m_Delivery_time_of_day = value;
     m_Delivery_time_of_dayIsSet = true;
 }
 
-bool NotificationWithMeta::deliveryTimeOfDayIsSet() const
+bool BasicNotification::deliveryTimeOfDayIsSet() const
 {
     return m_Delivery_time_of_dayIsSet;
 }
 
-void NotificationWithMeta::unsetDelivery_time_of_day()
+void BasicNotification::unsetDelivery_time_of_day()
 {
     m_Delivery_time_of_dayIsSet = false;
 }
-int32_t NotificationWithMeta::getTtl() const
+int32_t BasicNotification::getTtl() const
 {
     return m_Ttl;
 }
 
-void NotificationWithMeta::setTtl(int32_t value)
+void BasicNotification::setTtl(int32_t value)
 {
     m_Ttl = value;
     m_TtlIsSet = true;
 }
 
-bool NotificationWithMeta::ttlIsSet() const
+bool BasicNotification::ttlIsSet() const
 {
     return m_TtlIsSet;
 }
 
-void NotificationWithMeta::unsetTtl()
+void BasicNotification::unsetTtl()
 {
     m_TtlIsSet = false;
 }
-int32_t NotificationWithMeta::getPriority() const
+int32_t BasicNotification::getPriority() const
 {
     return m_Priority;
 }
 
-void NotificationWithMeta::setPriority(int32_t value)
+void BasicNotification::setPriority(int32_t value)
 {
     m_Priority = value;
     m_PriorityIsSet = true;
 }
 
-bool NotificationWithMeta::priorityIsSet() const
+bool BasicNotification::priorityIsSet() const
 {
     return m_PriorityIsSet;
 }
 
-void NotificationWithMeta::unsetPriority()
+void BasicNotification::unsetPriority()
 {
     m_PriorityIsSet = false;
 }
-utility::string_t NotificationWithMeta::getApnsPushTypeOverride() const
+utility::string_t BasicNotification::getApnsPushTypeOverride() const
 {
     return m_Apns_push_type_override;
 }
 
-void NotificationWithMeta::setApnsPushTypeOverride(const utility::string_t& value)
+void BasicNotification::setApnsPushTypeOverride(const utility::string_t& value)
 {
     m_Apns_push_type_override = value;
     m_Apns_push_type_overrideIsSet = true;
 }
 
-bool NotificationWithMeta::apnsPushTypeOverrideIsSet() const
+bool BasicNotification::apnsPushTypeOverrideIsSet() const
 {
     return m_Apns_push_type_overrideIsSet;
 }
 
-void NotificationWithMeta::unsetApns_push_type_override()
+void BasicNotification::unsetApns_push_type_override()
 {
     m_Apns_push_type_overrideIsSet = false;
 }
-int32_t NotificationWithMeta::getThrottleRatePerMinute() const
+utility::string_t BasicNotification::getThrottleRatePerMinute() const
 {
     return m_Throttle_rate_per_minute;
 }
 
-void NotificationWithMeta::setThrottleRatePerMinute(int32_t value)
+void BasicNotification::setThrottleRatePerMinute(const utility::string_t& value)
 {
     m_Throttle_rate_per_minute = value;
     m_Throttle_rate_per_minuteIsSet = true;
 }
 
-bool NotificationWithMeta::throttleRatePerMinuteIsSet() const
+bool BasicNotification::throttleRatePerMinuteIsSet() const
 {
     return m_Throttle_rate_per_minuteIsSet;
 }
 
-void NotificationWithMeta::unsetThrottle_rate_per_minute()
+void BasicNotification::unsetThrottle_rate_per_minute()
 {
     m_Throttle_rate_per_minuteIsSet = false;
 }
-utility::string_t NotificationWithMeta::getAndroidGroup() const
+utility::string_t BasicNotification::getAndroidGroup() const
 {
     return m_Android_group;
 }
 
-void NotificationWithMeta::setAndroidGroup(const utility::string_t& value)
+void BasicNotification::setAndroidGroup(const utility::string_t& value)
 {
     m_Android_group = value;
     m_Android_groupIsSet = true;
 }
 
-bool NotificationWithMeta::androidGroupIsSet() const
+bool BasicNotification::androidGroupIsSet() const
 {
     return m_Android_groupIsSet;
 }
 
-void NotificationWithMeta::unsetAndroid_group()
+void BasicNotification::unsetAndroid_group()
 {
     m_Android_groupIsSet = false;
 }
-utility::string_t NotificationWithMeta::getAndroidGroupMessage() const
+utility::string_t BasicNotification::getAndroidGroupMessage() const
 {
     return m_Android_group_message;
 }
 
-void NotificationWithMeta::setAndroidGroupMessage(const utility::string_t& value)
+void BasicNotification::setAndroidGroupMessage(const utility::string_t& value)
 {
     m_Android_group_message = value;
     m_Android_group_messageIsSet = true;
 }
 
-bool NotificationWithMeta::androidGroupMessageIsSet() const
+bool BasicNotification::androidGroupMessageIsSet() const
 {
     return m_Android_group_messageIsSet;
 }
 
-void NotificationWithMeta::unsetAndroid_group_message()
+void BasicNotification::unsetAndroid_group_message()
 {
     m_Android_group_messageIsSet = false;
 }
-utility::string_t NotificationWithMeta::getAdmGroup() const
+utility::string_t BasicNotification::getAdmGroup() const
 {
     return m_Adm_group;
 }
 
-void NotificationWithMeta::setAdmGroup(const utility::string_t& value)
+void BasicNotification::setAdmGroup(const utility::string_t& value)
 {
     m_Adm_group = value;
     m_Adm_groupIsSet = true;
 }
 
-bool NotificationWithMeta::admGroupIsSet() const
+bool BasicNotification::admGroupIsSet() const
 {
     return m_Adm_groupIsSet;
 }
 
-void NotificationWithMeta::unsetAdm_group()
+void BasicNotification::unsetAdm_group()
 {
     m_Adm_groupIsSet = false;
 }
-std::shared_ptr<Object> NotificationWithMeta::getAdmGroupMessage() const
+std::shared_ptr<Object> BasicNotification::getAdmGroupMessage() const
 {
     return m_Adm_group_message;
 }
 
-void NotificationWithMeta::setAdmGroupMessage(const std::shared_ptr<Object>& value)
+void BasicNotification::setAdmGroupMessage(const std::shared_ptr<Object>& value)
 {
     m_Adm_group_message = value;
     m_Adm_group_messageIsSet = true;
 }
 
-bool NotificationWithMeta::admGroupMessageIsSet() const
+bool BasicNotification::admGroupMessageIsSet() const
 {
     return m_Adm_group_messageIsSet;
 }
 
-void NotificationWithMeta::unsetAdm_group_message()
+void BasicNotification::unsetAdm_group_message()
 {
     m_Adm_group_messageIsSet = false;
 }
-utility::string_t NotificationWithMeta::getThreadId() const
+utility::string_t BasicNotification::getThreadId() const
 {
     return m_Thread_id;
 }
 
-void NotificationWithMeta::setThreadId(const utility::string_t& value)
+void BasicNotification::setThreadId(const utility::string_t& value)
 {
     m_Thread_id = value;
     m_Thread_idIsSet = true;
 }
 
-bool NotificationWithMeta::threadIdIsSet() const
+bool BasicNotification::threadIdIsSet() const
 {
     return m_Thread_idIsSet;
 }
 
-void NotificationWithMeta::unsetThread_id()
+void BasicNotification::unsetThread_id()
 {
     m_Thread_idIsSet = false;
 }
-utility::string_t NotificationWithMeta::getSummaryArg() const
+utility::string_t BasicNotification::getSummaryArg() const
 {
     return m_Summary_arg;
 }
 
-void NotificationWithMeta::setSummaryArg(const utility::string_t& value)
+void BasicNotification::setSummaryArg(const utility::string_t& value)
 {
     m_Summary_arg = value;
     m_Summary_argIsSet = true;
 }
 
-bool NotificationWithMeta::summaryArgIsSet() const
+bool BasicNotification::summaryArgIsSet() const
 {
     return m_Summary_argIsSet;
 }
 
-void NotificationWithMeta::unsetSummary_arg()
+void BasicNotification::unsetSummary_arg()
 {
     m_Summary_argIsSet = false;
 }
-int32_t NotificationWithMeta::getSummaryArgCount() const
+int32_t BasicNotification::getSummaryArgCount() const
 {
     return m_Summary_arg_count;
 }
 
-void NotificationWithMeta::setSummaryArgCount(int32_t value)
+void BasicNotification::setSummaryArgCount(int32_t value)
 {
     m_Summary_arg_count = value;
     m_Summary_arg_countIsSet = true;
 }
 
-bool NotificationWithMeta::summaryArgCountIsSet() const
+bool BasicNotification::summaryArgCountIsSet() const
 {
     return m_Summary_arg_countIsSet;
 }
 
-void NotificationWithMeta::unsetSummary_arg_count()
+void BasicNotification::unsetSummary_arg_count()
 {
     m_Summary_arg_countIsSet = false;
 }
-utility::string_t NotificationWithMeta::getEmailSubject() const
+utility::string_t BasicNotification::getEmailSubject() const
 {
     return m_Email_subject;
 }
 
-void NotificationWithMeta::setEmailSubject(const utility::string_t& value)
+void BasicNotification::setEmailSubject(const utility::string_t& value)
 {
     m_Email_subject = value;
     m_Email_subjectIsSet = true;
 }
 
-bool NotificationWithMeta::emailSubjectIsSet() const
+bool BasicNotification::emailSubjectIsSet() const
 {
     return m_Email_subjectIsSet;
 }
 
-void NotificationWithMeta::unsetEmail_subject()
+void BasicNotification::unsetEmail_subject()
 {
     m_Email_subjectIsSet = false;
 }
-utility::string_t NotificationWithMeta::getEmailBody() const
+utility::string_t BasicNotification::getEmailBody() const
 {
     return m_Email_body;
 }
 
-void NotificationWithMeta::setEmailBody(const utility::string_t& value)
+void BasicNotification::setEmailBody(const utility::string_t& value)
 {
     m_Email_body = value;
     m_Email_bodyIsSet = true;
 }
 
-bool NotificationWithMeta::emailBodyIsSet() const
+bool BasicNotification::emailBodyIsSet() const
 {
     return m_Email_bodyIsSet;
 }
 
-void NotificationWithMeta::unsetEmail_body()
+void BasicNotification::unsetEmail_body()
 {
     m_Email_bodyIsSet = false;
 }
-utility::string_t NotificationWithMeta::getEmailFromName() const
+utility::string_t BasicNotification::getEmailFromName() const
 {
     return m_Email_from_name;
 }
 
-void NotificationWithMeta::setEmailFromName(const utility::string_t& value)
+void BasicNotification::setEmailFromName(const utility::string_t& value)
 {
     m_Email_from_name = value;
     m_Email_from_nameIsSet = true;
 }
 
-bool NotificationWithMeta::emailFromNameIsSet() const
+bool BasicNotification::emailFromNameIsSet() const
 {
     return m_Email_from_nameIsSet;
 }
 
-void NotificationWithMeta::unsetEmail_from_name()
+void BasicNotification::unsetEmail_from_name()
 {
     m_Email_from_nameIsSet = false;
 }
-utility::string_t NotificationWithMeta::getEmailFromAddress() const
+utility::string_t BasicNotification::getEmailFromAddress() const
 {
     return m_Email_from_address;
 }
 
-void NotificationWithMeta::setEmailFromAddress(const utility::string_t& value)
+void BasicNotification::setEmailFromAddress(const utility::string_t& value)
 {
     m_Email_from_address = value;
     m_Email_from_addressIsSet = true;
 }
 
-bool NotificationWithMeta::emailFromAddressIsSet() const
+bool BasicNotification::emailFromAddressIsSet() const
 {
     return m_Email_from_addressIsSet;
 }
 
-void NotificationWithMeta::unsetEmail_from_address()
+void BasicNotification::unsetEmail_from_address()
 {
     m_Email_from_addressIsSet = false;
 }
-utility::string_t NotificationWithMeta::getSmsFrom() const
+utility::string_t BasicNotification::getSmsFrom() const
 {
     return m_Sms_from;
 }
 
-void NotificationWithMeta::setSmsFrom(const utility::string_t& value)
+void BasicNotification::setSmsFrom(const utility::string_t& value)
 {
     m_Sms_from = value;
     m_Sms_fromIsSet = true;
 }
 
-bool NotificationWithMeta::smsFromIsSet() const
+bool BasicNotification::smsFromIsSet() const
 {
     return m_Sms_fromIsSet;
 }
 
-void NotificationWithMeta::unsetSms_from()
+void BasicNotification::unsetSms_from()
 {
     m_Sms_fromIsSet = false;
 }
-std::vector<utility::string_t>& NotificationWithMeta::getSmsMediaUrls()
+std::vector<utility::string_t>& BasicNotification::getSmsMediaUrls()
 {
     return m_Sms_media_urls;
 }
 
-void NotificationWithMeta::setSmsMediaUrls(const std::vector<utility::string_t>& value)
+void BasicNotification::setSmsMediaUrls(const std::vector<utility::string_t>& value)
 {
     m_Sms_media_urls = value;
     m_Sms_media_urlsIsSet = true;
 }
 
-bool NotificationWithMeta::smsMediaUrlsIsSet() const
+bool BasicNotification::smsMediaUrlsIsSet() const
 {
     return m_Sms_media_urlsIsSet;
 }
 
-void NotificationWithMeta::unsetSms_media_urls()
+void BasicNotification::unsetSms_media_urls()
 {
     m_Sms_media_urlsIsSet = false;
-}
-int32_t NotificationWithMeta::getSuccessful() const
-{
-    return m_Successful;
-}
-
-void NotificationWithMeta::setSuccessful(int32_t value)
-{
-    m_Successful = value;
-    m_SuccessfulIsSet = true;
-}
-
-bool NotificationWithMeta::successfulIsSet() const
-{
-    return m_SuccessfulIsSet;
-}
-
-void NotificationWithMeta::unsetSuccessful()
-{
-    m_SuccessfulIsSet = false;
-}
-int32_t NotificationWithMeta::getFailed() const
-{
-    return m_Failed;
-}
-
-void NotificationWithMeta::setFailed(int32_t value)
-{
-    m_Failed = value;
-    m_FailedIsSet = true;
-}
-
-bool NotificationWithMeta::failedIsSet() const
-{
-    return m_FailedIsSet;
-}
-
-void NotificationWithMeta::unsetFailed()
-{
-    m_FailedIsSet = false;
-}
-int32_t NotificationWithMeta::getErrored() const
-{
-    return m_Errored;
-}
-
-void NotificationWithMeta::setErrored(int32_t value)
-{
-    m_Errored = value;
-    m_ErroredIsSet = true;
-}
-
-bool NotificationWithMeta::erroredIsSet() const
-{
-    return m_ErroredIsSet;
-}
-
-void NotificationWithMeta::unsetErrored()
-{
-    m_ErroredIsSet = false;
-}
-int32_t NotificationWithMeta::getConverted() const
-{
-    return m_Converted;
-}
-
-void NotificationWithMeta::setConverted(int32_t value)
-{
-    m_Converted = value;
-    m_ConvertedIsSet = true;
-}
-
-bool NotificationWithMeta::convertedIsSet() const
-{
-    return m_ConvertedIsSet;
-}
-
-void NotificationWithMeta::unsetConverted()
-{
-    m_ConvertedIsSet = false;
-}
-int32_t NotificationWithMeta::getReceived() const
-{
-    return m_Received;
-}
-
-void NotificationWithMeta::setReceived(int32_t value)
-{
-    m_Received = value;
-    m_ReceivedIsSet = true;
-}
-
-bool NotificationWithMeta::receivedIsSet() const
-{
-    return m_ReceivedIsSet;
-}
-
-void NotificationWithMeta::unsetReceived()
-{
-    m_ReceivedIsSet = false;
-}
-std::vector<std::shared_ptr<OutcomeData>>& NotificationWithMeta::getOutcomes()
-{
-    return m_Outcomes;
-}
-
-void NotificationWithMeta::setOutcomes(const std::vector<std::shared_ptr<OutcomeData>>& value)
-{
-    m_Outcomes = value;
-    m_OutcomesIsSet = true;
-}
-
-bool NotificationWithMeta::outcomesIsSet() const
-{
-    return m_OutcomesIsSet;
-}
-
-void NotificationWithMeta::unsetOutcomes()
-{
-    m_OutcomesIsSet = false;
-}
-int32_t NotificationWithMeta::getRemaining() const
-{
-    return m_Remaining;
-}
-
-void NotificationWithMeta::setRemaining(int32_t value)
-{
-    m_Remaining = value;
-    m_RemainingIsSet = true;
-}
-
-bool NotificationWithMeta::remainingIsSet() const
-{
-    return m_RemainingIsSet;
-}
-
-void NotificationWithMeta::unsetRemaining()
-{
-    m_RemainingIsSet = false;
-}
-int64_t NotificationWithMeta::getQueuedAt() const
-{
-    return m_Queued_at;
-}
-
-void NotificationWithMeta::setQueuedAt(int64_t value)
-{
-    m_Queued_at = value;
-    m_Queued_atIsSet = true;
-}
-
-bool NotificationWithMeta::queuedAtIsSet() const
-{
-    return m_Queued_atIsSet;
-}
-
-void NotificationWithMeta::unsetQueued_at()
-{
-    m_Queued_atIsSet = false;
-}
-int64_t NotificationWithMeta::getSendAfter() const
-{
-    return m_Send_after;
-}
-
-void NotificationWithMeta::setSendAfter(int64_t value)
-{
-    m_Send_after = value;
-    m_Send_afterIsSet = true;
-}
-
-bool NotificationWithMeta::sendAfterIsSet() const
-{
-    return m_Send_afterIsSet;
-}
-
-void NotificationWithMeta::unsetSend_after()
-{
-    m_Send_afterIsSet = false;
-}
-int64_t NotificationWithMeta::getCompletedAt() const
-{
-    return m_Completed_at;
-}
-
-void NotificationWithMeta::setCompletedAt(int64_t value)
-{
-    m_Completed_at = value;
-    m_Completed_atIsSet = true;
-}
-
-bool NotificationWithMeta::completedAtIsSet() const
-{
-    return m_Completed_atIsSet;
-}
-
-void NotificationWithMeta::unsetCompleted_at()
-{
-    m_Completed_atIsSet = false;
-}
-std::shared_ptr<PlatformDeliveryData> NotificationWithMeta::getPlatformDeliveryStats() const
-{
-    return m_Platform_delivery_stats;
-}
-
-void NotificationWithMeta::setPlatformDeliveryStats(const std::shared_ptr<PlatformDeliveryData>& value)
-{
-    m_Platform_delivery_stats = value;
-    m_Platform_delivery_statsIsSet = true;
-}
-
-bool NotificationWithMeta::platformDeliveryStatsIsSet() const
-{
-    return m_Platform_delivery_statsIsSet;
-}
-
-void NotificationWithMeta::unsetPlatform_delivery_stats()
-{
-    m_Platform_delivery_statsIsSet = false;
 }
 }
 }

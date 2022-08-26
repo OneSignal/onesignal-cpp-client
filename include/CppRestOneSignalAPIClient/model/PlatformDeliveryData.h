@@ -22,6 +22,8 @@
 
 #include "CppRestOneSignalAPIClient/ModelBase.h"
 
+#include "CppRestOneSignalAPIClient/model/PlatformDeliveryData_sms_allOf.h"
+#include "CppRestOneSignalAPIClient/model/PlatformDeliveryData_email_allOf.h"
 #include "CppRestOneSignalAPIClient/model/DeliveryData.h"
 
 namespace com {
@@ -109,6 +111,24 @@ public:
 
     void setIos(const std::shared_ptr<DeliveryData>& value);
 
+    /// <summary>
+    /// 
+    /// </summary>
+    std::shared_ptr<DeliveryData> getSms() const;
+    bool smsIsSet() const;
+    void unsetSms();
+
+    void setSms(const std::shared_ptr<DeliveryData>& value);
+
+    /// <summary>
+    /// 
+    /// </summary>
+    std::shared_ptr<DeliveryData> getEmail() const;
+    bool emailIsSet() const;
+    void unsetEmail();
+
+    void setEmail(const std::shared_ptr<DeliveryData>& value);
+
 
 protected:
     std::shared_ptr<DeliveryData> m_Edge_web_push;
@@ -123,6 +143,10 @@ protected:
     bool m_AndroidIsSet;
     std::shared_ptr<DeliveryData> m_Ios;
     bool m_IosIsSet;
+    std::shared_ptr<DeliveryData> m_Sms;
+    bool m_SmsIsSet;
+    std::shared_ptr<DeliveryData> m_Email;
+    bool m_EmailIsSet;
 };
 
 

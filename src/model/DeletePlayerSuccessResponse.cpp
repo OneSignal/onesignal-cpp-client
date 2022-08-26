@@ -23,7 +23,7 @@ namespace model {
 
 DeletePlayerSuccessResponse::DeletePlayerSuccessResponse()
 {
-    m_Success = utility::conversions::to_string_t("");
+    m_Success = false;
     m_SuccessIsSet = false;
 }
 
@@ -58,7 +58,7 @@ bool DeletePlayerSuccessResponse::fromJson(const web::json::value& val)
         const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("success")));
         if(!fieldValue.is_null())
         {
-            utility::string_t refVal_setSuccess;
+            bool refVal_setSuccess;
             ok &= ModelBase::fromJson(fieldValue, refVal_setSuccess);
             setSuccess(refVal_setSuccess);
         }
@@ -90,19 +90,19 @@ bool DeletePlayerSuccessResponse::fromMultiPart(std::shared_ptr<MultipartFormDat
 
     if(multipart->hasContent(utility::conversions::to_string_t(U("success"))))
     {
-        utility::string_t refVal_setSuccess;
+        bool refVal_setSuccess;
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("success"))), refVal_setSuccess );
         setSuccess(refVal_setSuccess);
     }
     return ok;
 }
 
-utility::string_t DeletePlayerSuccessResponse::getSuccess() const
+bool DeletePlayerSuccessResponse::isSuccess() const
 {
     return m_Success;
 }
 
-void DeletePlayerSuccessResponse::setSuccess(const utility::string_t& value)
+void DeletePlayerSuccessResponse::setSuccess(bool value)
 {
     m_Success = value;
     m_SuccessIsSet = true;

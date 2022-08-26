@@ -11,13 +11,13 @@
  */
 
 /*
- * Notification_allOf_android_background_layout.h
+ * BasicNotification_allOf_android_background_layout.h
  *
  * Channel: Push Notifications Platform: Android Allowing setting a background image for the notification. This is a JSON object containing the following keys. See our Background Image documentation for image sizes. 
  */
 
-#ifndef COM_ONESIGNAL_CLIENT_MODEL_Notification_allOf_android_background_layout_H_
-#define COM_ONESIGNAL_CLIENT_MODEL_Notification_allOf_android_background_layout_H_
+#ifndef COM_ONESIGNAL_CLIENT_MODEL_BasicNotification_allOf_android_background_layout_H_
+#define COM_ONESIGNAL_CLIENT_MODEL_BasicNotification_allOf_android_background_layout_H_
 
 
 #include "CppRestOneSignalAPIClient/ModelBase.h"
@@ -33,12 +33,12 @@ namespace model {
 /// <summary>
 /// Channel: Push Notifications Platform: Android Allowing setting a background image for the notification. This is a JSON object containing the following keys. See our Background Image documentation for image sizes. 
 /// </summary>
-class  Notification_allOf_android_background_layout
+class  BasicNotification_allOf_android_background_layout
     : public ModelBase
 {
 public:
-    Notification_allOf_android_background_layout();
-    virtual ~Notification_allOf_android_background_layout();
+    BasicNotification_allOf_android_background_layout();
+    virtual ~BasicNotification_allOf_android_background_layout();
 
     /////////////////////////////////////////////
     /// ModelBase overrides
@@ -52,7 +52,7 @@ public:
     bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
 
     /////////////////////////////////////////////
-    /// Notification_allOf_android_background_layout members
+    /// BasicNotification_allOf_android_background_layout members
 
     /// <summary>
     /// Asset file, android resource name, or URL to remote image.
@@ -97,4 +97,4 @@ protected:
 }
 }
 
-#endif /* COM_ONESIGNAL_CLIENT_MODEL_Notification_allOf_android_background_layout_H_ */
+#endif /* COM_ONESIGNAL_CLIENT_MODEL_BasicNotification_allOf_android_background_layout_H_ */

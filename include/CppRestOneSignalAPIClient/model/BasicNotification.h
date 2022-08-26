@@ -11,24 +11,24 @@
  */
 
 /*
- * Notification.h
+ * BasicNotification.h
  *
  * 
  */
 
-#ifndef COM_ONESIGNAL_CLIENT_MODEL_Notification_H_
-#define COM_ONESIGNAL_CLIENT_MODEL_Notification_H_
+#ifndef COM_ONESIGNAL_CLIENT_MODEL_BasicNotification_H_
+#define COM_ONESIGNAL_CLIENT_MODEL_BasicNotification_H_
 
 
 #include "CppRestOneSignalAPIClient/ModelBase.h"
 
 #include "CppRestOneSignalAPIClient/model/Button.h"
 #include "CppRestOneSignalAPIClient/Object.h"
-#include "CppRestOneSignalAPIClient/model/BasicNotification.h"
+#include "CppRestOneSignalAPIClient/model/BasicNotification_allOf.h"
+#include "CppRestOneSignalAPIClient/model/NotificationTarget.h"
 #include "CppRestOneSignalAPIClient/model/StringMap.h"
 #include <cpprest/details/basic_types.h>
 #include "CppRestOneSignalAPIClient/model/BasicNotification_allOf_android_background_layout.h"
-#include "CppRestOneSignalAPIClient/model/Notification_allOf.h"
 #include <vector>
 
 namespace com {
@@ -43,12 +43,12 @@ class BasicNotification_allOf_android_background_layout;
 /// <summary>
 /// 
 /// </summary>
-class  Notification
+class  BasicNotification
     : public ModelBase
 {
 public:
-    Notification();
-    virtual ~Notification();
+    BasicNotification();
+    virtual ~BasicNotification();
 
     /////////////////////////////////////////////
     /// ModelBase overrides
@@ -62,7 +62,7 @@ public:
     bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
 
     /////////////////////////////////////////////
-    /// Notification members
+    /// BasicNotification members
 
     /// <summary>
     /// The segment names you want to target. Users in these segments will receive a notification. This targeting parameter is only compatible with excluded_segments. Example: [\&quot;Active Users\&quot;, \&quot;Inactive Users\&quot;] 
@@ -1072,15 +1072,6 @@ public:
 
     void setSmsMediaUrls(const std::vector<utility::string_t>& value);
 
-    /// <summary>
-    /// Channel: All Schedule notification for future delivery. API defaults to UTC -1100 Examples: All examples are the exact same date &amp; time. \&quot;Thu Sep 24 2015 14:00:00 GMT-0700 (PDT)\&quot; \&quot;September 24th 2015, 2:00:00 pm UTC-07:00\&quot; \&quot;2015-09-24 14:00:00 GMT-0700\&quot; \&quot;Sept 24 2015 14:00:00 GMT-0700\&quot; \&quot;Thu Sep 24 2015 14:00:00 GMT-0700 (Pacific Daylight Time)\&quot; Note: SMS currently only supports send_after parameter. 
-    /// </summary>
-    utility::datetime getSendAfter() const;
-    bool sendAfterIsSet() const;
-    void unsetSend_after();
-
-    void setSendAfter(const utility::datetime& value);
-
 
 protected:
     std::vector<utility::string_t> m_Included_segments;
@@ -1307,8 +1298,6 @@ protected:
     bool m_Sms_fromIsSet;
     std::vector<utility::string_t> m_Sms_media_urls;
     bool m_Sms_media_urlsIsSet;
-    utility::datetime m_Send_after;
-    bool m_Send_afterIsSet;
 };
 
 
@@ -1317,4 +1306,4 @@ protected:
 }
 }
 
-#endif /* COM_ONESIGNAL_CLIENT_MODEL_Notification_H_ */
+#endif /* COM_ONESIGNAL_CLIENT_MODEL_BasicNotification_H_ */

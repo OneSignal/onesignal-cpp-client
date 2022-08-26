@@ -54,7 +54,7 @@ public:
     /// DeliveryData members
 
     /// <summary>
-    /// 
+    /// Number of messages delivered to push servers, mobile carriers, or email service providers.
     /// </summary>
     int32_t getSuccessful() const;
     bool successfulIsSet() const;
@@ -63,7 +63,7 @@ public:
     void setSuccessful(int32_t value);
 
     /// <summary>
-    /// 
+    /// Number of messages sent to unsubscribed devices.
     /// </summary>
     int32_t getFailed() const;
     bool failedIsSet() const;
@@ -72,7 +72,7 @@ public:
     void setFailed(int32_t value);
 
     /// <summary>
-    /// 
+    /// Number of errors reported.
     /// </summary>
     int32_t getErrored() const;
     bool erroredIsSet() const;
@@ -81,7 +81,7 @@ public:
     void setErrored(int32_t value);
 
     /// <summary>
-    /// 
+    /// Number of messages that were clicked.
     /// </summary>
     int32_t getConverted() const;
     bool convertedIsSet() const;
@@ -90,7 +90,7 @@ public:
     void setConverted(int32_t value);
 
     /// <summary>
-    /// 
+    /// Number of devices that received the message.
     /// </summary>
     int32_t getReceived() const;
     bool receivedIsSet() const;
