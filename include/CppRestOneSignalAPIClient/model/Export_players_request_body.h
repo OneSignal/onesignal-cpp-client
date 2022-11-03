@@ -74,7 +74,7 @@ public:
     void setLastActiveSince(const utility::string_t& value);
 
     /// <summary>
-    /// Export al ldevices belonging to the segment.
+    /// Export all devices belonging to the segment.
     /// </summary>
     utility::string_t getSegmentName() const;
     bool segmentNameIsSet() const;
