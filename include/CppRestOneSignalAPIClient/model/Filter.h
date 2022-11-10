@@ -73,7 +73,7 @@ public:
     void setKey(const utility::string_t& value);
 
     /// <summary>
-    /// Constant value to use as the second operand in the filter expression.  This value is *required* when the relation operator is a binary operator.
+    /// Constant value to use as the second operand in the filter expression. This value is *required* when the relation operator is a binary operator.
     /// </summary>
     utility::string_t getValue() const;
     bool valueIsSet() const;

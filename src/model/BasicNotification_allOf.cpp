@@ -188,6 +188,7 @@ BasicNotification_allOf::BasicNotification_allOf()
     m_Sms_from = utility::conversions::to_string_t("");
     m_Sms_fromIsSet = false;
     m_Sms_media_urlsIsSet = false;
+    m_FiltersIsSet = false;
 }
 
 BasicNotification_allOf::~BasicNotification_allOf()
@@ -555,6 +556,10 @@ web::json::value BasicNotification_allOf::toJson() const
     if(m_Sms_media_urlsIsSet)
     {
         val[utility::conversions::to_string_t(U("sms_media_urls"))] = ModelBase::toJson(m_Sms_media_urls);
+    }
+    if(m_FiltersIsSet)
+    {
+        val[utility::conversions::to_string_t(U("filters"))] = ModelBase::toJson(m_Filters);
     }
 
     return val;
@@ -1444,6 +1449,16 @@ bool BasicNotification_allOf::fromJson(const web::json::value& val)
             setSmsMediaUrls(refVal_setSmsMediaUrls);
         }
     }
+    if(val.has_field(utility::conversions::to_string_t(U("filters"))))
+    {
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("filters")));
+        if(!fieldValue.is_null())
+        {
+            std::vector<std::shared_ptr<Filter>> refVal_setFilters;
+            ok &= ModelBase::fromJson(fieldValue, refVal_setFilters);
+            setFilters(refVal_setFilters);
+        }
+    }
     return ok;
 }
 
@@ -1805,6 +1820,10 @@ void BasicNotification_allOf::toMultipart(std::shared_ptr<MultipartFormData> mul
     if(m_Sms_media_urlsIsSet)
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("sms_media_urls")), m_Sms_media_urls));
+    }
+    if(m_FiltersIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("filters")), m_Filters));
     }
 }
 
@@ -2344,6 +2363,12 @@ bool BasicNotification_allOf::fromMultiPart(std::shared_ptr<MultipartFormData> m
         std::vector<utility::string_t> refVal_setSmsMediaUrls;
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("sms_media_urls"))), refVal_setSmsMediaUrls );
         setSmsMediaUrls(refVal_setSmsMediaUrls);
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t(U("filters"))))
+    {
+        std::vector<std::shared_ptr<Filter>> refVal_setFilters;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("filters"))), refVal_setFilters );
+        setFilters(refVal_setFilters);
     }
     return ok;
 }
@@ -4107,6 +4132,26 @@ bool BasicNotification_allOf::smsMediaUrlsIsSet() const
 void BasicNotification_allOf::unsetSms_media_urls()
 {
     m_Sms_media_urlsIsSet = false;
+}
+std::vector<std::shared_ptr<Filter>>& BasicNotification_allOf::getFilters()
+{
+    return m_Filters;
+}
+
+void BasicNotification_allOf::setFilters(const std::vector<std::shared_ptr<Filter>>& value)
+{
+    m_Filters = value;
+    m_FiltersIsSet = true;
+}
+
+bool BasicNotification_allOf::filtersIsSet() const
+{
+    return m_FiltersIsSet;
+}
+
+void BasicNotification_allOf::unsetFilters()
+{
+    m_FiltersIsSet = false;
 }
 }
 }
