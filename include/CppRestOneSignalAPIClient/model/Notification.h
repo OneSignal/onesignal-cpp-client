@@ -29,6 +29,7 @@
 #include <cpprest/details/basic_types.h>
 #include "CppRestOneSignalAPIClient/model/BasicNotification_allOf_android_background_layout.h"
 #include "CppRestOneSignalAPIClient/model/Notification_allOf.h"
+#include "CppRestOneSignalAPIClient/model/Filter.h"
 #include <vector>
 
 namespace com {
@@ -39,6 +40,7 @@ namespace model {
 class StringMap;
 class Button;
 class BasicNotification_allOf_android_background_layout;
+class Filter;
 
 /// <summary>
 /// 
@@ -81,114 +83,6 @@ public:
     void unsetExcluded_segments();
 
     void setExcludedSegments(const std::vector<utility::string_t>& value);
-
-    /// <summary>
-    /// relation &#x3D; \&quot;&gt;\&quot; or \&quot;&lt;\&quot; hours_ago &#x3D; number of hours before or after the users last session. Example: \&quot;1.1\&quot; 
-    /// </summary>
-    utility::string_t getLastSession() const;
-    bool lastSessionIsSet() const;
-    void unsetLast_session();
-
-    void setLastSession(const utility::string_t& value);
-
-    /// <summary>
-    /// relation &#x3D; \&quot;&gt;\&quot; or \&quot;&lt;\&quot; hours_ago &#x3D; number of hours before or after the users first session. Example: \&quot;1.1\&quot; 
-    /// </summary>
-    utility::string_t getFirstSession() const;
-    bool firstSessionIsSet() const;
-    void unsetFirst_session();
-
-    void setFirstSession(const utility::string_t& value);
-
-    /// <summary>
-    /// relation &#x3D; \&quot;&gt;\&quot;, \&quot;&lt;\&quot;, \&quot;&#x3D;\&quot; or \&quot;!&#x3D;\&quot; value &#x3D; number sessions. Example: \&quot;1\&quot; 
-    /// </summary>
-    utility::string_t getSessionCount() const;
-    bool sessionCountIsSet() const;
-    void unsetSession_count();
-
-    void setSessionCount(const utility::string_t& value);
-
-    /// <summary>
-    /// relation &#x3D; \&quot;&gt;\&quot;, \&quot;&lt;\&quot;, \&quot;&#x3D;\&quot; or \&quot;!&#x3D;\&quot; value &#x3D; Time in seconds the user has been in your app. Example: \&quot;3600\&quot; 
-    /// </summary>
-    utility::string_t getSessionTime() const;
-    bool sessionTimeIsSet() const;
-    void unsetSession_time();
-
-    void setSessionTime(const utility::string_t& value);
-
-    /// <summary>
-    /// relation &#x3D; \&quot;&gt;\&quot;, \&quot;&lt;\&quot;, or \&quot;&#x3D;\&quot; value &#x3D; Amount in USD a user has spent on IAP (In App Purchases). Example: \&quot;0.99\&quot; 
-    /// </summary>
-    utility::string_t getAmountSpent() const;
-    bool amountSpentIsSet() const;
-    void unsetAmount_spent();
-
-    void setAmountSpent(const utility::string_t& value);
-
-    /// <summary>
-    /// relation &#x3D; \&quot;&gt;\&quot;, \&quot;&lt;\&quot; or \&quot;&#x3D;\&quot; key &#x3D; SKU purchased in your app as an IAP (In App Purchases). Example: \&quot;com.domain.100coinpack\&quot; value &#x3D; value of SKU to compare to. Example: \&quot;0.99\&quot; 
-    /// </summary>
-    utility::string_t getBoughtSku() const;
-    bool boughtSkuIsSet() const;
-    void unsetBought_sku();
-
-    void setBoughtSku(const utility::string_t& value);
-
-    /// <summary>
-    /// relation &#x3D; \&quot;&gt;\&quot;, \&quot;&lt;\&quot;, \&quot;&#x3D;\&quot;, \&quot;!&#x3D;\&quot;, \&quot;exists\&quot;, \&quot;not_exists\&quot;, \&quot;time_elapsed_gt\&quot; (paid plan only) or \&quot;time_elapsed_lt\&quot; (paid plan only) See Time Operators key &#x3D; Tag key to compare. value &#x3D; Tag value to compare. Not required for \&quot;exists\&quot; or \&quot;not_exists\&quot;. Example: See Formatting Filters 
-    /// </summary>
-    utility::string_t getTag() const;
-    bool tagIsSet() const;
-    void unsetTag();
-
-    void setTag(const utility::string_t& value);
-
-    /// <summary>
-    /// relation &#x3D; \&quot;&#x3D;\&quot; or \&quot;!&#x3D;\&quot; value &#x3D; 2 character language code. Example: \&quot;en\&quot;. For a list of all language codes see Language &amp; Localization. 
-    /// </summary>
-    utility::string_t getLanguage() const;
-    bool languageIsSet() const;
-    void unsetLanguage();
-
-    void setLanguage(const utility::string_t& value);
-
-    /// <summary>
-    /// relation &#x3D; \&quot;&gt;\&quot;, \&quot;&lt;\&quot;, \&quot;&#x3D;\&quot; or \&quot;!&#x3D;\&quot; value &#x3D; app version. Example: \&quot;1.0.0\&quot; 
-    /// </summary>
-    utility::string_t getAppVersion() const;
-    bool appVersionIsSet() const;
-    void unsetApp_version();
-
-    void setAppVersion(const utility::string_t& value);
-
-    /// <summary>
-    /// radius &#x3D; in meters lat &#x3D; latitude long &#x3D; longitude 
-    /// </summary>
-    utility::string_t getLocation() const;
-    bool locationIsSet() const;
-    void unsetLocation();
-
-    void setLocation(const utility::string_t& value);
-
-    /// <summary>
-    /// value &#x3D; email address Only for sending Push Notifications Use this for targeting push subscribers associated with an email set with all SDK setEmail methods To send emails to specific email addresses use include_email_tokens parameter 
-    /// </summary>
-    utility::string_t getEmail() const;
-    bool emailIsSet() const;
-    void unsetEmail();
-
-    void setEmail(const utility::string_t& value);
-
-    /// <summary>
-    /// relation &#x3D; \&quot;&#x3D;\&quot; value &#x3D; 2-digit Country code Example: \&quot;field\&quot;: \&quot;country\&quot;, \&quot;relation\&quot;: \&quot;&#x3D;\&quot;, \&quot;value\&quot;, \&quot;US\&quot; 
-    /// </summary>
-    utility::string_t getCountry() const;
-    bool countryIsSet() const;
-    void unsetCountry();
-
-    void setCountry(const utility::string_t& value);
 
     /// <summary>
     /// Specific playerids to send your notification to. _Does not require API Auth Key. Do not combine with other targeting parameters. Not compatible with any other targeting parameters. Example: [\&quot;1dd608f2-c6a1-11e3-851d-000c2940e62c\&quot;] Limit of 2,000 entries per REST API call 
@@ -1073,6 +967,15 @@ public:
     void setSmsMediaUrls(const std::vector<utility::string_t>& value);
 
     /// <summary>
+    /// 
+    /// </summary>
+    std::vector<std::shared_ptr<Filter>>& getFilters();
+    bool filtersIsSet() const;
+    void unsetFilters();
+
+    void setFilters(const std::vector<std::shared_ptr<Filter>>& value);
+
+    /// <summary>
     /// Channel: All Schedule notification for future delivery. API defaults to UTC -1100 Examples: All examples are the exact same date &amp; time. \&quot;Thu Sep 24 2015 14:00:00 GMT-0700 (PDT)\&quot; \&quot;September 24th 2015, 2:00:00 pm UTC-07:00\&quot; \&quot;2015-09-24 14:00:00 GMT-0700\&quot; \&quot;Sept 24 2015 14:00:00 GMT-0700\&quot; \&quot;Thu Sep 24 2015 14:00:00 GMT-0700 (Pacific Daylight Time)\&quot; Note: SMS currently only supports send_after parameter. 
     /// </summary>
     utility::datetime getSendAfter() const;
@@ -1087,30 +990,6 @@ protected:
     bool m_Included_segmentsIsSet;
     std::vector<utility::string_t> m_Excluded_segments;
     bool m_Excluded_segmentsIsSet;
-    utility::string_t m_Last_session;
-    bool m_Last_sessionIsSet;
-    utility::string_t m_First_session;
-    bool m_First_sessionIsSet;
-    utility::string_t m_Session_count;
-    bool m_Session_countIsSet;
-    utility::string_t m_Session_time;
-    bool m_Session_timeIsSet;
-    utility::string_t m_Amount_spent;
-    bool m_Amount_spentIsSet;
-    utility::string_t m_Bought_sku;
-    bool m_Bought_skuIsSet;
-    utility::string_t m_Tag;
-    bool m_TagIsSet;
-    utility::string_t m_Language;
-    bool m_LanguageIsSet;
-    utility::string_t m_App_version;
-    bool m_App_versionIsSet;
-    utility::string_t m_Location;
-    bool m_LocationIsSet;
-    utility::string_t m_Email;
-    bool m_EmailIsSet;
-    utility::string_t m_Country;
-    bool m_CountryIsSet;
     std::vector<utility::string_t> m_Include_player_ids;
     bool m_Include_player_idsIsSet;
     std::vector<utility::string_t> m_Include_external_user_ids;
@@ -1307,6 +1186,8 @@ protected:
     bool m_Sms_fromIsSet;
     std::vector<utility::string_t> m_Sms_media_urls;
     bool m_Sms_media_urlsIsSet;
+    std::vector<std::shared_ptr<Filter>> m_Filters;
+    bool m_FiltersIsSet;
     utility::datetime m_Send_after;
     bool m_Send_afterIsSet;
 };

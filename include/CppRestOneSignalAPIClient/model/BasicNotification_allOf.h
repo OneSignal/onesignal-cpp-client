@@ -27,6 +27,7 @@
 #include "CppRestOneSignalAPIClient/model/StringMap.h"
 #include <cpprest/details/basic_types.h>
 #include "CppRestOneSignalAPIClient/model/BasicNotification_allOf_android_background_layout.h"
+#include "CppRestOneSignalAPIClient/model/Filter.h"
 #include <vector>
 
 namespace com {
@@ -37,6 +38,7 @@ namespace model {
 class StringMap;
 class Button;
 class BasicNotification_allOf_android_background_layout;
+class Filter;
 
 /// <summary>
 /// 
@@ -854,6 +856,15 @@ public:
 
     void setSmsMediaUrls(const std::vector<utility::string_t>& value);
 
+    /// <summary>
+    /// 
+    /// </summary>
+    std::vector<std::shared_ptr<Filter>>& getFilters();
+    bool filtersIsSet() const;
+    void unsetFilters();
+
+    void setFilters(const std::vector<std::shared_ptr<Filter>>& value);
+
 
 protected:
     utility::string_t m_Id;
@@ -1032,6 +1043,8 @@ protected:
     bool m_Sms_fromIsSet;
     std::vector<utility::string_t> m_Sms_media_urls;
     bool m_Sms_media_urlsIsSet;
+    std::vector<std::shared_ptr<Filter>> m_Filters;
+    bool m_FiltersIsSet;
 };
 
 

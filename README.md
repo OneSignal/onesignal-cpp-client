@@ -124,6 +124,34 @@ static std::shared_ptr<Notification> createNotification() {
     return notification;
 }
 ```
+
+### Sending a notification using Filters
+```cpp
+const auto api = createApi();
+std::vector<std::shared_ptr<Filter>> filters;
+
+// Creating a notification
+const auto notification = createNotification();
+
+// Find all the users that have not spent any amount in USD on IAP.
+// https://documentation.onesignal.com/reference/create-notification#send-to-users-based-on-filters
+const auto filter1 = std::make_shared<Filter>();
+filter1->setField(to_string_t("amount_spent"));
+filter1->setRelation(to_string_t("="));
+filter1->setValue("0");
+filters.push_back(filter1);
+
+notification->setFilters(filters);
+
+// Send a notification
+const auto response = api->createNotification(notification);
+const auto & responseData = response.get();
+
+// Check the result
+CHECK(responseData->getId().size() > 0);
+CHECK_FALSE(responseData->errorsIsSet());
+```
+
 ### Sending a notification
 ```cpp
 const auto api = createApi();

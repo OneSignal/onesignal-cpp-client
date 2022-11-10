@@ -25,30 +25,6 @@ BasicNotification::BasicNotification()
 {
     m_Included_segmentsIsSet = false;
     m_Excluded_segmentsIsSet = false;
-    m_Last_session = utility::conversions::to_string_t("");
-    m_Last_sessionIsSet = false;
-    m_First_session = utility::conversions::to_string_t("");
-    m_First_sessionIsSet = false;
-    m_Session_count = utility::conversions::to_string_t("");
-    m_Session_countIsSet = false;
-    m_Session_time = utility::conversions::to_string_t("");
-    m_Session_timeIsSet = false;
-    m_Amount_spent = utility::conversions::to_string_t("");
-    m_Amount_spentIsSet = false;
-    m_Bought_sku = utility::conversions::to_string_t("");
-    m_Bought_skuIsSet = false;
-    m_Tag = utility::conversions::to_string_t("");
-    m_TagIsSet = false;
-    m_Language = utility::conversions::to_string_t("");
-    m_LanguageIsSet = false;
-    m_App_version = utility::conversions::to_string_t("");
-    m_App_versionIsSet = false;
-    m_Location = utility::conversions::to_string_t("");
-    m_LocationIsSet = false;
-    m_Email = utility::conversions::to_string_t("");
-    m_EmailIsSet = false;
-    m_Country = utility::conversions::to_string_t("");
-    m_CountryIsSet = false;
     m_Include_player_idsIsSet = false;
     m_Include_external_user_idsIsSet = false;
     m_Include_email_tokensIsSet = false;
@@ -224,6 +200,7 @@ BasicNotification::BasicNotification()
     m_Sms_from = utility::conversions::to_string_t("");
     m_Sms_fromIsSet = false;
     m_Sms_media_urlsIsSet = false;
+    m_FiltersIsSet = false;
 }
 
 BasicNotification::~BasicNotification()
@@ -247,54 +224,6 @@ web::json::value BasicNotification::toJson() const
     if(m_Excluded_segmentsIsSet)
     {
         val[utility::conversions::to_string_t(U("excluded_segments"))] = ModelBase::toJson(m_Excluded_segments);
-    }
-    if(m_Last_sessionIsSet)
-    {
-        val[utility::conversions::to_string_t(U("last_session"))] = ModelBase::toJson(m_Last_session);
-    }
-    if(m_First_sessionIsSet)
-    {
-        val[utility::conversions::to_string_t(U("first_session"))] = ModelBase::toJson(m_First_session);
-    }
-    if(m_Session_countIsSet)
-    {
-        val[utility::conversions::to_string_t(U("session_count"))] = ModelBase::toJson(m_Session_count);
-    }
-    if(m_Session_timeIsSet)
-    {
-        val[utility::conversions::to_string_t(U("session_time"))] = ModelBase::toJson(m_Session_time);
-    }
-    if(m_Amount_spentIsSet)
-    {
-        val[utility::conversions::to_string_t(U("amount_spent"))] = ModelBase::toJson(m_Amount_spent);
-    }
-    if(m_Bought_skuIsSet)
-    {
-        val[utility::conversions::to_string_t(U("bought_sku"))] = ModelBase::toJson(m_Bought_sku);
-    }
-    if(m_TagIsSet)
-    {
-        val[utility::conversions::to_string_t(U("tag"))] = ModelBase::toJson(m_Tag);
-    }
-    if(m_LanguageIsSet)
-    {
-        val[utility::conversions::to_string_t(U("language"))] = ModelBase::toJson(m_Language);
-    }
-    if(m_App_versionIsSet)
-    {
-        val[utility::conversions::to_string_t(U("app_version"))] = ModelBase::toJson(m_App_version);
-    }
-    if(m_LocationIsSet)
-    {
-        val[utility::conversions::to_string_t(U("location"))] = ModelBase::toJson(m_Location);
-    }
-    if(m_EmailIsSet)
-    {
-        val[utility::conversions::to_string_t(U("email"))] = ModelBase::toJson(m_Email);
-    }
-    if(m_CountryIsSet)
-    {
-        val[utility::conversions::to_string_t(U("country"))] = ModelBase::toJson(m_Country);
     }
     if(m_Include_player_idsIsSet)
     {
@@ -688,6 +617,10 @@ web::json::value BasicNotification::toJson() const
     {
         val[utility::conversions::to_string_t(U("sms_media_urls"))] = ModelBase::toJson(m_Sms_media_urls);
     }
+    if(m_FiltersIsSet)
+    {
+        val[utility::conversions::to_string_t(U("filters"))] = ModelBase::toJson(m_Filters);
+    }
 
     return val;
 }
@@ -714,126 +647,6 @@ bool BasicNotification::fromJson(const web::json::value& val)
             std::vector<utility::string_t> refVal_setExcludedSegments;
             ok &= ModelBase::fromJson(fieldValue, refVal_setExcludedSegments);
             setExcludedSegments(refVal_setExcludedSegments);
-        }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("last_session"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("last_session")));
-        if(!fieldValue.is_null())
-        {
-            utility::string_t refVal_setLastSession;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setLastSession);
-            setLastSession(refVal_setLastSession);
-        }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("first_session"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("first_session")));
-        if(!fieldValue.is_null())
-        {
-            utility::string_t refVal_setFirstSession;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setFirstSession);
-            setFirstSession(refVal_setFirstSession);
-        }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("session_count"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("session_count")));
-        if(!fieldValue.is_null())
-        {
-            utility::string_t refVal_setSessionCount;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setSessionCount);
-            setSessionCount(refVal_setSessionCount);
-        }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("session_time"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("session_time")));
-        if(!fieldValue.is_null())
-        {
-            utility::string_t refVal_setSessionTime;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setSessionTime);
-            setSessionTime(refVal_setSessionTime);
-        }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("amount_spent"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("amount_spent")));
-        if(!fieldValue.is_null())
-        {
-            utility::string_t refVal_setAmountSpent;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setAmountSpent);
-            setAmountSpent(refVal_setAmountSpent);
-        }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("bought_sku"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("bought_sku")));
-        if(!fieldValue.is_null())
-        {
-            utility::string_t refVal_setBoughtSku;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setBoughtSku);
-            setBoughtSku(refVal_setBoughtSku);
-        }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("tag"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("tag")));
-        if(!fieldValue.is_null())
-        {
-            utility::string_t refVal_setTag;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setTag);
-            setTag(refVal_setTag);
-        }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("language"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("language")));
-        if(!fieldValue.is_null())
-        {
-            utility::string_t refVal_setLanguage;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setLanguage);
-            setLanguage(refVal_setLanguage);
-        }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("app_version"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("app_version")));
-        if(!fieldValue.is_null())
-        {
-            utility::string_t refVal_setAppVersion;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setAppVersion);
-            setAppVersion(refVal_setAppVersion);
-        }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("location"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("location")));
-        if(!fieldValue.is_null())
-        {
-            utility::string_t refVal_setLocation;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setLocation);
-            setLocation(refVal_setLocation);
-        }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("email"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("email")));
-        if(!fieldValue.is_null())
-        {
-            utility::string_t refVal_setEmail;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setEmail);
-            setEmail(refVal_setEmail);
-        }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("country"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("country")));
-        if(!fieldValue.is_null())
-        {
-            utility::string_t refVal_setCountry;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setCountry);
-            setCountry(refVal_setCountry);
         }
     }
     if(val.has_field(utility::conversions::to_string_t(U("include_player_ids"))))
@@ -1816,6 +1629,16 @@ bool BasicNotification::fromJson(const web::json::value& val)
             setSmsMediaUrls(refVal_setSmsMediaUrls);
         }
     }
+    if(val.has_field(utility::conversions::to_string_t(U("filters"))))
+    {
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("filters")));
+        if(!fieldValue.is_null())
+        {
+            std::vector<std::shared_ptr<Filter>> refVal_setFilters;
+            ok &= ModelBase::fromJson(fieldValue, refVal_setFilters);
+            setFilters(refVal_setFilters);
+        }
+    }
     return ok;
 }
 
@@ -1833,54 +1656,6 @@ void BasicNotification::toMultipart(std::shared_ptr<MultipartFormData> multipart
     if(m_Excluded_segmentsIsSet)
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("excluded_segments")), m_Excluded_segments));
-    }
-    if(m_Last_sessionIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("last_session")), m_Last_session));
-    }
-    if(m_First_sessionIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("first_session")), m_First_session));
-    }
-    if(m_Session_countIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("session_count")), m_Session_count));
-    }
-    if(m_Session_timeIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("session_time")), m_Session_time));
-    }
-    if(m_Amount_spentIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("amount_spent")), m_Amount_spent));
-    }
-    if(m_Bought_skuIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("bought_sku")), m_Bought_sku));
-    }
-    if(m_TagIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("tag")), m_Tag));
-    }
-    if(m_LanguageIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("language")), m_Language));
-    }
-    if(m_App_versionIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("app_version")), m_App_version));
-    }
-    if(m_LocationIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("location")), m_Location));
-    }
-    if(m_EmailIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("email")), m_Email));
-    }
-    if(m_CountryIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("country")), m_Country));
     }
     if(m_Include_player_idsIsSet)
     {
@@ -2274,6 +2049,10 @@ void BasicNotification::toMultipart(std::shared_ptr<MultipartFormData> multipart
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("sms_media_urls")), m_Sms_media_urls));
     }
+    if(m_FiltersIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("filters")), m_Filters));
+    }
 }
 
 bool BasicNotification::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
@@ -2296,78 +2075,6 @@ bool BasicNotification::fromMultiPart(std::shared_ptr<MultipartFormData> multipa
         std::vector<utility::string_t> refVal_setExcludedSegments;
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("excluded_segments"))), refVal_setExcludedSegments );
         setExcludedSegments(refVal_setExcludedSegments);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("last_session"))))
-    {
-        utility::string_t refVal_setLastSession;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("last_session"))), refVal_setLastSession );
-        setLastSession(refVal_setLastSession);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("first_session"))))
-    {
-        utility::string_t refVal_setFirstSession;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("first_session"))), refVal_setFirstSession );
-        setFirstSession(refVal_setFirstSession);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("session_count"))))
-    {
-        utility::string_t refVal_setSessionCount;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("session_count"))), refVal_setSessionCount );
-        setSessionCount(refVal_setSessionCount);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("session_time"))))
-    {
-        utility::string_t refVal_setSessionTime;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("session_time"))), refVal_setSessionTime );
-        setSessionTime(refVal_setSessionTime);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("amount_spent"))))
-    {
-        utility::string_t refVal_setAmountSpent;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("amount_spent"))), refVal_setAmountSpent );
-        setAmountSpent(refVal_setAmountSpent);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("bought_sku"))))
-    {
-        utility::string_t refVal_setBoughtSku;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("bought_sku"))), refVal_setBoughtSku );
-        setBoughtSku(refVal_setBoughtSku);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("tag"))))
-    {
-        utility::string_t refVal_setTag;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("tag"))), refVal_setTag );
-        setTag(refVal_setTag);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("language"))))
-    {
-        utility::string_t refVal_setLanguage;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("language"))), refVal_setLanguage );
-        setLanguage(refVal_setLanguage);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("app_version"))))
-    {
-        utility::string_t refVal_setAppVersion;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("app_version"))), refVal_setAppVersion );
-        setAppVersion(refVal_setAppVersion);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("location"))))
-    {
-        utility::string_t refVal_setLocation;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("location"))), refVal_setLocation );
-        setLocation(refVal_setLocation);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("email"))))
-    {
-        utility::string_t refVal_setEmail;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("email"))), refVal_setEmail );
-        setEmail(refVal_setEmail);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("country"))))
-    {
-        utility::string_t refVal_setCountry;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("country"))), refVal_setCountry );
-        setCountry(refVal_setCountry);
     }
     if(multipart->hasContent(utility::conversions::to_string_t(U("include_player_ids"))))
     {
@@ -2957,6 +2664,12 @@ bool BasicNotification::fromMultiPart(std::shared_ptr<MultipartFormData> multipa
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("sms_media_urls"))), refVal_setSmsMediaUrls );
         setSmsMediaUrls(refVal_setSmsMediaUrls);
     }
+    if(multipart->hasContent(utility::conversions::to_string_t(U("filters"))))
+    {
+        std::vector<std::shared_ptr<Filter>> refVal_setFilters;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("filters"))), refVal_setFilters );
+        setFilters(refVal_setFilters);
+    }
     return ok;
 }
 
@@ -2999,246 +2712,6 @@ bool BasicNotification::excludedSegmentsIsSet() const
 void BasicNotification::unsetExcluded_segments()
 {
     m_Excluded_segmentsIsSet = false;
-}
-utility::string_t BasicNotification::getLastSession() const
-{
-    return m_Last_session;
-}
-
-void BasicNotification::setLastSession(const utility::string_t& value)
-{
-    m_Last_session = value;
-    m_Last_sessionIsSet = true;
-}
-
-bool BasicNotification::lastSessionIsSet() const
-{
-    return m_Last_sessionIsSet;
-}
-
-void BasicNotification::unsetLast_session()
-{
-    m_Last_sessionIsSet = false;
-}
-utility::string_t BasicNotification::getFirstSession() const
-{
-    return m_First_session;
-}
-
-void BasicNotification::setFirstSession(const utility::string_t& value)
-{
-    m_First_session = value;
-    m_First_sessionIsSet = true;
-}
-
-bool BasicNotification::firstSessionIsSet() const
-{
-    return m_First_sessionIsSet;
-}
-
-void BasicNotification::unsetFirst_session()
-{
-    m_First_sessionIsSet = false;
-}
-utility::string_t BasicNotification::getSessionCount() const
-{
-    return m_Session_count;
-}
-
-void BasicNotification::setSessionCount(const utility::string_t& value)
-{
-    m_Session_count = value;
-    m_Session_countIsSet = true;
-}
-
-bool BasicNotification::sessionCountIsSet() const
-{
-    return m_Session_countIsSet;
-}
-
-void BasicNotification::unsetSession_count()
-{
-    m_Session_countIsSet = false;
-}
-utility::string_t BasicNotification::getSessionTime() const
-{
-    return m_Session_time;
-}
-
-void BasicNotification::setSessionTime(const utility::string_t& value)
-{
-    m_Session_time = value;
-    m_Session_timeIsSet = true;
-}
-
-bool BasicNotification::sessionTimeIsSet() const
-{
-    return m_Session_timeIsSet;
-}
-
-void BasicNotification::unsetSession_time()
-{
-    m_Session_timeIsSet = false;
-}
-utility::string_t BasicNotification::getAmountSpent() const
-{
-    return m_Amount_spent;
-}
-
-void BasicNotification::setAmountSpent(const utility::string_t& value)
-{
-    m_Amount_spent = value;
-    m_Amount_spentIsSet = true;
-}
-
-bool BasicNotification::amountSpentIsSet() const
-{
-    return m_Amount_spentIsSet;
-}
-
-void BasicNotification::unsetAmount_spent()
-{
-    m_Amount_spentIsSet = false;
-}
-utility::string_t BasicNotification::getBoughtSku() const
-{
-    return m_Bought_sku;
-}
-
-void BasicNotification::setBoughtSku(const utility::string_t& value)
-{
-    m_Bought_sku = value;
-    m_Bought_skuIsSet = true;
-}
-
-bool BasicNotification::boughtSkuIsSet() const
-{
-    return m_Bought_skuIsSet;
-}
-
-void BasicNotification::unsetBought_sku()
-{
-    m_Bought_skuIsSet = false;
-}
-utility::string_t BasicNotification::getTag() const
-{
-    return m_Tag;
-}
-
-void BasicNotification::setTag(const utility::string_t& value)
-{
-    m_Tag = value;
-    m_TagIsSet = true;
-}
-
-bool BasicNotification::tagIsSet() const
-{
-    return m_TagIsSet;
-}
-
-void BasicNotification::unsetTag()
-{
-    m_TagIsSet = false;
-}
-utility::string_t BasicNotification::getLanguage() const
-{
-    return m_Language;
-}
-
-void BasicNotification::setLanguage(const utility::string_t& value)
-{
-    m_Language = value;
-    m_LanguageIsSet = true;
-}
-
-bool BasicNotification::languageIsSet() const
-{
-    return m_LanguageIsSet;
-}
-
-void BasicNotification::unsetLanguage()
-{
-    m_LanguageIsSet = false;
-}
-utility::string_t BasicNotification::getAppVersion() const
-{
-    return m_App_version;
-}
-
-void BasicNotification::setAppVersion(const utility::string_t& value)
-{
-    m_App_version = value;
-    m_App_versionIsSet = true;
-}
-
-bool BasicNotification::appVersionIsSet() const
-{
-    return m_App_versionIsSet;
-}
-
-void BasicNotification::unsetApp_version()
-{
-    m_App_versionIsSet = false;
-}
-utility::string_t BasicNotification::getLocation() const
-{
-    return m_Location;
-}
-
-void BasicNotification::setLocation(const utility::string_t& value)
-{
-    m_Location = value;
-    m_LocationIsSet = true;
-}
-
-bool BasicNotification::locationIsSet() const
-{
-    return m_LocationIsSet;
-}
-
-void BasicNotification::unsetLocation()
-{
-    m_LocationIsSet = false;
-}
-utility::string_t BasicNotification::getEmail() const
-{
-    return m_Email;
-}
-
-void BasicNotification::setEmail(const utility::string_t& value)
-{
-    m_Email = value;
-    m_EmailIsSet = true;
-}
-
-bool BasicNotification::emailIsSet() const
-{
-    return m_EmailIsSet;
-}
-
-void BasicNotification::unsetEmail()
-{
-    m_EmailIsSet = false;
-}
-utility::string_t BasicNotification::getCountry() const
-{
-    return m_Country;
-}
-
-void BasicNotification::setCountry(const utility::string_t& value)
-{
-    m_Country = value;
-    m_CountryIsSet = true;
-}
-
-bool BasicNotification::countryIsSet() const
-{
-    return m_CountryIsSet;
-}
-
-void BasicNotification::unsetCountry()
-{
-    m_CountryIsSet = false;
 }
 std::vector<utility::string_t>& BasicNotification::getIncludePlayerIds()
 {
@@ -5199,6 +4672,26 @@ bool BasicNotification::smsMediaUrlsIsSet() const
 void BasicNotification::unsetSms_media_urls()
 {
     m_Sms_media_urlsIsSet = false;
+}
+std::vector<std::shared_ptr<Filter>>& BasicNotification::getFilters()
+{
+    return m_Filters;
+}
+
+void BasicNotification::setFilters(const std::vector<std::shared_ptr<Filter>>& value)
+{
+    m_Filters = value;
+    m_FiltersIsSet = true;
+}
+
+bool BasicNotification::filtersIsSet() const
+{
+    return m_FiltersIsSet;
+}
+
+void BasicNotification::unsetFilters()
+{
+    m_FiltersIsSet = false;
 }
 }
 }
