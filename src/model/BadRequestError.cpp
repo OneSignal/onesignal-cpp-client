@@ -12,7 +12,7 @@
 
 
 
-#include "CppRestOneSignalAPIClient/model/CreateSegmentConflictResponse.h"
+#include "CppRestOneSignalAPIClient/model/BadRequestError.h"
 
 namespace com {
 namespace onesignal {
@@ -21,31 +21,25 @@ namespace model {
 
 
 
-CreateSegmentConflictResponse::CreateSegmentConflictResponse()
+BadRequestError::BadRequestError()
 {
-    m_Success = false;
-    m_SuccessIsSet = false;
     m_ErrorsIsSet = false;
 }
 
-CreateSegmentConflictResponse::~CreateSegmentConflictResponse()
+BadRequestError::~BadRequestError()
 {
 }
 
-void CreateSegmentConflictResponse::validate()
+void BadRequestError::validate()
 {
     // TODO: implement validation
 }
 
-web::json::value CreateSegmentConflictResponse::toJson() const
+web::json::value BadRequestError::toJson() const
 {
 
     web::json::value val = web::json::value::object();
     
-    if(m_SuccessIsSet)
-    {
-        val[utility::conversions::to_string_t(U("success"))] = ModelBase::toJson(m_Success);
-    }
     if(m_ErrorsIsSet)
     {
         val[utility::conversions::to_string_t(U("errors"))] = ModelBase::toJson(m_Errors);
@@ -54,20 +48,10 @@ web::json::value CreateSegmentConflictResponse::toJson() const
     return val;
 }
 
-bool CreateSegmentConflictResponse::fromJson(const web::json::value& val)
+bool BadRequestError::fromJson(const web::json::value& val)
 {
     bool ok = true;
     
-    if(val.has_field(utility::conversions::to_string_t(U("success"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("success")));
-        if(!fieldValue.is_null())
-        {
-            bool refVal_setSuccess;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setSuccess);
-            setSuccess(refVal_setSuccess);
-        }
-    }
     if(val.has_field(utility::conversions::to_string_t(U("errors"))))
     {
         const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("errors")));
@@ -81,16 +65,12 @@ bool CreateSegmentConflictResponse::fromJson(const web::json::value& val)
     return ok;
 }
 
-void CreateSegmentConflictResponse::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
+void BadRequestError::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
 {
     utility::string_t namePrefix = prefix;
     if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
     {
         namePrefix += utility::conversions::to_string_t(U("."));
-    }
-    if(m_SuccessIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("success")), m_Success));
     }
     if(m_ErrorsIsSet)
     {
@@ -98,7 +78,7 @@ void CreateSegmentConflictResponse::toMultipart(std::shared_ptr<MultipartFormDat
     }
 }
 
-bool CreateSegmentConflictResponse::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
+bool BadRequestError::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
 {
     bool ok = true;
     utility::string_t namePrefix = prefix;
@@ -107,12 +87,6 @@ bool CreateSegmentConflictResponse::fromMultiPart(std::shared_ptr<MultipartFormD
         namePrefix += utility::conversions::to_string_t(U("."));
     }
 
-    if(multipart->hasContent(utility::conversions::to_string_t(U("success"))))
-    {
-        bool refVal_setSuccess;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("success"))), refVal_setSuccess );
-        setSuccess(refVal_setSuccess);
-    }
     if(multipart->hasContent(utility::conversions::to_string_t(U("errors"))))
     {
         std::vector<utility::string_t> refVal_setErrors;
@@ -122,43 +96,23 @@ bool CreateSegmentConflictResponse::fromMultiPart(std::shared_ptr<MultipartFormD
     return ok;
 }
 
-bool CreateSegmentConflictResponse::isSuccess() const
-{
-    return m_Success;
-}
-
-void CreateSegmentConflictResponse::setSuccess(bool value)
-{
-    m_Success = value;
-    m_SuccessIsSet = true;
-}
-
-bool CreateSegmentConflictResponse::successIsSet() const
-{
-    return m_SuccessIsSet;
-}
-
-void CreateSegmentConflictResponse::unsetSuccess()
-{
-    m_SuccessIsSet = false;
-}
-std::vector<utility::string_t>& CreateSegmentConflictResponse::getErrors()
+std::vector<utility::string_t>& BadRequestError::getErrors()
 {
     return m_Errors;
 }
 
-void CreateSegmentConflictResponse::setErrors(const std::vector<utility::string_t>& value)
+void BadRequestError::setErrors(const std::vector<utility::string_t>& value)
 {
     m_Errors = value;
     m_ErrorsIsSet = true;
 }
 
-bool CreateSegmentConflictResponse::errorsIsSet() const
+bool BadRequestError::errorsIsSet() const
 {
     return m_ErrorsIsSet;
 }
 
-void CreateSegmentConflictResponse::unsetErrors()
+void BadRequestError::unsetErrors()
 {
     m_ErrorsIsSet = false;
 }

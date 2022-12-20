@@ -11,17 +11,18 @@
  */
 
 /*
- * CreateSegmentSuccessResponse.h
+ * UpdateLiveActivitySuccessResponse.h
  *
  * 
  */
 
-#ifndef COM_ONESIGNAL_CLIENT_MODEL_CreateSegmentSuccessResponse_H_
-#define COM_ONESIGNAL_CLIENT_MODEL_CreateSegmentSuccessResponse_H_
+#ifndef COM_ONESIGNAL_CLIENT_MODEL_UpdateLiveActivitySuccessResponse_H_
+#define COM_ONESIGNAL_CLIENT_MODEL_UpdateLiveActivitySuccessResponse_H_
 
 
 #include "CppRestOneSignalAPIClient/ModelBase.h"
 
+#include "CppRestOneSignalAPIClient/model/Notification200Errors.h"
 #include <cpprest/details/basic_types.h>
 
 namespace com {
@@ -29,16 +30,17 @@ namespace onesignal {
 namespace client {
 namespace model {
 
+class Notification200Errors;
 
 /// <summary>
 /// 
 /// </summary>
-class  CreateSegmentSuccessResponse
+class  UpdateLiveActivitySuccessResponse
     : public ModelBase
 {
 public:
-    CreateSegmentSuccessResponse();
-    virtual ~CreateSegmentSuccessResponse();
+    UpdateLiveActivitySuccessResponse();
+    virtual ~UpdateLiveActivitySuccessResponse();
 
     /////////////////////////////////////////////
     /// ModelBase overrides
@@ -52,32 +54,32 @@ public:
     bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
 
     /////////////////////////////////////////////
-    /// CreateSegmentSuccessResponse members
+    /// UpdateLiveActivitySuccessResponse members
 
     /// <summary>
     /// 
     /// </summary>
-    bool isSuccess() const;
-    bool successIsSet() const;
-    void unsetSuccess();
+    utility::string_t getNotificationId() const;
+    bool notificationIdIsSet() const;
+    void unsetNotification_id();
 
-    void setSuccess(bool value);
+    void setNotificationId(const utility::string_t& value);
 
     /// <summary>
-    /// UUID of created segment
+    /// 
     /// </summary>
-    utility::string_t getId() const;
-    bool idIsSet() const;
-    void unsetId();
+    std::shared_ptr<Notification200Errors> getErrors() const;
+    bool errorsIsSet() const;
+    void unsetErrors();
 
-    void setId(const utility::string_t& value);
+    void setErrors(const std::shared_ptr<Notification200Errors>& value);
 
 
 protected:
-    bool m_Success;
-    bool m_SuccessIsSet;
-    utility::string_t m_Id;
-    bool m_IdIsSet;
+    utility::string_t m_Notification_id;
+    bool m_Notification_idIsSet;
+    std::shared_ptr<Notification200Errors> m_Errors;
+    bool m_ErrorsIsSet;
 };
 
 
@@ -86,4 +88,4 @@ protected:
 }
 }
 
-#endif /* COM_ONESIGNAL_CLIENT_MODEL_CreateSegmentSuccessResponse_H_ */
+#endif /* COM_ONESIGNAL_CLIENT_MODEL_UpdateLiveActivitySuccessResponse_H_ */
