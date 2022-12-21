@@ -11,37 +11,35 @@
  */
 
 /*
- * Segment.h
+ * UpdateLiveActivityRequest.h
  *
  * 
  */
 
-#ifndef COM_ONESIGNAL_CLIENT_MODEL_Segment_H_
-#define COM_ONESIGNAL_CLIENT_MODEL_Segment_H_
+#ifndef COM_ONESIGNAL_CLIENT_MODEL_UpdateLiveActivityRequest_H_
+#define COM_ONESIGNAL_CLIENT_MODEL_UpdateLiveActivityRequest_H_
 
 
 #include "CppRestOneSignalAPIClient/ModelBase.h"
 
-#include "CppRestOneSignalAPIClient/model/FilterExpressions.h"
+#include "CppRestOneSignalAPIClient/Object.h"
 #include <cpprest/details/basic_types.h>
-#include <vector>
 
 namespace com {
 namespace onesignal {
 namespace client {
 namespace model {
 
-class FilterExpressions;
 
 /// <summary>
 /// 
 /// </summary>
-class  Segment
+class  UpdateLiveActivityRequest
     : public ModelBase
 {
 public:
-    Segment();
-    virtual ~Segment();
+    UpdateLiveActivityRequest();
+    virtual ~UpdateLiveActivityRequest();
 
     /////////////////////////////////////////////
     /// ModelBase overrides
@@ -55,19 +53,10 @@ public:
     bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
 
     /////////////////////////////////////////////
-    /// Segment members
+    /// UpdateLiveActivityRequest members
 
     /// <summary>
-    /// UUID of the segment.  If left empty, it will be assigned automaticaly.
-    /// </summary>
-    utility::string_t getId() const;
-    bool idIsSet() const;
-    void unsetId();
-
-    void setId(const utility::string_t& value);
-
-    /// <summary>
-    /// Name of the segment.  You&#39;ll see this name on the Web UI.
+    /// Type of live activity
     /// </summary>
     utility::string_t getName() const;
     bool nameIsSet() const;
@@ -76,22 +65,42 @@ public:
     void setName(const utility::string_t& value);
 
     /// <summary>
-    /// Filter or operators the segment will have.  For a list of available filters with details, please see Send to Users Based on Filters.
+    /// 
     /// </summary>
-    std::vector<std::shared_ptr<FilterExpressions>>& getFilters();
-    bool filtersIsSet() const;
-    void unsetFilters();
+    utility::string_t getEvent() const;
+    bool eventIsSet() const;
+    void unsetEvent();
 
-    void setFilters(const std::vector<std::shared_ptr<FilterExpressions>>& value);
+    void setEvent(const utility::string_t& value);
+
+    /// <summary>
+    /// 
+    /// </summary>
+    std::shared_ptr<Object> getEventUpdates() const;
+    bool eventUpdatesIsSet() const;
+    void unsetEvent_updates();
+
+    void setEventUpdates(const std::shared_ptr<Object>& value);
+
+    /// <summary>
+    /// Timestamp; only allowed if event is \&quot;end\&quot;
+    /// </summary>
+    double getDismissAt() const;
+    bool dismissAtIsSet() const;
+    void unsetDismiss_at();
+
+    void setDismissAt(double value);
 
 
 protected:
-    utility::string_t m_Id;
-    bool m_IdIsSet;
     utility::string_t m_Name;
     bool m_NameIsSet;
-    std::vector<std::shared_ptr<FilterExpressions>> m_Filters;
-    bool m_FiltersIsSet;
+    utility::string_t m_Event;
+    bool m_EventIsSet;
+    std::shared_ptr<Object> m_Event_updates;
+    bool m_Event_updatesIsSet;
+    double m_Dismiss_at;
+    bool m_Dismiss_atIsSet;
 };
 
 
@@ -100,4 +109,4 @@ protected:
 }
 }
 
-#endif /* COM_ONESIGNAL_CLIENT_MODEL_Segment_H_ */
+#endif /* COM_ONESIGNAL_CLIENT_MODEL_UpdateLiveActivityRequest_H_ */

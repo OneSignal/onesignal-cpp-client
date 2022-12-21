@@ -11,13 +11,13 @@
  */
 
 /*
- * CreateSegmentSuccessResponse.h
+ * BeginLiveActivityRequest.h
  *
  * 
  */
 
-#ifndef COM_ONESIGNAL_CLIENT_MODEL_CreateSegmentSuccessResponse_H_
-#define COM_ONESIGNAL_CLIENT_MODEL_CreateSegmentSuccessResponse_H_
+#ifndef COM_ONESIGNAL_CLIENT_MODEL_BeginLiveActivityRequest_H_
+#define COM_ONESIGNAL_CLIENT_MODEL_BeginLiveActivityRequest_H_
 
 
 #include "CppRestOneSignalAPIClient/ModelBase.h"
@@ -33,12 +33,12 @@ namespace model {
 /// <summary>
 /// 
 /// </summary>
-class  CreateSegmentSuccessResponse
+class  BeginLiveActivityRequest
     : public ModelBase
 {
 public:
-    CreateSegmentSuccessResponse();
-    virtual ~CreateSegmentSuccessResponse();
+    BeginLiveActivityRequest();
+    virtual ~BeginLiveActivityRequest();
 
     /////////////////////////////////////////////
     /// ModelBase overrides
@@ -52,32 +52,32 @@ public:
     bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
 
     /////////////////////////////////////////////
-    /// CreateSegmentSuccessResponse members
+    /// BeginLiveActivityRequest members
 
     /// <summary>
     /// 
     /// </summary>
-    bool isSuccess() const;
-    bool successIsSet() const;
-    void unsetSuccess();
+    utility::string_t getPushToken() const;
+    bool pushTokenIsSet() const;
+    void unsetPush_token();
 
-    void setSuccess(bool value);
+    void setPushToken(const utility::string_t& value);
 
     /// <summary>
-    /// UUID of created segment
+    /// 
     /// </summary>
-    utility::string_t getId() const;
-    bool idIsSet() const;
-    void unsetId();
+    utility::string_t getSubscriptionId() const;
+    bool subscriptionIdIsSet() const;
+    void unsetSubscription_id();
 
-    void setId(const utility::string_t& value);
+    void setSubscriptionId(const utility::string_t& value);
 
 
 protected:
-    bool m_Success;
-    bool m_SuccessIsSet;
-    utility::string_t m_Id;
-    bool m_IdIsSet;
+    utility::string_t m_Push_token;
+    bool m_Push_tokenIsSet;
+    utility::string_t m_Subscription_id;
+    bool m_Subscription_idIsSet;
 };
 
 
@@ -86,4 +86,4 @@ protected:
 }
 }
 
-#endif /* COM_ONESIGNAL_CLIENT_MODEL_CreateSegmentSuccessResponse_H_ */
+#endif /* COM_ONESIGNAL_CLIENT_MODEL_BeginLiveActivityRequest_H_ */

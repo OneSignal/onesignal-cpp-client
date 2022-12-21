@@ -11,18 +11,19 @@
  */
 
 /*
- * CreateSegmentSuccessResponse.h
+ * BadRequestError.h
  *
  * 
  */
 
-#ifndef COM_ONESIGNAL_CLIENT_MODEL_CreateSegmentSuccessResponse_H_
-#define COM_ONESIGNAL_CLIENT_MODEL_CreateSegmentSuccessResponse_H_
+#ifndef COM_ONESIGNAL_CLIENT_MODEL_BadRequestError_H_
+#define COM_ONESIGNAL_CLIENT_MODEL_BadRequestError_H_
 
 
 #include "CppRestOneSignalAPIClient/ModelBase.h"
 
 #include <cpprest/details/basic_types.h>
+#include <vector>
 
 namespace com {
 namespace onesignal {
@@ -33,12 +34,12 @@ namespace model {
 /// <summary>
 /// 
 /// </summary>
-class  CreateSegmentSuccessResponse
+class  BadRequestError
     : public ModelBase
 {
 public:
-    CreateSegmentSuccessResponse();
-    virtual ~CreateSegmentSuccessResponse();
+    BadRequestError();
+    virtual ~BadRequestError();
 
     /////////////////////////////////////////////
     /// ModelBase overrides
@@ -52,32 +53,21 @@ public:
     bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
 
     /////////////////////////////////////////////
-    /// CreateSegmentSuccessResponse members
+    /// BadRequestError members
 
     /// <summary>
     /// 
     /// </summary>
-    bool isSuccess() const;
-    bool successIsSet() const;
-    void unsetSuccess();
+    std::vector<utility::string_t>& getErrors();
+    bool errorsIsSet() const;
+    void unsetErrors();
 
-    void setSuccess(bool value);
-
-    /// <summary>
-    /// UUID of created segment
-    /// </summary>
-    utility::string_t getId() const;
-    bool idIsSet() const;
-    void unsetId();
-
-    void setId(const utility::string_t& value);
+    void setErrors(const std::vector<utility::string_t>& value);
 
 
 protected:
-    bool m_Success;
-    bool m_SuccessIsSet;
-    utility::string_t m_Id;
-    bool m_IdIsSet;
+    std::vector<utility::string_t> m_Errors;
+    bool m_ErrorsIsSet;
 };
 
 
@@ -86,4 +76,4 @@ protected:
 }
 }
 
-#endif /* COM_ONESIGNAL_CLIENT_MODEL_CreateSegmentSuccessResponse_H_ */
+#endif /* COM_ONESIGNAL_CLIENT_MODEL_BadRequestError_H_ */
