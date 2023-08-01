@@ -12,7 +12,7 @@
 
 
 
-#include "CppRestOneSignalAPIClient/model/ExportPlayersSuccessResponse.h"
+#include "CppRestOneSignalAPIClient/model/ExportEventsSuccessResponse.h"
 
 namespace com {
 namespace onesignal {
@@ -21,22 +21,22 @@ namespace model {
 
 
 
-ExportPlayersSuccessResponse::ExportPlayersSuccessResponse()
+ExportEventsSuccessResponse::ExportEventsSuccessResponse()
 {
     m_Csv_file_url = utility::conversions::to_string_t("");
     m_Csv_file_urlIsSet = false;
 }
 
-ExportPlayersSuccessResponse::~ExportPlayersSuccessResponse()
+ExportEventsSuccessResponse::~ExportEventsSuccessResponse()
 {
 }
 
-void ExportPlayersSuccessResponse::validate()
+void ExportEventsSuccessResponse::validate()
 {
     // TODO: implement validation
 }
 
-web::json::value ExportPlayersSuccessResponse::toJson() const
+web::json::value ExportEventsSuccessResponse::toJson() const
 {
 
     web::json::value val = web::json::value::object();
@@ -49,7 +49,7 @@ web::json::value ExportPlayersSuccessResponse::toJson() const
     return val;
 }
 
-bool ExportPlayersSuccessResponse::fromJson(const web::json::value& val)
+bool ExportEventsSuccessResponse::fromJson(const web::json::value& val)
 {
     bool ok = true;
     
@@ -66,7 +66,7 @@ bool ExportPlayersSuccessResponse::fromJson(const web::json::value& val)
     return ok;
 }
 
-void ExportPlayersSuccessResponse::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
+void ExportEventsSuccessResponse::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
 {
     utility::string_t namePrefix = prefix;
     if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
@@ -79,7 +79,7 @@ void ExportPlayersSuccessResponse::toMultipart(std::shared_ptr<MultipartFormData
     }
 }
 
-bool ExportPlayersSuccessResponse::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
+bool ExportEventsSuccessResponse::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
 {
     bool ok = true;
     utility::string_t namePrefix = prefix;
@@ -97,23 +97,23 @@ bool ExportPlayersSuccessResponse::fromMultiPart(std::shared_ptr<MultipartFormDa
     return ok;
 }
 
-utility::string_t ExportPlayersSuccessResponse::getCsvFileUrl() const
+utility::string_t ExportEventsSuccessResponse::getCsvFileUrl() const
 {
     return m_Csv_file_url;
 }
 
-void ExportPlayersSuccessResponse::setCsvFileUrl(const utility::string_t& value)
+void ExportEventsSuccessResponse::setCsvFileUrl(const utility::string_t& value)
 {
     m_Csv_file_url = value;
     m_Csv_file_urlIsSet = true;
 }
 
-bool ExportPlayersSuccessResponse::csvFileUrlIsSet() const
+bool ExportEventsSuccessResponse::csvFileUrlIsSet() const
 {
     return m_Csv_file_urlIsSet;
 }
 
-void ExportPlayersSuccessResponse::unsetCsv_file_url()
+void ExportEventsSuccessResponse::unsetCsv_file_url()
 {
     m_Csv_file_urlIsSet = false;
 }
